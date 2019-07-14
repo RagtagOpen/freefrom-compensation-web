@@ -1,10 +1,10 @@
-# Contributing to Project Name
+# Contributing to FreeFrom Compensation Web Front-end
 
-First off, thank you for considering contributing to Project Name. It's people like you that make Project Name such a great tool.
+First off, thank you for considering contributing to FreeFrom Compensation Web Front-end. It's people like you that make FreeFrom Compensation Web Front-end such a great tool.
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
-Project Name is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into Project Name itself.
+FreeFrom Compensation Web Front-end is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into FreeFrom Compensation Web Front-end itself.
 
 ## Responsibilities
 
@@ -12,13 +12,13 @@ Project Name is an open source project and we love to receive contributions from
 - We follow [Google's Style Guides](https://google.github.io/styleguide/) for writing software. Please read and follow the appropriate language guides for your contributions.
 - We require that all code be formatted by [Prettier](https://prettier.io/) where applicable. We use the default settings for each language.
 - Create issues for any major changes and enhancements that you wish to make. Discuss things transparently and get community feedback.
-- All changes should be made through by [pull requests](https://help.github.com/articles/about-pull-requests/). Pull requests will be reviewed by one or more of Project Name's maintainers. Once approved, it is the responsibility of the owner of the pull request to merge the changes to the master/main branch.
+- All changes should be made through by [pull requests](https://help.github.com/articles/about-pull-requests/). Pull requests will be reviewed by one or more of FreeFrom Compensation Web Front-end's maintainers. Once approved, it is the responsibility of the owner of the pull request to merge the changes to the master/main branch.
 
 ## Ways to Get Involved
 
 ### Report Bugs
 
-This section guides you through submitting a bug report for Project Name. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
+This section guides you through submitting a bug report for FreeFrom Compensation Web Front-end. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports.
 
 **If you find a security vulnerability, do NOT open an issue. Email security@ragtag.org instead.**
 
@@ -44,19 +44,19 @@ Explain the problem and include additional details to help maintainers reproduce
 
 Provide more context by answering these questions:
 
-- **Did the problem start happening recently** (e.g. after updating to a new version of Project Name) or was this always a problem?
-- If the problem started happening recently, **can you reproduce the problem in an older version of Project Name?** What's the most recent version in which the problem doesn't happen?
+- **Did the problem start happening recently** (e.g. after updating to a new version of FreeFrom Compensation Web Front-end) or was this always a problem?
+- If the problem started happening recently, **can you reproduce the problem in an older version of FreeFrom Compensation Web Front-end?** What's the most recent version in which the problem doesn't happen?
 - **Can you reliably reproduce the issue?** If not, provide details about how often the problem happens and under which conditions it normally happens.
 
 Include details about your configuration and environment:
 
-- **Which version of Project Name are you using?** If you're using Project Name on the web, let us know what dates you experienced the issue on.
+- **Which version of FreeFrom Compensation Web Front-end are you using?** If you're using FreeFrom Compensation Web Front-end on the web, let us know what dates you experienced the issue on.
 - **What's the name and version of the operating system you're using?**
 - **What's the name and version of the browser you're using?**
 
 ### Suggesting Enhancements
 
-This section guides you through submitting an enhancement suggestion for Project Name, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
+This section guides you through submitting an enhancement suggestion for FreeFrom Compensation Web Front-end, including completely new features and minor improvements to existing functionality. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
 
 Before creating enhancement suggestions, please check [this list](#before-submitting-an-enhancement-suggestion) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please [include as many details as possible](#how-do-i-submit-a-good-enhancement-suggestion).
 
@@ -73,13 +73,13 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 - **Provide specific examples to demonstrate the steps.** Include copy/pasteable snippets which you use in those examples, using [Markdown code blocks](https://help.github.com/articles/markdown-basics/#multiple-lines).
 - **Describe the current behavior and explain which behavior you expected to see instead and why.**
 - **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate where the suggestion is expected to go. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux.
-- **Which version of Project Name are you using?** If you're using Project Name on the web, let us know what dates you experienced the issue on.
+- **Which version of FreeFrom Compensation Web Front-end are you using?** If you're using FreeFrom Compensation Web Front-end on the web, let us know what dates you experienced the issue on.
 - **What's the name and version of the operating system you're using?**
 - **What's the name and version of the browser you're using?**
 
 ### Your First Code Contribution
 
-Unsure where to begin contributing to Project Name? You can start by looking through these `good first issue` and `help wanted` issues:
+Unsure where to begin contributing to FreeFrom Compensation Web Front-end? You can start by looking through these `good first issue` and `help wanted` issues:
 
 - [Good first issues](https://github.com/ragtagopen/project-slug/issues?q=is%3Aopen+is%3Aissue+label%3A"good+first+issue"+sort%3Acomments-desc) - issues which should only require a few lines of code, and a test or two.
 - [Help wanted issues](https://github.com/ragtagopen/project-slug/issues?q=is%3Aopen+is%3Aissue+label%3A"help wanted"+sort%3Acomments-desc) - issues which should be a bit more involved than beginner issues.
@@ -93,14 +93,14 @@ At this point, you're ready to make your changes! Feel free to ask for help; eve
 #### How to Submit Your Contribution
 
 1.  Apply to be a Ragtag volunteer at https://ragtag.org/join.
-1.  Get added as a contributor to the project by asking in the Slack room for Project Name.
+1.  Get added as a contributor to the project by asking in the Slack room for FreeFrom Compensation Web Front-end.
 1.  Create a new branch in your local copy of the project
-1.  If this is your first time contributing to Project Name, add your name to the CONTRIBUTORS file and include that change in your pull request.
+1.  If this is your first time contributing to FreeFrom Compensation Web Front-end, add your name to the CONTRIBUTORS file and include that change in your pull request.
 1.  If you like the change and think the project could use it:
     - Be sure you have followed the [code style](#responsibilities)
     - Make sure your work passes all existing tests
     - Open a pull request with your changes
-    - Project Name's maintainers may have questions or suggestions for your work, please respond as soon as you can
+    - FreeFrom Compensation Web Front-end's maintainers may have questions or suggestions for your work, please respond as soon as you can
 1.  If you want feedback while you're working on your changes, you can open your pull request early in the process and start the title with `[WIP]` for Work in Progress. Then ask other contributors to review your work and ask any questions you have about what you're working on.
 
 ## How We Categorize Issues and Pull Requests
