@@ -1,7 +1,9 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import Image from "../components/image"
+
+// Assets
+import logo from "../../images/logo.png";
 
 const Header = ({ siteTitle }) => (
   <header
@@ -19,14 +21,8 @@ const Header = ({ siteTitle }) => (
       }}
     >
       <h1 style={{ margin: 0, maxWidth: `300px` }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          <Image />
+        <Link to="/" style={{color: `white`,textDecoration: `none`}}>
+            <img src={logo} alt="FreeFrom" title="FreeFrom" />
         </Link>
       </h1>
     </div>

@@ -35,7 +35,13 @@ exports[`Header renders correctly 1`] = `
             "textDecoration": "none",
           }
         }
-      />
+      >
+        <img
+          alt="FreeFrom"
+          src="test-file-stub"
+          title="FreeFrom"
+        />
+      </a>
     </h1>
   </div>
 </header>
