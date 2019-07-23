@@ -37,7 +37,12 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer>
           <hr />
-          <p style={{textAlign: 'center'}}>© 2019 FreeFrom<br />*FreeFrom is a registered 501(c)(3) organization. All donations are tax deductible.</p>
+          <p style={{ textAlign: "center" }}>
+            © 2019 FreeFrom
+            <br />
+            *FreeFrom is a registered 501(c)(3) organization. All donations are
+            tax deductible.
+          </p>
         </footer>
       </div>
     </>

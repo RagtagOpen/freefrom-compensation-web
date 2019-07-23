@@ -1,12 +1,10 @@
 <p align="center">
   <a href="http://www.freefrom.org/">
-    <img alt="FreeFrom" src="http://static1.squarespace.com/static/56a24df4d8af10a5072bed7c/t/56a2631b841aba12ab7f66d0/1562878613622/?format=1500w" width="200" />
+    <img alt="FreeFrom" src="http://static1.squarespace.com/static/56a24df4d8af10a5072bed7c/t/56a2631b841aba12ab7f66d0/1562878613622/?format=1500w" width="300" />
   </a>
 </p>
 
-<h1 align="center">
-  FreeFrom Front End
-</h1>
+<h2 align="center">Front End</h2>
 
 This is the front end web for FreeFrom. It's back end counterpart is located [here](https://github.com/RagtagOpen/freefrom-compensation-api)
 
