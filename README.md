@@ -3,7 +3,6 @@
     <img alt="FreeFrom" src="http://static1.squarespace.com/static/56a24df4d8af10a5072bed7c/t/56a2631b841aba12ab7f66d0/1562878613622/?format=1500w" width="300" />
   </a>
 </p>
-
 <h2 align="center">Front End</h2>
 
 This is the front end web for FreeFrom. It's back end counterpart is located [here](https://github.com/RagtagOpen/freefrom-compensation-api)
@@ -13,9 +12,8 @@ This is the front end web for FreeFrom. It's back end counterpart is located [he
 - Ruby/Rails Back End
 - Postgres DB
 
-## Requirements to run Front End
-- Node
-- Yarn
+## Requirements
+- Node v10.16.0
 
 ## 🚀 Quick start
 
@@ -33,6 +31,8 @@ We use Jest for running unit tests. Refer to Gatsby guide ([Link](https://www.ga
 2. If tests fail due to the snapshots not being updated, run: `npm test -- -u`
 
 Optionally, you can run tests as files change by running: `npm test -- --watch`
+
+
 
 ## 🎓 Learning Gatsby
 
