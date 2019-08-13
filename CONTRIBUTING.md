@@ -107,6 +107,13 @@ At this point, you're ready to make your changes! Feel free to ask for help; eve
 
 We follow the [Standard Issue Labels](https://github.com/wagenet/StandardIssueLabels#standardissuelabels) for our projects. Additionally, all pull requests that add new features should have their titles start with `FEATURE`. Finally, if your pull request fixes one or more issues, please note that in your pull request body or the body of your commit messages using [one of the supported keywords](https://help.github.com/articles/closing-issues-using-keywords/).
 
+## How to Create Unit Tests
+
+We use Jest for our unit testing, documentation on jest can be found [here](https://jestjs.io/docs/en/getting-started). We write tests for all React components that do not rely on the `useStaticQuery` query which expects a response for the component itself, and throws an error in jest.
+
+- For redux connected components, we do not include the store in the test but instead export the base component. You can see an example of this under the Welcome.js component.
+- For non-redux connected components, you can view Header.js component as an example.
+
 ---
 
 Portions of this document come from https://github.com/nayafia/contributing-template/blob/master/CONTRIBUTING-template.md and https://github.com/atom/atom/blob/master/CONTRIBUTING.md.
