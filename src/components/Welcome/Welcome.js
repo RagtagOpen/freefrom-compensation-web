@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-
 import { connect } from "react-redux"
+import Typography from '@material-ui/core/Typography';
 
 const mapStateToProps = ({ hasAcknowledged }) => {
   return { hasAcknowledged }
@@ -17,7 +17,7 @@ export class Welcome extends Component {
   render() {
     return (
       <div style={{ margin: "1rem", padding: "1rem" }}>
-        <h2>Welcome to the new FreeFrom Quiz.</h2>
+        <Typography variant="h3">What is Your Compensation Type?</Typography>
         <div>
           <label htmlFor="Acknowledgement checkbox">
             <input type="checkbox" onChange={this.props.acknowledge} />
