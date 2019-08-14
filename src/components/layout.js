@@ -48,8 +48,7 @@ const Layout = ({ children }) => {
             <p style={{ textAlign: "center" }}>
               © 2019 FreeFrom
               <br />
-              *FreeFrom is a registered 501(c)(3) organization. All donations are
-              tax deductible.
+              *FreeFrom is a registered 501(c)(3) organization. All donations are tax deductible.
             </p>
           </footer>
         </div>
