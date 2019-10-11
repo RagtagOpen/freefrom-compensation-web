@@ -22,7 +22,7 @@ This is the front end web for FreeFrom. It's back end counterpart is located [he
 ## 🚀 Quick start
 
 1. Install node_modules `npm install`
-2. Build/run gatsby `gatsby develop`
+2. Build/run gatsby `npx gatsby develop` or `npm run develop`
 
   Your site is now running at `http://localhost:8000`!
 
