@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "freefrom-compensation-web",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "FreeFrom Quiz",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "RagTag",
   "dependencies": {
     "gatsby": "^2.13.18",
     "gatsby-image": "^2.2.6",
@@ -20,7 +20,12 @@
     "react-redux": "^7.1.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "babel-jest": "^24.8.0",
+    "babel-preset-gatsby": "^0.2.6",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.8.6"
   },
   "keywords": [
     "gatsby"
@@ -32,13 +37,13 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/RagtagOpen/freefrom-compensation-web"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/RagtagOpen/freefrom-compensation-web/issues"
   }
 }

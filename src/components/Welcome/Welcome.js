@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-class Welcome extends Component {
+export class Welcome extends Component {
   state = {}
   render() {
     return (
@@ -23,8 +23,7 @@ class Welcome extends Component {
             <input type="checkbox" onChange={this.props.acknowledge} />
           </label>
           <span>
-            By checking this box, you acknowledge that you have read and agree
-            to the terms and conditions provided.
+            By checking this box, you acknowledge that you have read and agree to the terms and conditions provided.
           </span>
         </div>
       </div>
@@ -32,7 +31,4 @@ class Welcome extends Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Welcome)
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome)
