@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "margin": "1rem",
+      "padding": "1rem",
+    }
+  }
+>
+  <h2>
+    Welcome to the new FreeFrom Quiz.
+  </h2>
+  <div>
+    <label
+      htmlFor="Acknowledgement checkbox"
+    >
+      <input
+        type="checkbox"
+      />
+    </label>
+    <span>
+      By checking this box, you acknowledge that you have read and agree to the terms and conditions provided.
+    </span>
+  </div>
+</div>
+`;
