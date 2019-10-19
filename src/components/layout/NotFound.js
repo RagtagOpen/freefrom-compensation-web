@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from "react"
 
 const NotFound = () => {
   return (
@@ -8,7 +8,7 @@ const NotFound = () => {
       </h1>
       <p className="large">Sorry, this page does not exist</p>
     </Fragment>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

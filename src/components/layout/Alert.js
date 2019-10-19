@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React from "react"
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
 
 // Material UI
-import Snackbar from '@material-ui/core/Snackbar';
-import Typography from "@material-ui/core/Typography";
+import Snackbar from "@material-ui/core/Snackbar"
+import Typography from "@material-ui/core/Typography"
 
 const Alert = ({ alerts }) =>
   alerts !== null &&
@@ -13,21 +13,26 @@ const Alert = ({ alerts }) =>
     <div key={alert.id}>
       <Snackbar
         open={true}
-        anchorOrigin={{vertical: 'top', horizontal: 'center'}}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         autoHideDuration={5000}
         ContentProps={{
-          'aria-describedby': 'message-id',
+          "aria-describedby": "message-id",
         }}
-        message={<Typography id="message-id" variant="subtitle1">{alert.message}</Typography>} />
+        message={
+          <Typography id="message-id" variant="subtitle1">
+            {alert.message}
+          </Typography>
+        }
+      />
     </div>
-  ));
+  ))
 
 Alert.propTypes = {
-  alerts: PropTypes.array.isRequired
-};
+  alerts: PropTypes.array.isRequired,
+}
 
 const mapStateToProps = state => ({
-  alerts: state.alert
-});
+  alerts: state.alert,
+})
 
-export default connect(mapStateToProps)(Alert);
+export default connect(mapStateToProps)(Alert)
