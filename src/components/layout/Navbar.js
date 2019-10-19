@@ -20,11 +20,15 @@ import Divider from "@material-ui/core/Divider"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
+import MaterialLink from "@material-ui/core/Link"
 
 // Material Icons
 import HomeIcon from "@material-ui/icons/Home"
 import FolderIcon from "@material-ui/icons/Folder"
 import EmailIcon from "@material-ui/icons/Email"
+
+// Logo
+import logo from "../../images/logo.jpg"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,14 +37,25 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
-  },
   list: {
     width: 250,
   },
   fullList: {
     width: "auto",
+  },
+  link: {
+    fontFamily: "Roboto",
+    textTransform: "uppercase",
+    color: "#F06449",
+    fontSize: "1.125rem",
+    letterSpacing: "0.1em",
+    fontWeight: 500,
+  },
+  title: {
+    flexGrow: 1,
+  },
+  logo: {
+    maxHeight: "50px",
   },
 }))
 
@@ -63,15 +78,26 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   }
 
   const authLinks = (
-    <Button color="secondary" component={Link} to="#!" onClick={logout}>
+    <MaterialLink
+      className={classes.link}
+      underline="hover"
+      component={Link}
+      to="#!"
+      onClick={logout}
+    >
       Sign Out
-    </Button>
+    </MaterialLink>
   )
 
   const guestLinks = (
-    <Button color="secondary" component={Link} to="/login">
-      Sign In
-    </Button>
+    <MaterialLink
+      className={classes.link}
+      underline="hover"
+      component="button"
+      onClick={() => document.location.replace("https://www.google.com")}
+    >
+      Exit Site
+    </MaterialLink>
   )
 
   return (
@@ -87,9 +113,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            FreeFrom
-          </Typography>
+          <div className={classes.title}>
+            <Link to="/">
+              <img
+                className={classes.logo}
+                alt="FreeFrom"
+                title="FreeFrom"
+                src={logo}
+              />
+            </Link>
+          </div>
           {isAuthenticated ? authLinks : guestLinks}
         </Toolbar>
       </AppBar>

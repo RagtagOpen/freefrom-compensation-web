@@ -38,7 +38,7 @@ const Footer = () => {
             </MaterialLink>
           </Grid>
           <Grid container item xs={6} justify="flex-end">
-            <MaterialLink color="inherit" to="/report" component={Link}>
+            <MaterialLink color="inherit" to="/report-issue" component={Link}>
               Report an issue with this tool
             </MaterialLink>
           </Grid>
