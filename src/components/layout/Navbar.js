@@ -60,11 +60,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   };
 
   const authLinks = (
-    <Button color="secondary" component={Link} to="#!" onClick={logout}>Log out</Button>
+    <Button color="secondary" component={Link} to="#!" onClick={logout}>Sign Out</Button>
   );
 
   const guestLinks = (
-    <Button color="secondary" component={Link} to="/login">Log in</Button>
+    <Button color="secondary" component={Link} to="/login">Sign In</Button>
   );
 
   return (

@@ -31,39 +31,6 @@ export const loadUser = () => async dispatch => {
   }
 };
 
-// Register User
-// GS: Not in use
-export const register = ({ email, password }) => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  };
-
-  const body = JSON.stringify({ auth: { email, password } });
-
-  try {
-    const res = await axios.post("/user/register", body, config);
-
-    dispatch({
-      type: REGISTER_SUCCESS,
-      payload: res.data
-    });
-
-    dispatch(loadUser());
-  } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.message, "danger")));
-    }
-
-    dispatch({
-      type: REGISTER_FAIL
-    });
-  }
-};
-
 // Login User
 export const login = (email, password) => async dispatch => {
   const config = {
@@ -84,7 +51,14 @@ export const login = (email, password) => async dispatch => {
 
     dispatch(loadUser());
   } catch (err) {
-    const errors = err.response.data.errors;
+    let errors = [];
+    if (err.response.status === 404) {
+      errors.push({message: 'Sign in failed.'})
+    } else if (err.response.status === 401) {
+      errors.push({message: 'Not authorized.'})
+    } else {
+      errors.push(err.response.data.errors)
+    }
 
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.message, "danger")));
