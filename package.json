@@ -1,52 +1,47 @@
 {
-  "name": "freefrom-compensation-web",
-  "private": true,
-  "description": "FreeFrom Quiz",
+  "name": "freefrom-compensation-web-rewrite",
   "version": "0.1.0",
-  "author": "RagTag",
+  "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.3.2",
-    "@material-ui/styles": "^4.3.0",
-    "gatsby": "^2.13.18",
-    "gatsby-image": "^2.2.6",
-    "gatsby-plugin-manifest": "^2.2.3",
-    "gatsby-plugin-material-ui": "^2.1.5",
-    "gatsby-plugin-offline": "^2.2.3",
-    "gatsby-plugin-react-helmet": "^3.1.2",
-    "gatsby-plugin-sharp": "^2.2.6",
-    "gatsby-source-filesystem": "^2.1.5",
-    "gatsby-transformer-sharp": "^2.2.3",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
+    "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
-    "react-redux": "^7.1.0"
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "babel-jest": "^24.8.0",
-    "babel-preset-gatsby": "^0.2.6",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.8.0",
-    "prettier": "^1.18.2",
-    "react-test-renderer": "^16.8.6"
+    "prettier": "^1.18.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "jest"
+    "start": "PORT=5000 react-scripts start",
+    "start-windows": "set PORT=5000 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/RagtagOpen/freefrom-compensation-web"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "bugs": {
-    "url": "https://github.com/RagtagOpen/freefrom-compensation-web/issues"
-  }
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3000"
 }
