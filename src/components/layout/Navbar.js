@@ -138,7 +138,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       className={classes.link}
       underline="hover"
       component="button"
-      onClick={() => document.location.replace("https://www.google.com")}
+      onClick={() => document.location.replace("https://www.weather.com")}
     >
       Exit Site
     </MaterialLink>
