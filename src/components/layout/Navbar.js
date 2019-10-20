@@ -89,6 +89,50 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </MaterialLink>
   )
 
+  const authMenu = (
+    <IconButton
+    edge="start"
+    className={classes.menuButton}
+    color="inherit"
+    aria-label="menu"
+    onClick={toggleDrawer(true)}
+  >
+    <MenuIcon />
+  </IconButton>
+  )
+
+  const authDrawer = (
+    <Drawer open={state.drawer} onClose={toggleDrawer(false)}>
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        <ListItem button key="Home" {...{ to: "/" }} component={Link}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem
+          button
+          key="Resource Categories"
+          {...{ to: "/resource-categories" }}
+          component={Link}
+        >
+          <ListItemIcon>
+            <FolderIcon />
+          </ListItemIcon>
+          <ListItemText primary="Resource Categories" />
+        </ListItem>
+      </List>
+      <Divider />
+    </div>
+  </Drawer>
+  )
+
   const guestLinks = (
     <MaterialLink
       className={classes.link}
@@ -104,15 +148,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
+          {isAuthenticated ? authMenu : null}
           <div className={classes.title}>
             <Link to="/">
               <img
@@ -126,48 +162,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           {isAuthenticated ? authLinks : guestLinks}
         </Toolbar>
       </AppBar>
-      <Drawer open={state.drawer} onClose={toggleDrawer(false)}>
-        <div
-          className={classes.list}
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
-          <List>
-            <ListItem button key="Home" {...{ to: "/" }} component={Link}>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItem>
-            <ListItem
-              button
-              key="Resource Categories"
-              {...{ to: "/resource-categories" }}
-              component={Link}
-            >
-              <ListItemIcon>
-                <FolderIcon />
-              </ListItemIcon>
-              <ListItemText primary="Resource Categories" />
-            </ListItem>
-          </List>
-          <Divider />
-          <List>
-            <ListItem
-              button
-              key="Contact"
-              {...{ to: "/contact" }}
-              component={Link}
-            >
-              <ListItemIcon>
-                <EmailIcon />
-              </ListItemIcon>
-              <ListItemText primary="Contact" />
-            </ListItem>
-          </List>
-        </div>
-      </Drawer>
+      {isAuthenticated ? authDrawer : null}
     </div>
   )
 }
