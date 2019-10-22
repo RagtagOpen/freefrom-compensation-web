@@ -24,7 +24,7 @@ This section guides you through submitting a bug report for FreeFrom Compensatio
 
 #### Before Submitting a Bug Report
 
-- Perform a [cursory search](https://github.com/ragtagopen/project-slug/issues) to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
+- Perform a [cursory search](https://github.com/ragtagopen/freefrom-compensation-web/issues) to see if the problem has already been reported. If it has **and the issue is still open**, add a comment to the existing issue instead of opening a new one.
   _If you find a **Closed** issue that seems like it is the same thing that you're experiencing, open a new issue and include a link to the original issue in the body of your new one._
 
 #### How Do I Submit a Good Bug Report?
@@ -62,7 +62,7 @@ Before creating enhancement suggestions, please check [this list](#before-submit
 
 #### Before Submitting An Enhancement Suggestion
 
-- Perform a [cursory search](https://github.com/ragtagopen/project-slug/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- Perform a [cursory search](https://github.com/ragtagopen/freefrom-compensation-web/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 
 #### How Do I Submit A (Good) Enhancement Suggestion?
 
@@ -81,8 +81,8 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 
 Unsure where to begin contributing to FreeFrom Compensation Web Front-end? You can start by looking through these `good first issue` and `help wanted` issues:
 
-- [Good first issues](https://github.com/ragtagopen/project-slug/issues?q=is%3Aopen+is%3Aissue+label%3A"good+first+issue"+sort%3Acomments-desc) - issues which should only require a few lines of code, and a test or two.
-- [Help wanted issues](https://github.com/ragtagopen/project-slug/issues?q=is%3Aopen+is%3Aissue+label%3A"help wanted"+sort%3Acomments-desc) - issues which should be a bit more involved than beginner issues.
+- [Good first issues](https://github.com/ragtagopen/freefrom-compensation-web/issues?q=is%3Aopen+is%3Aissue+label%3A"good+first+issue"+sort%3Acomments-desc) - issues which should only require a few lines of code, and a test or two.
+- [Help wanted issues](https://github.com/ragtagopen/freefrom-compensation-web/issues?q=is%3Aopen+is%3Aissue+label%3A"help wanted"+sort%3Acomments-desc) - issues which should be a bit more involved than beginner issues.
 
 _Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have._
 
@@ -109,10 +109,7 @@ We follow the [Standard Issue Labels](https://github.com/wagenet/StandardIssueLa
 
 ## How to Create Unit Tests
 
-We use Jest for our unit testing, documentation on jest can be found [here](https://jestjs.io/docs/en/getting-started). We write tests for all React components that do not rely on the `useStaticQuery` query which expects a response for the component itself, and throws an error in jest.
-
-- For redux connected components, we do not include the store in the test but instead export the base component. You can see an example of this under the Welcome.js component.
-- For non-redux connected components, you can view Header.js component as an example.
+We use Jest for our unit testing, documentation on jest can be found [here](https://jestjs.io/docs/en/getting-started).
 
 ---
 

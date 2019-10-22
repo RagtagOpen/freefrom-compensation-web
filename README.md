@@ -8,39 +8,28 @@
 This is the front end web for FreeFrom. It's back end counterpart is located [here](https://github.com/RagtagOpen/freefrom-compensation-api)
 
 ## Tech
-- Gatsby/React Front End
-- Ruby/Rails Back End
+- React Front End
+- Ruby Back End
 - Postgres DB
 
 ## Requirements
 - Node v10.16.0
+- Ruby back end must be running locally on port `3000`. If back end is running on a separate server, you can update the `package.json` file, changing the `proxy` property to your back end location.
 
-## 🚀 Quick start
-
+## Set up
 1. Install node_modules `npm install`
-2. Build/run gatsby `npm run develop`
+2. Run React application `npm start` (or `npm run start-windows` if on windows)
 
-  Your site is now running at `http://localhost:8000`!
+## Running Tests
+We use Jest for running unit tests. It's packaged with React. Read more about creating React tests on the React website [here](https://create-react-app.dev/docs/running-tests/) and more about Jest [here](https://jestjs.io/docs/en/getting-started)
 
-  _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).
+1. To run and monitor tests: `npm run test`
 
-## 🔬 Running Tests
-We use Jest for running unit tests. Refer to Gatsby guide ([Link](https://www.gatsbyjs.org/docs/unit-testing)) for some best practices on generating tests on Gatsby.
-
-1. To run tests: `npm run test`
-2. If tests fail due to the snapshots not being updated, run: `npm test -- -u`
-
-Optionally, you can run tests as files change by running: `npm test -- --watch`
-
-
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance on Gatsby? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+## Important Tools
+- We use redux for state management (`react-redux`, `redux`, and `react-router`). Learn more about Redux here: [Redux](https://redux.js.org/)
+- We use React router for routing/urls. Learn more about Router here: [Router Docs](https://reacttraining.com/react-router/web/guides/quick-start)
+- We use Material UI for handling our overall theme, overriding where needed within the overarching `/src/theme.js` file. Read more about Material UI here: [Material UI](https://material-ui.com/)
+- We use React Helmet for `<head>` specific changes, mostly for SEO. Read more about React Helmet here: [React Helmet](https://github.com/nfl/react-helmet)
 
 ## Contributors
 [Contributors](https://github.com/RagtagOpen/freefrom-compensation-web/blob/master/CONTRIBUTING.md)
