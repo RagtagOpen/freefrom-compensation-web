@@ -40,7 +40,7 @@ const theme = createMuiTheme({
       letterSpacing: "0.05em",
     },
     subtitle1: {
-      fomtFamily: "Proxima Nova",
+      fontFamily: "Proxima Nova",
       fontSize: "0.875rem",
       lineHeight: "1rem",
       letterSpacing: "0.05em",
