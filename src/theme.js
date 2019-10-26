@@ -40,7 +40,7 @@ const theme = createMuiTheme({
       letterSpacing: "0.05em",
     },
     subtitle1: {
-      fomtFamily: "Proxima Nova",
+      fontFamily: "Proxima Nova",
       fontSize: "0.875rem",
       lineHeight: "1rem",
       letterSpacing: "0.05em",
@@ -69,6 +69,16 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         borderRadius: "25px",
+        "&$disabled": {
+          color: '#F7FFF7',
+          backgroundColor: '#FF9797'
+        }
+      },
+      textPrimary: {
+        color: '#F7FFF7',
+        "&:hover": {
+          backgroundColor: '#FF9797'
+        }
       },
       textSecondary: {
         "&:hover": {
@@ -79,6 +89,14 @@ const theme = createMuiTheme({
         margin: "0 1.625rem 0 1.625rem",
       },
     },
+    MuiCheckbox: {
+      root: {
+        color: '#FF9797',
+        '&$checked': {
+          color: '#FF9797',
+        },
+      }
+    }
   },
 })
 
