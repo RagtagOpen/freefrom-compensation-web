@@ -36,27 +36,15 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
+      # Download dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            npm install
-
-      - save_cache:
-          paths:
-            - ./node_modules.
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
 
       - run:
           name: build React app
           command: |
-            npm run build
+            CI=false npm run build  # the CI flag here is because react-scripts treats any warning as a failing error during build
 
       - aws-s3/sync:
           from: ./build/
