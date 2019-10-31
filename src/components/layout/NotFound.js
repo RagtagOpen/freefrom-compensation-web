@@ -1,13 +1,17 @@
-import React, { Fragment } from "react"
+import React from "react"
+
+// Material UI
+import Container from "@material-ui/core/Container"
+import Typography from "@material-ui/core/Typography"
 
 const NotFound = () => {
   return (
-    <Fragment>
-      <h1 className="x-large text-primary">
-        <i className="fas fa-exclamation-triangle" /> Page Not Found
-      </h1>
-      <p className="large">Sorry, this page does not exist</p>
-    </Fragment>
+    <Container maxWidth="lg">
+      <Typography variant="h1">Page Not Found</Typography>
+      <Typography variant="body1">
+        Sorry, this page does not exist
+      </Typography>
+    </Container>
   )
 }
 
