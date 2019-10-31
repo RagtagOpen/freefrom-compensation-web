@@ -57,32 +57,22 @@ jobs:
             CI=false npm run build  # the CI flag here is because react-scripts treats any warning as a failing error during build
 
       # upload everything
-      - aws-s3/sync:
+      - aws-s3/copy:
           from: ./build/
           to: "s3://freefrom-compensation-dev"
-          overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=31536000,public'
+          arguments: '--recursive --include="*" --exclude ".circleci*" --exclude ".git*" --exclude "*.json" --exclude "robots.txt" --exclude "index.html" --exclude "service-worker.js" --acl public-read --cache-control max-age=31536000,public'
 
-      # override the cache settings for the root json files
-      - aws-s3/sync:
+      # override the cache settings for the root json files and robots.txt
+      - aws-s3/copy:
           from: ./build/
           to: "s3://freefrom-compensation-dev"
-          overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --include="*.json" --acl public-read --cache-control max-age=60,public'
-
-      # override the cache settings for robots.txt
-      - aws-s3/sync:
-          from: ./build/
-          to: "s3://freefrom-compensation-dev"
-          overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --include="robots.txt" --acl public-read --cache-control max-age=60,public'
+          arguments: '--recursive --exclude="*" --include="*.json" --include="robots.txt" --acl public-read --cache-control max-age=60,public'
 
       # override the cache settings for index.html and service-worker.js
-      - aws-s3/sync:
+      - aws-s3/copy:
           from: ./build/
           to: "s3://freefrom-compensation-dev"
-          overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --include "index.html" --include "service-worker.js" --acl public-read --cache-control max-age=0,private'
+          arguments: '--recursive --exclude="*" --include "index.html" --include "service-worker.js" --acl public-read --cache-control max-age=0,private'
 
       # - run:
       #     name: Invalidate CloudFront
