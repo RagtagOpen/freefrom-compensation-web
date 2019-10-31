@@ -46,12 +46,41 @@ jobs:
           command: |
             CI=false npm run build  # the CI flag here is because react-scripts treats any warning as a failing error during build
 
+      # upload everything
       - aws-s3/sync:
           from: ./build/
           to: "s3://freefrom-compensation-dev"
           overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read'
-          # need to add --cache-control max-age=31536000,public once there's versioning in place
+          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=31536000,public'
+
+      # override the cache settings for the root json files
+      - aws-s3/sync:
+          from: ./build/*.json
+          to: "s3://freefrom-compensation-dev"
+          overwrite: true
+          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=60,public'
+
+      # override the cache settings for robots.txt
+      - aws-s3/sync:
+          from: ./build/robots.txt
+          to: "s3://freefrom-compensation-dev"
+          overwrite: true
+          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=60,public'
+
+      # override the cache settings for index.html
+      - aws-s3/sync:
+          from: ./build/index.html
+          to: "s3://freefrom-compensation-dev"
+          overwrite: true
+          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=0,private'
+
+      # override the cache settings for service-worker.js
+      - aws-s3/sync:
+          from: ./build/service-worker.js
+          to: "s3://freefrom-compensation-dev"
+          overwrite: true
+          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=0,private'
+
       # - run:
       #     name: Invalidate CloudFront
       #     command: |
