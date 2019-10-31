@@ -65,7 +65,7 @@ jobs:
 
       # override the cache settings for the root json files
       - aws-s3/sync:
-          from: ./build/*.json
+          from: "./build/*.json"
           to: "s3://freefrom-compensation-dev"
           overwrite: true
           arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=60,public'
