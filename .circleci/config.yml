@@ -65,31 +65,24 @@ jobs:
 
       # override the cache settings for the root json files
       - aws-s3/sync:
-          from: "./build/*.json"
+          from: ./build/
           to: "s3://freefrom-compensation-dev"
           overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=60,public'
+          arguments: '--exclude ".circleci*" --exclude ".git*" --include="*.json" --acl public-read --cache-control max-age=60,public'
 
       # override the cache settings for robots.txt
       - aws-s3/sync:
-          from: ./build/robots.txt
+          from: ./build/
           to: "s3://freefrom-compensation-dev"
           overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=60,public'
+          arguments: '--exclude ".circleci*" --exclude ".git*" --include="robots.txt" --acl public-read --cache-control max-age=60,public'
 
-      # override the cache settings for index.html
+      # override the cache settings for index.html and service-worker.js
       - aws-s3/sync:
-          from: ./build/index.html
+          from: ./build/
           to: "s3://freefrom-compensation-dev"
           overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=0,private'
-
-      # override the cache settings for service-worker.js
-      - aws-s3/sync:
-          from: ./build/service-worker.js
-          to: "s3://freefrom-compensation-dev"
-          overwrite: true
-          arguments: '--exclude ".circleci*" --exclude ".git*" --acl public-read --cache-control max-age=0,private'
+          arguments: '--exclude ".circleci*" --exclude ".git*" --include "index.html" --include "service-worker.js" --acl public-read --cache-control max-age=0,private'
 
       # - run:
       #     name: Invalidate CloudFront
