@@ -28,7 +28,7 @@ import FolderIcon from "@material-ui/icons/Folder"
 import EmailIcon from "@material-ui/icons/Email"
 
 // Logo
-import logo from "../../images/logo.jpg"
+import logo from "../../images/general/logo.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
