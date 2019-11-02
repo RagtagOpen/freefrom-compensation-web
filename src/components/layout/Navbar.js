@@ -88,46 +88,46 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authMenu = (
     <IconButton
-    edge="start"
-    className={classes.menuButton}
-    color="inherit"
-    aria-label="menu"
-    onClick={toggleDrawer(true)}
-  >
-    <MenuIcon />
-  </IconButton>
+      edge="start"
+      className={classes.menuButton}
+      color="inherit"
+      aria-label="menu"
+      onClick={toggleDrawer(true)}
+    >
+      <MenuIcon />
+    </IconButton>
   )
 
   const authDrawer = (
     <Drawer open={state.drawer} onClose={toggleDrawer(false)}>
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <List>
-        <ListItem button key="Home" {...{ to: "/" }} component={Link}>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem
-          button
-          key="Resource Categories"
-          {...{ to: "/resource-categories" }}
-          component={Link}
-        >
-          <ListItemIcon>
-            <FolderIcon />
-          </ListItemIcon>
-          <ListItemText primary="Resource Categories" />
-        </ListItem>
-      </List>
-      <Divider />
-    </div>
-  </Drawer>
+      <div
+        className={classes.list}
+        role="presentation"
+        onClick={toggleDrawer(false)}
+        onKeyDown={toggleDrawer(false)}
+      >
+        <List>
+          <ListItem button key="Home" {...{ to: "/" }} component={Link}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem
+            button
+            key="Resource Categories"
+            {...{ to: "/resource-categories" }}
+            component={Link}
+          >
+            <ListItemIcon>
+              <FolderIcon />
+            </ListItemIcon>
+            <ListItemText primary="Resource Categories" />
+          </ListItem>
+        </List>
+        <Divider />
+      </div>
+    </Drawer>
   )
 
   const guestLinks = (
