@@ -7,7 +7,6 @@ import PropTypes from "prop-types"
 import { setAgreement, setCookies } from "../../actions/quizActions";
 
 // Material UI
-import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
@@ -17,19 +16,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles(theme => ({
-  cookies: {
-    backgroundColor: theme.palette.background.footer,
-    width: "100%",
-    position: "fixed",
-    bottom: 0,
-    color: "#47CCCC",
-    textDecoration: "underline",
-  },
-}))
-
 const Landing = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
-  const classes = useStyles()
 
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />
@@ -84,7 +71,7 @@ const Landing = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
               >
                 <Grid item xs={12}>
                   <Typography color="secondary" align="center">
-                    This website uses cookies to ensure you get the best experience on our website. Learn more
+                    This website uses cookies to ensure you get the best experience on our website.
                   </Typography>
                 </Grid>
                 <Grid container item xs={6} justify="flex-end">
