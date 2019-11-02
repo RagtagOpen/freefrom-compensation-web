@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom"
 
 // Components
 import Login from "../auth/Login"
-import TermsAndConditions from "../layout/TermsAndConditions"
+import TermsAndConditions from "../layout/TermsAndConditions/index"
 import Alert from "../layout/Alert"
 import Dashboard from "../dashboard/Dashboard"
 
