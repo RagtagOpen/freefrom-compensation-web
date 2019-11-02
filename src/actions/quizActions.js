@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { setAlert } from "./alertActions"
 import {
   SET_AGREEMENT,
