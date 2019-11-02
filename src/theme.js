@@ -68,17 +68,36 @@ const theme = createMuiTheme({
     },
     MuiButton: {
       root: {
-        borderRadius: "25px",
+        borderRadius: "25px"
+      },
+      containedPrimary: {
+        backgroundColor: '#F06449',
+        "&:hover": {
+          backgroundColor: '#FF9797'
+        },
         "&$disabled": {
           color: '#F7FFF7',
           backgroundColor: '#FF9797'
         }
       },
+      containedSecondary: {
+        borderRadius: "20px",
+        backgroundColor: '#47CCCC',
+        "&:hover": {
+          backgroundColor: '#32B4B4'
+        }
+      },
+      outlinedSecondary: {
+        color: '#47CCCC',
+        border: '2px solid #47CCCC',
+        boxSizing: 'border-box',
+        backgroundColor: 'transparent',
+        "&:hover": {
+          border: '2px solid #47CCCC',
+        }
+      },
       textPrimary: {
         color: '#F7FFF7',
-        "&:hover": {
-          backgroundColor: '#FF9797'
-        }
       },
       textSecondary: {
         "&:hover": {
@@ -95,6 +114,12 @@ const theme = createMuiTheme({
         '&$checked': {
           color: '#FF9797',
         },
+      }
+    },
+    MuiDrawer: {
+      paperAnchorBottom: {
+        height: '200px',
+        backgroundColor: '#292F36'
       }
     }
   },

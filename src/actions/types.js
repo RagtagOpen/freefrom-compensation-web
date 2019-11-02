@@ -16,6 +16,7 @@ export const USER_ERROR = "USER_ERROR"
 export const GET_USER = "GET_USER"
 
 // Quiz
+export const SET_COOKIES = "SET_COOKIES"
 export const SET_AGREEMENT = "SET_AGREEMENT"
 export const SET_LOCATION = "SET_LOCATION"
 export const SET_QUIZ_TALLY = "SET_QUIZ_TALLY"

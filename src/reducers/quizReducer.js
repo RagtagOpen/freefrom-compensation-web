@@ -1,11 +1,13 @@
 import {
     SET_AGREEMENT,
+    SET_COOKIES,
     SET_LOCATION,
     SET_QUIZ_TALLY
   } from "../actions/types"
   
   const initialState = {
     loading: true,
+    cookies: null,
     agreement: false,
     location: null,
     quiz: []
@@ -20,6 +22,11 @@ import {
           ...state,
           agreement: payload
         }
+        case SET_COOKIES:
+          return {
+            ...state,
+            cookies: payload
+          }
       case SET_LOCATION:
         return {
           ...state,

@@ -4,24 +4,40 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { setAgreement } from "../../actions/quizActions";
+import { setAgreement, setCookies } from "../../actions/quizActions";
 
 // Material UI
+import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Drawer from '@material-ui/core/Drawer';
+import Grid from '@material-ui/core/Grid';
 
-const Landing = ({ isAuthenticated, quiz, setAgreement }) => {
+const useStyles = makeStyles(theme => ({
+  cookies: {
+    backgroundColor: theme.palette.background.footer,
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+    color: "#47CCCC",
+    textDecoration: "underline",
+  },
+}))
+
+const Landing = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
+  const classes = useStyles()
+
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />
   }
 
   const onAgreementClick = async e => {
-      e.preventDefault()
-      setAgreement(!quiz.agreement)
+    e.preventDefault()
+    setAgreement(!quiz.agreement)
   }
 
   return (
@@ -35,7 +51,7 @@ const Landing = ({ isAuthenticated, quiz, setAgreement }) => {
         as you decide what type of compensation is best for you.
       </Typography>
       <Typography variant="subtitle1" gutterBottom={true}>
-      Disclaimer: This is an educational and informational tool and the information contained within it does in no way constitute legal advice. Any person who intends to use the information contained herein in any way is solely responsible for independently verifying the information and obtaining independent legal or other expert advice if necessary
+        Disclaimer: This is an educational and informational tool and the information contained within it does in no way constitute legal advice. Any person who intends to use the information contained herein in any way is solely responsible for independently verifying the information and obtaining independent legal or other expert advice if necessary
       </Typography>
       <Link to="/terms-and-conditions">Full Terms & Conditions</Link>
       <FormGroup row>
@@ -47,13 +63,41 @@ const Landing = ({ isAuthenticated, quiz, setAgreement }) => {
         />
       </FormGroup>
       <Button
-      color="primary"
-      component={Link}
-      to={'/quiz'}
-      disabled={!quiz.agreement}
-    >
-      Start
+        color="primary"
+        variant="contained"
+        component={Link}
+        to={'/quiz'}
+        disabled={!quiz.agreement || quiz.cookies === null}
+      >
+        Start
     </Button>
+      {quiz.cookies === null &&
+        (
+          <Drawer anchor="bottom" open={quiz.cookies === null}>
+            <Container maxWidth="md">
+              <Grid
+                container
+                spacing={3}
+                direction="row"
+                alignItems="center"
+                justify="space-between"
+              >
+                <Grid item xs={12}>
+                  <Typography color="secondary" align="center">
+                    This website uses cookies to ensure you get the best experience on our website. Learn more
+                  </Typography>
+                </Grid>
+                <Grid container item xs={6} justify="flex-end">
+                  <Button color="secondary" variant="outlined" onClick={() => { setCookies(false) }}>Decline</Button>
+                </Grid>
+                <Grid container item xs={6} justify="flex-start">
+                  <Button color="secondary" variant="contained" onClick={() => { setCookies(true) }}>Accept</Button>
+                </Grid>
+              </Grid>
+            </Container>
+          </Drawer>
+        )
+      }
     </Container>
   )
 }
@@ -61,7 +105,8 @@ const Landing = ({ isAuthenticated, quiz, setAgreement }) => {
 Landing.propTypes = {
   isAuthenticated: PropTypes.bool,
   state: PropTypes.object,
-  setAgreement: PropTypes.func.isRequired
+  setAgreement: PropTypes.func.isRequired,
+  setCookies: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
@@ -69,4 +114,4 @@ const mapStateToProps = state => ({
   quiz: state.quiz
 })
 
-export default connect(mapStateToProps, { setAgreement })(Landing)
+export default connect(mapStateToProps, { setAgreement, setCookies })(Landing)
