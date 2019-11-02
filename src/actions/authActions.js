@@ -1,8 +1,5 @@
-import axios from "axios"
 import { setAlert } from "./alertActions"
 import {
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
@@ -11,6 +8,8 @@ import {
 } from "./types"
 import setAuthToken from "../utils/setAuthToken"
 
+import { get, post } from '../utils/tools';
+
 // Load User
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
@@ -18,7 +17,7 @@ export const loadUser = () => async dispatch => {
   }
 
   try {
-    const res = await axios.get("/users/current")
+    const res = await get("/users/current")
 
     dispatch({
       type: USER_LOADED,
@@ -42,7 +41,7 @@ export const login = (email, password) => async dispatch => {
   const body = JSON.stringify({ auth: { email, password } })
 
   try {
-    const res = await axios.post("/user_tokens", body, config)
+    const res = await post("/user_tokens", body, config)
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -52,6 +51,7 @@ export const login = (email, password) => async dispatch => {
     dispatch(loadUser())
   } catch (err) {
     let errors = []
+    console.log(err);
     if (err.response.status === 404) {
       errors.push({ message: "Not found." })
     } else if (err.response.status === 401) {
