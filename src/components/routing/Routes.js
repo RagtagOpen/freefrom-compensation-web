@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom"
 // Components
 import Login from "../auth/Login"
 import TermsAndConditions from "../layout/TermsAndConditions/index"
+import Quiz from "../layout/Quiz/index"
 import Alert from "../layout/Alert"
 import Dashboard from "../dashboard/Dashboard"
 
@@ -18,6 +19,7 @@ const Routes = () => {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/terms-and-conditions" component={TermsAndConditions} />
+          <Route exact path="/quiz" component={Quiz} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route component={NotFound} />
         </Switch>

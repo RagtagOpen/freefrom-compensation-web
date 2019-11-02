@@ -3,17 +3,17 @@ import {
     SET_LOCATION,
     SET_QUIZ_TALLY
   } from "../actions/types"
-  
+
   const initialState = {
     loading: true,
-    agreement: false,
-    location: null,
+    agreement: true, // TODO: change back
+    location: 0,
     quiz: []
   }
-  
+
   export default function(state = initialState, action) {
     const { type, payload } = action
-  
+
     switch (type) {
       case SET_AGREEMENT:
         return {
@@ -34,4 +34,3 @@ import {
         return state
     }
   }
-  
