@@ -26,6 +26,8 @@ const TermsAndConditions = () => {
       <Typography variant="body1" paragraph={true}>
         This Website may contain hyperlinks to other resources maintained by third parties on the Internet. These links are provided solely as a convenience to you to help you identify related information. Our reference to other resources is not meant to imply an approval, endorsement, affiliation, sponsorship or other relationship to the linked site or its operator, contents, or trade names, logos, symbols, service marks or other intellectual property rights associated with the hyperlinks, citations or URLs we provide.
       </Typography>
+
+      <Box height={60} />
     </Container>
   )
 }
