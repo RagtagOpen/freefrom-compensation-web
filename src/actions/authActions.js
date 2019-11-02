@@ -51,7 +51,7 @@ export const login = (email, password) => async dispatch => {
     dispatch(loadUser())
   } catch (err) {
     let errors = []
-    console.log(err);
+
     if (err.response.status === 404) {
       errors.push({ message: "Not found." })
     } else if (err.response.status === 401) {
