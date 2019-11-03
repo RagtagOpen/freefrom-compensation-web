@@ -38,7 +38,7 @@ const Footer = () => {
           justify="space-between"
         >
           <Grid container item xs={6} justify="space-around" direction="column" alignItems="flex-start">
-            <MaterialLink className={classes.link} color="inherit" href="mailto:support@ragtag.org">
+            <MaterialLink className={classes.link} color="inherit" href="mailto:freefrom@example.com">
               Problem with this tool?
             </MaterialLink>
             <MaterialLink className={classes.link} color="inherit" to="/disclaimer" component={Link}>
