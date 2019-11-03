@@ -3,7 +3,8 @@ import { setAlert } from "./alertActions"
 import {
     SET_AGREEMENT,
     SET_LOCATION,
-    SET_QUIZ_TALLY
+    SET_QUIZ_TALLY,
+    SET_STATE
   } from "./types"
 
   // Set Agreement
@@ -20,4 +21,3 @@ export const setLocation = (location) => dispatch => {
     payload: location,
   })
 }
-

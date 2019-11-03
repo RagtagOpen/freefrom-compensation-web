@@ -1,13 +1,14 @@
 import {
     SET_AGREEMENT,
     SET_LOCATION,
-    SET_QUIZ_TALLY
+    SET_QUIZ_TALLY,
   } from "../actions/types"
 
   const initialState = {
     loading: true,
     agreement: true, // TODO: change back
-    location: 0,
+    location: '',
+    question: 0,
     quiz: []
   }
 
@@ -23,7 +24,7 @@ import {
       case SET_LOCATION:
         return {
           ...state,
-          ...payload
+          location: payload
         }
       case SET_QUIZ_TALLY:
         return {

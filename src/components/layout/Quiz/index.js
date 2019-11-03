@@ -3,12 +3,13 @@ import { Redirect } from 'react-router-dom'
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
+import Compass from '../../../images/compass.png'
+
 // Redux
 import { setLocation } from '../../../actions/quizActions'
 
 // Material UI
-import Container from "@material-ui/core/Container"
-import Typography from "@material-ui/core/Typography"
+import { Box, Card, CardMedia, Container, Typography } from "@material-ui/core"
 
 // Components
 import StateQuestion from './StateQuestion';
@@ -20,8 +21,17 @@ const Quiz = ({ quiz, setLocation }) => {
 
   return(
     <Container maxWidth="lg">
+      <Box display={"flex"} alignItems={"center"} mb={2}>
+        <CardMedia src={Compass}>
+          <img src={Compass} />
+        </CardMedia>
+
+        <Box ml={2}>
+          <Typography variant={"h1"}>Compensation Compass</Typography>
+        </Box>
+      </Box>
       {
-        quiz.location == 0 ? (
+        quiz.question == 0 ? ( // TODO: set something here
           <StateQuestion />
         ) : null
       }
