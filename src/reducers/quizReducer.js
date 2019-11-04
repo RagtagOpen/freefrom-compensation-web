@@ -6,7 +6,7 @@ import {
 
   const initialState = {
     loading: true,
-    agreement: true, // TODO: change back
+    agreement: false,
     location: '',
     question: 0,
     quiz: []

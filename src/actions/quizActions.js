@@ -3,8 +3,7 @@ import { setAlert } from "./alertActions"
 import {
     SET_AGREEMENT,
     SET_LOCATION,
-    SET_QUIZ_TALLY,
-    SET_STATE
+    SET_QUIZ_TALLY
   } from "./types"
 
   // Set Agreement
