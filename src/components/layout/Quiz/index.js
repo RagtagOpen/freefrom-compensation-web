@@ -1,25 +1,31 @@
 import React from "react"
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import Compass from '../../../images/compass.png'
+import Compass from "../../../images/compass.png"
 
 // Redux
-import { setLocation } from '../../../actions/quizActions'
+import { setLocation } from "../../../actions/quizActions"
 
 // Material UI
-import { Box, Card, CardMedia, Container, Typography } from "@material-ui/core"
+import {
+  Box,
+  Button,
+  CardMedia,
+  Container,
+  Typography,
+} from "@material-ui/core"
 
 // Components
-import StateQuestion from './StateQuestion';
+import StateQuestion from "./StateQuestion"
 
 const Quiz = ({ quiz, setLocation }) => {
-  if(!quiz.agreement) {
-    return <Redirect to='/' />
+  if (!quiz.agreement) {
+    return <Redirect to="/" />
   }
 
-  return(
+  return (
     <Container maxWidth="lg">
       <Box display={"flex"} alignItems={"center"} mb={2}>
         <CardMedia src={Compass}>
@@ -30,12 +36,27 @@ const Quiz = ({ quiz, setLocation }) => {
           <Typography variant={"h1"}>Compensation Compass</Typography>
         </Box>
       </Box>
-      {
-        quiz.question == 0 ? ( // TODO: set something here
-          <StateQuestion />
-        ) : null
-      }
+      {quiz.question == 0 ? <StateQuestion /> : null}
 
+      <Box
+        display={"flex"}
+        justifyContent={"space-between"}
+        mt={4}
+      >
+        <Button
+          color="primary"
+          disabled={quiz.question == 0}
+        >
+          Back
+        </Button>
+
+        <Button
+          color="primary"
+          disabled={quiz.question == 6}
+        >
+          Next
+        </Button>
+      </Box>
     </Container>
   )
 }
@@ -48,4 +69,7 @@ const mapStateToProps = state => ({
   quiz: state.quiz,
 })
 
-export default connect(mapStateToProps, { setLocation })(Quiz);
+export default connect(
+  mapStateToProps,
+  { setLocation }
+)(Quiz)
