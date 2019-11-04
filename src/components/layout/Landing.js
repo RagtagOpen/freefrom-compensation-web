@@ -8,6 +8,7 @@ import { setAgreement, setCookies } from "../../actions/quizActions"
 
 // Material UI
 import Button from "@material-ui/core/Button"
+import MaterialLink from "@material-ui/core/Link"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import FormGroup from "@material-ui/core/FormGroup"
@@ -79,7 +80,13 @@ const Landing = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
               <Grid item xs={12}>
                 <Typography color="secondary" align="center">
                   This website uses cookies to ensure you get the best
-                  experience on our website.
+                  experience on our website.{" "}
+                  <MaterialLink
+                    color="secondary"
+                    href="https://www.cookiesandyou.com/"
+                  >
+                    Learn more
+                  </MaterialLink>
                 </Typography>
               </Grid>
               <Grid container item xs={6} justify="flex-end">

@@ -1,6 +1,6 @@
 import { USER_ERROR, GET_USER } from "./types"
 
-import { get } from "../utils/tools"
+import { get } from "../utils/api"
 
 // Get current user
 export const getCurrentUser = () => async dispatch => {
