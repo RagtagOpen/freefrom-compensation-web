@@ -46,13 +46,15 @@ const Quiz = ({ quiz, setLocation }) => {
         <Button
           color="primary"
           disabled={quiz.question == 0}
+          // TODO: write an onChange method that goes to the previous question
         >
           Back
         </Button>
 
         <Button
           color="primary"
-          disabled={quiz.question == 6}
+          disabled={quiz.question == 6} // TODO: figure out the right condition here
+          // TODO: write an onChange method that goes to the next question
         >
           Next
         </Button>
