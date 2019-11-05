@@ -137,8 +137,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <MaterialLink
       className={classes.link}
       underline="hover"
-      component="button"
-      onClick={() => document.location.replace("https://www.weather.com")}
+      href="https://www.weather.com"
     >
       Exit Site
     </MaterialLink>
