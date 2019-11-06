@@ -1,19 +1,20 @@
 import {
     SET_AGREEMENT,
     SET_LOCATION,
-    SET_QUIZ_TALLY
+    SET_QUIZ_TALLY,
   } from "../actions/types"
-  
+
   const initialState = {
     loading: true,
     agreement: false,
-    location: null,
+    location: '',
+    question: 0,
     quiz: []
   }
-  
+
   export default function(state = initialState, action) {
     const { type, payload } = action
-  
+
     switch (type) {
       case SET_AGREEMENT:
         return {
@@ -23,7 +24,7 @@ import {
       case SET_LOCATION:
         return {
           ...state,
-          ...payload
+          location: payload
         }
       case SET_QUIZ_TALLY:
         return {
@@ -34,4 +35,3 @@ import {
         return state
     }
   }
-  

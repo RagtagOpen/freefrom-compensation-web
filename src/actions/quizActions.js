@@ -8,8 +8,15 @@ import {
 
   // Set Agreement
 export const setAgreement = (agreement) => dispatch => {
-    dispatch({
+  dispatch({
     type: SET_AGREEMENT,
     payload: agreement,
-    })
-  }
+  })
+}
+
+export const setLocation = (location) => dispatch => {
+  dispatch({
+    type: SET_LOCATION,
+    payload: location,
+  })
+}
