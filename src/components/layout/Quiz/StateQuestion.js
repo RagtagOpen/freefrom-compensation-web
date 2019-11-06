@@ -48,8 +48,6 @@ const STATES = [
   "NJ",
   "NM",
   "NY",
-  "NM",
-  "NY",
   "NC",
   "ND",
   "OH",
@@ -92,16 +90,16 @@ const StateQuestion = ({ quiz, setLocation }) => {
       <FormControl className={classes.formControl}>
         <InputLabel id="state">Where do you live?</InputLabel>
         <Select
-          labelId="state"
           id="select"
           onChange={handleChange}
           value={quiz.location}
-          minWidth={500}
           displayEmpty
         >
           <MenuItem value=""></MenuItem>
           {STATES.map(state => (
-            <MenuItem value={state}>{state}</MenuItem>
+            <MenuItem key={state} value={state}>
+              {state}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>
