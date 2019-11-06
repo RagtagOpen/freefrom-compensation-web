@@ -72,7 +72,6 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     minWidth: 200,
     marginTop: 10,
-    marginLeft: 20,
   },
 }))
 
@@ -90,6 +89,7 @@ const StateQuestion = ({ quiz, setLocation }) => {
       <FormControl className={classes.formControl}>
         <InputLabel id="state">Where do you live?</InputLabel>
         <Select
+          labelId="state" // TODO: silence warning created by this prop
           id="select"
           onChange={handleChange}
           value={quiz.location}

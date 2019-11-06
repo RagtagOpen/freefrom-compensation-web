@@ -5,9 +5,6 @@ import PropTypes from "prop-types"
 
 import Compass from "../../../images/compass.png"
 
-// Redux
-import { setLocation } from "../../../actions/quizActions"
-
 // Material UI
 import {
   Box,
@@ -20,7 +17,7 @@ import {
 // Components
 import StateQuestion from "./StateQuestion"
 
-const Quiz = ({ quiz, setLocation }) => {
+const Quiz = ({ quiz }) => {
   if (!quiz.agreement) {
     return <Redirect to="/" />
   }
@@ -73,5 +70,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { setLocation }
 )(Quiz)
