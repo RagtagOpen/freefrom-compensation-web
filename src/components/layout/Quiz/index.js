@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import Compass from "../../../images/compass.png"
+import Compass from "../../../images/general/compass.png"
 
 // Material UI
 import {
