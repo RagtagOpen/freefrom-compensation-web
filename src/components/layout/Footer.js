@@ -47,7 +47,7 @@ const Footer = () => {
             <MaterialLink className={classes.link} color="inherit" to="/privacy-policy" component={Link}>
               Privacy Policy
             </MaterialLink>
-            <MaterialLink className={classes.link} color="inherit" to="https://freefrom.org">
+            <MaterialLink className={classes.link} color="inherit" href="https://freefrom.org">
               FreeFrom homepage
             </MaterialLink>
           </Grid>
