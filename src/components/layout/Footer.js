@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-//import RagTag from "../../images/ragtag.png"
+import Ragtag from "../../images/general/ragtag.png"
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles"
@@ -52,7 +52,7 @@ const Footer = () => {
             </MaterialLink>
           </Grid>
           <Grid container item xs={6} justify="flex-end">
-            <img src={''} alt="Powered by Ragtag" title="Powered by Ragtag" />
+            <img src={Ragtag} alt="Powered by Ragtag" title="Powered by Ragtag" />
           </Grid>
         </Grid>
       </Container>
