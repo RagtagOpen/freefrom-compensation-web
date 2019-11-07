@@ -28,7 +28,7 @@ import FolderIcon from "@material-ui/icons/Folder"
 import EmailIcon from "@material-ui/icons/Email"
 
 // Logo
-import logo from "../../images/logo.jpg"
+import logo from "../../images/general/logo.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -137,8 +137,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <MaterialLink
       className={classes.link}
       underline="hover"
-      component="button"
-      onClick={() => document.location.replace("https://www.weather.com")}
+      href="https://www.weather.com"
     >
       Exit Site
     </MaterialLink>
