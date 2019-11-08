@@ -26,8 +26,9 @@ const useStyles = makeStyles(theme => ({
     padding: '5px 0px',
   },
   image: {
-    width: '201px',
-    height: '73px',
+    width: '134px',
+    height: '49px',
+    opacity: '85%',
   }
 }))
 
