@@ -23,8 +23,8 @@ const useStyles = makeStyles(theme => ({
     padding: '5px 0px',
   },
   image: {
-    width: "80%",
-    height: "80%",
+    width: '201px',
+    height: '73px',
   }
 }))
 
