@@ -7,7 +7,6 @@ import {
   LOGOUT,
 } from "./types"
 import setAuthToken from "../utils/setAuthToken"
-
 import { get, post } from "../utils/api"
 
 // Load User
