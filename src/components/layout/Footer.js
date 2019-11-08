@@ -13,11 +13,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.footer,
     width: "100%",
     height: 'auto',
-    position: "fixed",
-    bottom: 0,
+    [theme.breakpoints.up('sm')]: {
+      position: "fixed",
+      bottom: 0,
+    },
     color: "#47CCCC",
     textDecoration: "underline",
     padding: '20px 0px',
+    marginTop: '20px',
   },
   link: {
     padding: '5px 0px',
