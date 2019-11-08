@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme => ({
     },
     color: "#47CCCC",
     textDecoration: "underline",
-    padding: '20px 0px',
-    marginTop: '20px',
+    padding: '20px 0px 40px',
+    marginTop: '40px',
   },
   link: {
     padding: '5px 0px',
