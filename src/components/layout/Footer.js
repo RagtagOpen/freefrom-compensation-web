@@ -18,10 +18,13 @@ const useStyles = makeStyles(theme => ({
     color: "#47CCCC",
     textDecoration: "underline",
     padding: '20px 0px',
-    marginBottom: '20px'
   },
   link: {
     padding: '5px 0px',
+  },
+  image: {
+    width: "80%",
+    height: "80%",
   }
 }))
 
@@ -52,7 +55,7 @@ const Footer = () => {
             </MaterialLink>
           </Grid>
           <Grid container item xs={6} justify="flex-end">
-            <img src={Ragtag} alt="Powered by Ragtag" title="Powered by Ragtag" />
+            <img src={Ragtag} alt="Powered by Ragtag" title="Powered by Ragtag" className={classes.image} />
           </Grid>
         </Grid>
       </Container>
