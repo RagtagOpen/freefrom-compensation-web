@@ -1,5 +1,6 @@
 import {
     SET_AGREEMENT,
+    SET_COOKIES,
     SET_LOCATION,
     SET_QUIZ_TALLY,
   } from "../actions/types"
@@ -7,6 +8,7 @@ import {
   const initialState = {
     loading: true,
     agreement: false,
+    cookies: null,
     location: '',
     question: 0,
     quiz: []
@@ -20,6 +22,11 @@ import {
         return {
           ...state,
           agreement: payload
+        }
+      case SET_COOKIES:
+        return {
+          ...state,
+          cookies: payload,
         }
       case SET_LOCATION:
         return {

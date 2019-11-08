@@ -8,5 +8,5 @@ export default combineReducers({
   alert,
   auth,
   user,
-  quiz
+  quiz,
 })
