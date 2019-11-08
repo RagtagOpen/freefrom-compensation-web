@@ -6,8 +6,8 @@ import {
   SET_QUIZ_TALLY,
 } from "./types"
 
-// Set Agreement
-export const setAgreement = agreement => dispatch => {
+  // Set Agreement
+export const setAgreement = (agreement) => dispatch => {
   dispatch({
     type: SET_AGREEMENT,
     payload: agreement,
@@ -18,5 +18,12 @@ export const setCookies = opt => dispatch => {
   dispatch({
     type: SET_COOKIES,
     payload: opt,
+  })
+}
+
+export const setLocation = (location) => dispatch => {
+  dispatch({
+    type: SET_LOCATION,
+    payload: location,
   })
 }
