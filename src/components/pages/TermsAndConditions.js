@@ -32,4 +32,4 @@ const TermsAndConditions = () => {
   )
 }
 
-export default TermsAndConditions;
+export default TermsAndConditions

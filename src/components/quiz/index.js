@@ -35,11 +35,7 @@ const Quiz = ({ quiz }) => {
       </Box>
       {quiz.question == 0 ? <StateQuestion /> : null}
 
-      <Box
-        display={"flex"}
-        justifyContent={"space-between"}
-        mt={4}
-      >
+      <Box display={"flex"} justifyContent={"space-between"} mt={4}>
         <Button
           color="primary"
           disabled={quiz.question == 0}
@@ -68,6 +64,4 @@ const mapStateToProps = state => ({
   quiz: state.quiz,
 })
 
-export default connect(
-  mapStateToProps,
-)(Quiz)
+export default connect(mapStateToProps)(Quiz)

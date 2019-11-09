@@ -8,21 +8,10 @@ import { logout } from "../../actions/authActions"
 
 // Material
 import { makeStyles } from "@material-ui/core/styles"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import Drawer from "@material-ui/core/Drawer"
-import List from "@material-ui/core/List"
-import Divider from "@material-ui/core/Divider"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import MaterialLink from "@material-ui/core/Link"
+import { AppBar, Toolbar, IconButotn, MenuIcon, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, Link as MaterialLink} from "@material-ui/core"
 
 // Material Icons
-import HomeIcon from "@material-ui/icons/Home"
-import FolderIcon from "@material-ui/icons/Folder"
+import {Home as HomeIcon, Folder as FolderIcon} from "@material-ui/icons/Home"
 
 // Logo
 import logo from "../../images/general/logo.png"

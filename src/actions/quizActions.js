@@ -1,10 +1,10 @@
-import { setAlert } from "./alertActions"
+import { setAlert } from "actions/alertActions"
 import {
   SET_AGREEMENT,
   SET_COOKIES,
   SET_LOCATION,
   SET_QUIZ_TALLY,
-} from "./types"
+} from "actions/types"
 
   // Set Agreement
 export const setAgreement = (agreement) => dispatch => {

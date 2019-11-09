@@ -1,8 +1,7 @@
 import React from "react"
 
 // Material UI
-import Container from "@material-ui/core/Container"
-import Typography from "@material-ui/core/Typography"
+import { Container, Typography } from "@material-ui/core"
 
 const NotFound = () => {
   return (

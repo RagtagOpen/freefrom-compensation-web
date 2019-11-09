@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { setLocation } from "../../../actions/quizActions"
+import { setLocation } from "actions/quizActions"
 
 // Material UI
 import {

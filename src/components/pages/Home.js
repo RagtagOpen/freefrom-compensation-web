@@ -4,20 +4,15 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { setAgreement, setCookies } from "../../actions/quizActions"
+import { setAgreement, setCookies } from "actions/quizActions"
 
 // Material UI
-import Button from "@material-ui/core/Button"
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
-import FormGroup from "@material-ui/core/FormGroup"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Checkbox from "@material-ui/core/Checkbox"
+import { Button, Typography, Container, FormGroup, FormControlLabel, Checkbox } from "@material-ui/core"
 
 // Components
-import CookiesConsent from "./CookiesConsent"
+import { CookiesConsent } from "components/layout"
 
-const Landing = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
+const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />
   }
@@ -72,7 +67,7 @@ const Landing = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
   )
 }
 
-Landing.propTypes = {
+Home.propTypes = {
   isAuthenticated: PropTypes.bool,
   state: PropTypes.object,
   setAgreement: PropTypes.func.isRequired,
@@ -87,4 +82,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { setAgreement, setCookies }
-)(Landing)
+)(Home)

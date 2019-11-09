@@ -3,15 +3,10 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { setCookies } from "../../actions/quizActions"
+import { setCookies } from "actions/quizActions"
 
 // Material UI
-import Button from "@material-ui/core/Button"
-import MaterialLink from "@material-ui/core/Link"
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
-import Drawer from "@material-ui/core/Drawer"
-import Grid from "@material-ui/core/Grid"
+import { Button, Link as MaterialLink, Typography, Container, Drawer, Grid } from "@material-ui/core"
 
 const CookiesConsent = ({ quiz, setCookies }) => {
   return (

@@ -2,16 +2,12 @@ import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import { login } from "../../actions/authActions"
+import { login } from "actions/authActions"
 
 // Material UI
-import Avatar from "@material-ui/core/Avatar"
-import Button from "@material-ui/core/Button"
-import TextField from "@material-ui/core/TextField"
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
-import Typography from "@material-ui/core/Typography"
+import { Avatar, Button, TextField, Typography, Container } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Container from "@material-ui/core/Container"
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -49,7 +45,10 @@ const Login = ({ login, isAuthenticated }) => {
   const { email, password } = formData
 
   const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
 
   const onSubmit = async e => {
     e.preventDefault()
