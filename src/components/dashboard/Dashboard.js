@@ -3,15 +3,14 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 // Components
-import Spinner from "../layout/Spinner"
-import DashboardActions from "./DashboardActions"
+import { Spinner } from "components/layout"
+import DashboardActions from "components/dashboard/DashboardActions"
 
 // Redux
-import { getCurrentUser } from "../../actions/userActions"
+import { getCurrentUser } from "actions/userActions"
 
 // Material UI
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
+import { Typography, Container } from "@material-ui/core"
 
 const Dashboard = ({
   getCurrentUser,

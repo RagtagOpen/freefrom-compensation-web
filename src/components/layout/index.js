@@ -4,10 +4,4 @@ import Footer from "components/layout/Footer"
 import Navbar from "components/layout/Navbar"
 import Spinner from "components/layout/Spinner"
 
-export default {
-  Alert,
-  CookiesConsent,
-  Footer,
-  Navbar,
-  Spinner,
-}
+export { Alert, CookiesConsent, Footer, Navbar, Spinner }

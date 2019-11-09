@@ -6,7 +6,14 @@ import PropTypes from "prop-types"
 import { setCookies } from "actions/quizActions"
 
 // Material UI
-import { Button, Link as MaterialLink, Typography, Container, Drawer, Grid } from "@material-ui/core"
+import {
+  Button,
+  Link as MaterialLink,
+  Typography,
+  Container,
+  Drawer,
+  Grid,
+} from "@material-ui/core"
 
 const CookiesConsent = ({ quiz, setCookies }) => {
   return (

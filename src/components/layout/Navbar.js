@@ -4,17 +4,32 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { logout } from "../../actions/authActions"
+import { logout } from "actions/authActions"
 
 // Material
 import { makeStyles } from "@material-ui/core/styles"
-import { AppBar, Toolbar, IconButotn, MenuIcon, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, Link as MaterialLink} from "@material-ui/core"
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Drawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Link as MaterialLink,
+} from "@material-ui/core"
 
 // Material Icons
-import {Home as HomeIcon, Folder as FolderIcon} from "@material-ui/icons/Home"
+import {
+  Home as HomeIcon,
+  Folder as FolderIcon,
+  Menu as MenuIcon,
+} from "@material-ui/icons"
 
 // Logo
-import logo from "../../images/general/logo.png"
+import logo from "images/general/logo.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
