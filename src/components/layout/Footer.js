@@ -4,7 +4,7 @@ import Ragtag from "images/general/ragtag.png"
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Container, Link as MaterialLink } from "@material-ui/core/Grid"
+import { Grid, Container, Link as MaterialLink } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   footer: {
