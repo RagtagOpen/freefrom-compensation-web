@@ -23,7 +23,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
   }
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="md">
       <Typography variant="h1">Compensation Compass</Typography>
       <Typography variant="body1" gutterBottom={true}>
         As a survivor of domestic violence, you could be eligible for money to
@@ -57,7 +57,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
         color="primary"
         variant="contained"
         component={Link}
-        to={"/quiz"}
+        to={"/quiz/question/1"}
         disabled={!quiz.agreement || quiz.cookies === null}
       >
         Start

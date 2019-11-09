@@ -13,6 +13,9 @@ import { get, post } from "utils/api"
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token)
+  } else {
+    // We don't call /users/current if there is not current user
+    return
   }
 
   try {

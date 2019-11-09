@@ -2,7 +2,7 @@ import {
   SET_AGREEMENT,
   SET_COOKIES,
   SET_LOCATION,
-  SET_QUIZ_TALLY,
+  SET_QUESTION,
 } from "actions/types"
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
   cookies: null,
   location: "",
   question: 0,
-  quiz: [],
+  questions: [],
 }
 
 export default function(state = initialState, action) {
@@ -33,10 +33,10 @@ export default function(state = initialState, action) {
         ...state,
         location: payload,
       }
-    case SET_QUIZ_TALLY:
+    case SET_QUESTION:
       return {
         ...state,
-        ...payload,
+        question: payload,
       }
     default:
       return state

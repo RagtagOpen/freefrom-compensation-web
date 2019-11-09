@@ -2,6 +2,7 @@ import { createMuiTheme } from "@material-ui/core/styles"
 
 // A custom theme for this app
 const theme = createMuiTheme({
+  spacing: 8,
   palette: {
     primary: {
       main: "#292F36",
@@ -19,8 +20,9 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ["Proxima Nova"],
+    fontFamily: ["Proxima Nova Rg"],
     fontSize: 16,
+    lineHeight: 16,
     h1: {
       fontFamily: "Garamond",
       fontSize: "1.75rem",
@@ -53,6 +55,10 @@ const theme = createMuiTheme({
       letterSpacing: "0.05em",
       backgroundColor: "#F06449",
     },
+    body1: {
+      fontSize: "1rem",
+      lineHeight: "1.5rem",
+    },
   },
   overrides: {
     MuiContainer: {
@@ -72,6 +78,9 @@ const theme = createMuiTheme({
       },
       containedPrimary: {
         backgroundColor: "#F06449",
+        "&:active": {
+          backgroundColor: "#FF9797",
+        },
         "&:hover": {
           backgroundColor: "#FF9797",
         },
@@ -85,6 +94,24 @@ const theme = createMuiTheme({
         backgroundColor: "#47CCCC",
         "&:hover": {
           backgroundColor: "#32B4B4",
+        },
+      },
+      outlinedPrimary: {
+        color: "#F06449",
+        border: "2px solid #F06449",
+        backgroundColor: "transparent",
+        "&:active": {
+          backgroundColor: "transparent",
+        },
+        "&:hover": {
+          color: "#FF9797",
+          border: "2px solid #FF9797",
+          backgroundColor: "transparent",
+        },
+        "&$disabled": {
+          color: "#FF9797",
+          border: "2px solid #FF9797",
+          backgroundColor: "transparent",
         },
       },
       outlinedSecondary: {

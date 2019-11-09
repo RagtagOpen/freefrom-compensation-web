@@ -3,7 +3,7 @@ import {
   SET_AGREEMENT,
   SET_COOKIES,
   SET_LOCATION,
-  SET_QUIZ_TALLY,
+  SET_QUESTION,
 } from "actions/types"
 
   // Set Agreement
@@ -25,5 +25,12 @@ export const setLocation = (location) => dispatch => {
   dispatch({
     type: SET_LOCATION,
     payload: location,
+  })
+}
+
+export const setQuestion = (index) => dispatch => {
+  dispatch({
+    type: SET_QUESTION,
+    payload: index,
   })
 }
