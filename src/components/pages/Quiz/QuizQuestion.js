@@ -1,9 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-
-// Redux
-import { setLocation } from "actions/quizActions"
+import { pageQuizData } from "utils/selectors"
 
 // Material UI
 import {
@@ -13,7 +11,13 @@ import {
   MenuItem,
   Select,
   Typography,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
 } from "@material-ui/core"
+
+// Redux
+import { setLocation, setQuizTally } from "actions/quizActions"
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -22,38 +26,57 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const QuizQuestion = ({ quiz, setLocation }) => {
+const QuizQuestion = ({ question, quizData, setQuizTally }) => {
   const classes = useStyles()
 
-  const handleChange = e => {
-    setLocation(e.target.value)
+  const selectAnswer = e => {
+    const response = quizData.responses.filter(
+      resp => resp.id === parseInt(e.target.value)
+    )[0]
+
+    console.log(response)
+    console.log(e.target.value)
+    // question - 1 because it's the first of the tallyable questions (we don't count location)
+    setQuizTally(question - 1, response)
   }
 
   return (
     <>
-      <Typography variant="h2">Question {quiz.question + 1}: Title</Typography>
+      <Typography variant="h2" gutterBottom={true}>
+        Question {question + 1} of 8: {quizData.title}
+      </Typography>
 
-      <FormControl className={classes.formControl}>
-        <InputLabel id="state">Where do you live?</InputLabel>
-        <Select
-          labelId="state" // TODO: silence warning created by this prop
-          id="select"
-          onChange={handleChange}
-          value={quiz.location}
-          displayEmpty
+      <Typography variant="body1" gutterBottom={true}>
+        {quizData.description}
+      </Typography>
+
+      <FormControl component="fieldset" className={classes.formControl}>
+        <RadioGroup
+          aria-label="answer"
+          name={`question-${question + 1}`}
+          value={quizData.tally.id || ""}
+          onChange={selectAnswer}
         >
-          <MenuItem value=""></MenuItem>
-        </Select>
+          {quizData.responses.map((response, index) => (
+            <FormControlLabel
+              key={`answer-${index}`}
+              value={response.id}
+              control={<Radio color="primary" />}
+              label={response.text}
+            />
+          ))}
+        </RadioGroup>
       </FormControl>
     </>
   )
 }
 
 const mapStateToProps = state => ({
-  quiz: state.quiz,
+  question: state.quiz.question,
+  quizData: pageQuizData(state),
 })
 
 export default connect(
   mapStateToProps,
-  { setLocation }
+  { setQuizTally }
 )(QuizQuestion)

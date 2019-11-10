@@ -3,6 +3,8 @@ import {
   SET_COOKIES,
   SET_LOCATION,
   SET_QUESTION,
+  GET_QUESTION_DATA,
+  SET_QUIZ_TALLY,
 } from "actions/types"
 
 const initialState = {
@@ -37,6 +39,26 @@ export default function(state = initialState, action) {
       return {
         ...state,
         question: payload,
+      }
+    case GET_QUESTION_DATA:
+      return {
+        ...state,
+        questions: payload,
+      }
+    case SET_QUIZ_TALLY:
+      const questions = state.questions
+
+      questions[payload.question] = {
+        ...questions[payload.question],
+        tally: {
+          id: payload.response.id,
+          mindset_ids: payload.response.mindset_ids,
+        },
+      }
+
+      return {
+        ...state,
+        questions,
       }
     default:
       return state

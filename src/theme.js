@@ -82,7 +82,7 @@ const theme = createMuiTheme({
           backgroundColor: "#FF9797",
         },
         "&:hover": {
-          backgroundColor: "#FF9797",
+          backgroundColor: "#F06449",
         },
         "&$disabled": {
           color: "#F7FFF7",
@@ -142,6 +142,16 @@ const theme = createMuiTheme({
           color: "#FF9797",
         },
       },
+    },
+    MuiRadio: {
+      root: {
+        color: "#6E7E91"
+      },
+      colorPrimary: {
+        "&$checked": {
+          color: "#F06449"
+        }
+      }
     },
     MuiDrawer: {
       paperAnchorBottom: {
