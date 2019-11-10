@@ -43,7 +43,8 @@ export const getQuizQuestionData = () => async dispatch => {
   try {
     const res = await get("/quiz_questions")
 
-    const data = shuffle(res.data)
+    // If we need to shuffle questions, shuffle(res.data) here
+    const data = res.data;
 
     data.map(async (question, index) => {
       // Generating the tally empty object here to prevent any errors
