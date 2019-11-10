@@ -41,7 +41,7 @@ const Footer = () => {
         <Grid
           container
           direction="row"
-          alignItems="top"
+          alignItems="flex-start"
           justify="space-between"
         >
           <Grid

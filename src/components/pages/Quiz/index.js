@@ -7,11 +7,8 @@ import PropTypes from "prop-types"
 import {
   Box,
   Button,
-  CardMedia,
   Container,
-  Typography,
   Grid,
-  makeStyles,
 } from "@material-ui/core"
 
 // Components
@@ -60,8 +57,6 @@ const Quiz = ({ quiz, match, setQuestion, getQuizQuestionData }) => {
     }
   }
 
-  const linkAndUpdate = () => {}
-
   return (
     <Container maxWidth="md">
       <Title />
@@ -70,7 +65,7 @@ const Quiz = ({ quiz, match, setQuestion, getQuizQuestionData }) => {
         {quiz.question === 0 ? <StateQuestion /> : <QuizQuestion />}
       </Box>
 
-      <Grid container maxWidth="sm" justify="space-around" alignItems="center">
+      <Grid container justify="space-around" alignItems="center">
         <Button
           color="primary"
           variant="outlined"

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 
 // Material UI
 import { Grid, CardMedia, Box, Typography, makeStyles } from "@material-ui/core"
@@ -16,7 +16,7 @@ export default () => {
   const classes = useStyles()
   return (
     <Box mb={2}>
-      <Grid container maxWidth="sm" alignItems="center">
+      <Grid container alignItems="center">
         <Grid item sm={1} xs={3}>
           <CardMedia
             component="img"

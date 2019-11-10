@@ -6,18 +6,16 @@ import { pageQuizData } from "utils/selectors"
 // Material UI
 import {
   FormControl,
-  InputLabel,
   makeStyles,
-  MenuItem,
-  Select,
   Typography,
   Radio,
   RadioGroup,
   FormControlLabel,
+  Box,
 } from "@material-ui/core"
 
 // Redux
-import { setLocation, setQuizTally } from "actions/quizActions"
+import { setQuizTally } from "actions/quizActions"
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -40,13 +38,15 @@ const QuizQuestion = ({ question, quizData, setQuizTally }) => {
 
   return (
     <>
-      <Typography variant="h2" gutterBottom={1}>
-        Question {question + 1} of 8: {quizData.title}
-      </Typography>
+      <Box mb={1}>
+        <Typography variant="h2">
+          Question {question + 1} of 8: {quizData.title}
+        </Typography>
+      </Box>
 
-      <Typography variant="body1" gutterBottom={1}>
-        {quizData.description}
-      </Typography>
+      <Box mb={1}>
+        <Typography variant="body1">{quizData.description}</Typography>
+      </Box>
 
       <FormControl component="fieldset" className={classes.formControl}>
         <RadioGroup
@@ -59,7 +59,7 @@ const QuizQuestion = ({ question, quizData, setQuizTally }) => {
             <FormControlLabel
               key={`answer-${index}`}
               value={response.id}
-              control={<Radio color="primary" gutterBottom={1} />}
+              control={<Radio color="primary" />}
               label={response.text}
             />
           ))}
@@ -67,6 +67,11 @@ const QuizQuestion = ({ question, quizData, setQuizTally }) => {
       </FormControl>
     </>
   )
+}
+
+QuizQuestion.propTypes = {
+  question: PropTypes.number.isRequired,
+  quizData: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
