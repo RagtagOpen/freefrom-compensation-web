@@ -34,19 +34,17 @@ const QuizQuestion = ({ question, quizData, setQuizTally }) => {
       resp => resp.id === parseInt(e.target.value)
     )[0]
 
-    console.log(response)
-    console.log(e.target.value)
     // question - 1 because it's the first of the tallyable questions (we don't count location)
     setQuizTally(question - 1, response)
   }
 
   return (
     <>
-      <Typography variant="h2" gutterBottom={true}>
+      <Typography variant="h2" gutterBottom={1}>
         Question {question + 1} of 8: {quizData.title}
       </Typography>
 
-      <Typography variant="body1" gutterBottom={true}>
+      <Typography variant="body1" gutterBottom={1}>
         {quizData.description}
       </Typography>
 
@@ -61,7 +59,7 @@ const QuizQuestion = ({ question, quizData, setQuizTally }) => {
             <FormControlLabel
               key={`answer-${index}`}
               value={response.id}
-              control={<Radio color="primary" />}
+              control={<Radio color="primary" gutterBottom={1} />}
               label={response.text}
             />
           ))}

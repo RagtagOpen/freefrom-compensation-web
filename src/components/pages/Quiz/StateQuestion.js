@@ -84,9 +84,9 @@ const StateQuestion = ({ quiz, setLocation }) => {
 
   return (
     <>
-      <Typography variant="h2" gutterBottom={true}>Question 1 of 8: Location</Typography>
+      <Typography variant="h2" gutterBottom={1}>Question 1 of 8: Location</Typography>
 
-      <Typography variant="body1" gutterBottom={true}>
+      <Typography variant="body1" gutterBottom={1}>
         Select the state you live in (the state where the harm occurred).
       </Typography>
 

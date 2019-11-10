@@ -3,9 +3,6 @@ import { Redirect, Link } from "react-router-dom"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-// Image
-import Compass from "images/general/compass.png"
-
 // Material UI
 import {
   Box,
@@ -20,19 +17,13 @@ import {
 // Components
 import StateQuestion from "components/pages/Quiz/StateQuestion"
 import QuizQuestion from "components/pages/Quiz/QuizQuestion"
+import { Title } from "components/layout"
 import { isEmpty } from "utils/helpers"
 
 // Redux
 import { setQuestion, getQuizQuestionData } from "actions/quizActions"
 
-const useStyles = makeStyles(theme => ({
-  compass: {
-    maxWidth: 150,
-  },
-}))
-
 const Quiz = ({ quiz, match, setQuestion, getQuizQuestionData }) => {
-  const classes = useStyles()
 
   // If agreement is not agreed to, or cookies are not answered, return to home
   if (!quiz.agreement || !quiz.cookies) {
@@ -73,21 +64,7 @@ const Quiz = ({ quiz, match, setQuestion, getQuizQuestionData }) => {
 
   return (
     <Container maxWidth="md">
-      <Grid container maxWidth="sm" alignItems="center">
-        <Grid item sm={2} xs={3}>
-          <CardMedia
-            component="img"
-            src={Compass}
-            className={classes.compass}
-          />
-        </Grid>
-
-        <Grid item sm={10} xs={9}>
-          <Box ml={2}>
-            <Typography variant={"h1"}>Compensation Compass</Typography>
-          </Box>
-        </Grid>
-      </Grid>
+      <Title />
 
       <Box mt={4} mb={4}>
         {quiz.question === 0 ? <StateQuestion /> : <QuizQuestion />}

@@ -20,9 +20,11 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ["Proxima Nova Rg"],
-    fontSize: 16,
-    lineHeight: 16,
+    root: {
+      fontFamily: ["Proxima Nova Rg"],
+      fontSize: 16,
+      lineHeight: 24,
+    },
     h1: {
       fontFamily: "Garamond",
       fontSize: "1.75rem",
@@ -41,10 +43,19 @@ const theme = createMuiTheme({
       lineHeight: "1.25rem",
       letterSpacing: "0.05em",
     },
-    subtitle1: {
-      fontFamily: "Proxima Nova",
-      fontSize: "0.875rem",
+    body1: {
+      fontSize: "1rem",
       lineHeight: "1rem",
+    },
+    body2: {
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
+    },
+    subtitle1: {
+      color: "#6E7E91",
+      fontFamily: "Proxima Nova Rg",
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
       letterSpacing: "0.05em",
     },
     button: {
@@ -54,10 +65,6 @@ const theme = createMuiTheme({
       lineHeight: "1.5rem",
       letterSpacing: "0.05em",
       backgroundColor: "#F06449",
-    },
-    body1: {
-      fontSize: "1rem",
-      lineHeight: "1.5rem",
     },
   },
   overrides: {
@@ -71,6 +78,12 @@ const theme = createMuiTheme({
         color: "#F06449",
         backgroundColor: "#FFFFFF",
       },
+    },
+    MuiLink: {
+      root: {
+        color: "#2675D3",
+        textDecoration: "underline"
+      }
     },
     MuiButton: {
       root: {
@@ -145,13 +158,13 @@ const theme = createMuiTheme({
     },
     MuiRadio: {
       root: {
-        color: "#6E7E91"
+        color: "#6E7E91",
       },
       colorPrimary: {
         "&$checked": {
-          color: "#F06449"
-        }
-      }
+          color: "#F06449",
+        },
+      },
     },
     MuiDrawer: {
       paperAnchorBottom: {
