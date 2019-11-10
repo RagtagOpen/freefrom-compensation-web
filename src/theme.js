@@ -45,7 +45,7 @@ const theme = createMuiTheme({
     },
     body1: {
       fontSize: "1rem",
-      lineHeight: "1rem",
+      lineHeight: "1.5rem",
     },
     body2: {
       fontSize: "0.875rem",
@@ -82,8 +82,10 @@ const theme = createMuiTheme({
     MuiLink: {
       root: {
         color: "#2675D3",
-        textDecoration: "underline"
-      }
+      },
+      underlineHover: {
+        textDecoration: "underline",
+      },
     },
     MuiButton: {
       root: {
