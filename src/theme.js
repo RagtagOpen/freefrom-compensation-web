@@ -114,11 +114,13 @@ const theme = createMuiTheme({
         border: "2px solid #F06449",
         backgroundColor: "transparent",
         "&:active": {
+          color: "#FF9797",
+          border: "2px solid #FF9797",
           backgroundColor: "transparent",
         },
         "&:hover": {
-          color: "#FF9797",
-          border: "2px solid #FF9797",
+          color: "#F06449",
+          border: "2px solid #F06449",
           backgroundColor: "transparent",
         },
         "&$disabled": {
