@@ -2,6 +2,7 @@ import { createMuiTheme } from "@material-ui/core/styles"
 
 // A custom theme for this app
 const theme = createMuiTheme({
+  spacing: 8,
   palette: {
     primary: {
       main: "#292F36",
@@ -19,8 +20,11 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: ["Proxima Nova"],
-    fontSize: 16,
+    root: {
+      fontFamily: ["Proxima Nova Rg"],
+      fontSize: 16,
+      lineHeight: 24,
+    },
     h1: {
       fontFamily: "Garamond",
       fontSize: "1.75rem",
@@ -39,10 +43,19 @@ const theme = createMuiTheme({
       lineHeight: "1.25rem",
       letterSpacing: "0.05em",
     },
-    subtitle1: {
-      fontFamily: "Proxima Nova",
+    body1: {
+      fontSize: "1rem",
+      lineHeight: "1.5rem",
+    },
+    body2: {
       fontSize: "0.875rem",
-      lineHeight: "1rem",
+      lineHeight: "1.25rem",
+    },
+    subtitle1: {
+      color: "#6E7E91",
+      fontFamily: "Proxima Nova Rg",
+      fontSize: "0.875rem",
+      lineHeight: "1.25rem",
       letterSpacing: "0.05em",
     },
     button: {
@@ -66,14 +79,25 @@ const theme = createMuiTheme({
         backgroundColor: "#FFFFFF",
       },
     },
+    MuiLink: {
+      root: {
+        color: "#2675D3",
+      },
+      underlineHover: {
+        textDecoration: "underline",
+      },
+    },
     MuiButton: {
       root: {
         borderRadius: "25px",
       },
       containedPrimary: {
         backgroundColor: "#F06449",
-        "&:hover": {
+        "&:active": {
           backgroundColor: "#FF9797",
+        },
+        "&:hover": {
+          backgroundColor: "#F06449",
         },
         "&$disabled": {
           color: "#F7FFF7",
@@ -85,6 +109,26 @@ const theme = createMuiTheme({
         backgroundColor: "#47CCCC",
         "&:hover": {
           backgroundColor: "#32B4B4",
+        },
+      },
+      outlinedPrimary: {
+        color: "#F06449",
+        border: "2px solid #F06449",
+        backgroundColor: "transparent",
+        "&:active": {
+          color: "#FF9797",
+          border: "2px solid #FF9797",
+          backgroundColor: "transparent",
+        },
+        "&:hover": {
+          color: "#F06449",
+          border: "2px solid #F06449",
+          backgroundColor: "transparent",
+        },
+        "&$disabled": {
+          color: "#FF9797",
+          border: "2px solid #FF9797",
+          backgroundColor: "transparent",
         },
       },
       outlinedSecondary: {
@@ -113,6 +157,16 @@ const theme = createMuiTheme({
         color: "#FF9797",
         "&$checked": {
           color: "#FF9797",
+        },
+      },
+    },
+    MuiRadio: {
+      root: {
+        color: "#6E7E91",
+      },
+      colorPrimary: {
+        "&$checked": {
+          color: "#F06449",
         },
       },
     },

@@ -3,12 +3,12 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { setLocation } from "../../../actions/quizActions"
+import { setLocation } from "actions/quizActions"
 
 // Material UI
 import {
+  Box,
   FormControl,
-  InputLabel,
   makeStyles,
   MenuItem,
   Select,
@@ -84,18 +84,26 @@ const StateQuestion = ({ quiz, setLocation }) => {
 
   return (
     <>
-      <Typography variant="h2">Question 1: Location</Typography>
+      <Box mb={1}>
+        <Typography variant="h2">
+          Question 1 of 8: Location
+        </Typography>
+      </Box>
+
+      <Box mb={1}>
+      <Typography variant="body1">
+        Select the state you live in (the state where the harm occurred).
+      </Typography>
+      </Box>
 
       <FormControl className={classes.formControl}>
-        <InputLabel id="state">Where do you live?</InputLabel>
         <Select
-          labelId="state" // TODO: silence warning created by this prop
           id="select"
           onChange={handleChange}
           value={quiz.location}
           displayEmpty
         >
-          <MenuItem value=""></MenuItem>
+          <MenuItem value="">Select State</MenuItem>
           {STATES.map(state => (
             <MenuItem key={state} value={state}>
               {state}
@@ -105,6 +113,10 @@ const StateQuestion = ({ quiz, setLocation }) => {
       </FormControl>
     </>
   )
+}
+
+StateQuestion.propTypes = {
+  quiz: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

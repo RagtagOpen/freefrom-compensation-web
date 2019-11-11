@@ -1,15 +1,17 @@
 import React, { Fragment } from "react"
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch, Redirect } from "react-router-dom"
+
+// Layout
+import { Alert } from "components/layout"
 
 // Components
-import Login from "../auth/Login"
-import TermsAndConditions from "../layout/TermsAndConditions/index"
-import Quiz from "../layout/Quiz/index"
-import Alert from "../layout/Alert"
-import Dashboard from "../dashboard/Dashboard"
-import Disclaimer from "../layout/Disclaimer"
-import NotFound from "../layout/NotFound"
-import PrivateRoute from "../routing/PrivateRoute"
+import Login from "components/auth/Login"
+import TermsAndConditions from "components/pages/TermsAndConditions"
+import Quiz from "components/pages/Quiz"
+import Dashboard from "components/dashboard/Dashboard"
+import Disclaimer from "components/pages/Disclaimer"
+import NotFound from "components/pages/NotFound"
+import PrivateRoute from "components/routing/PrivateRoute"
 
 const Routes = () => {
   return (
@@ -18,8 +20,17 @@ const Routes = () => {
       <div>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/terms-and-conditions" component={TermsAndConditions} />
-          <Route exact path="/quiz" component={Quiz} />
+          <Route
+            exact
+            path="/terms-and-conditions"
+            component={TermsAndConditions}
+          />
+          <Route
+            exact
+            path="/quiz"
+            render={() => <Redirect to="/quiz/question/1" />}
+          />
+          <Route exact path="/quiz/question/:id" component={Quiz} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route component={NotFound} />

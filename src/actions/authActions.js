@@ -1,18 +1,21 @@
-import { setAlert } from "./alertActions"
+import { setAlert } from "actions/alertActions"
 import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-} from "./types"
-import setAuthToken from "../utils/setAuthToken"
-import { get, post } from "../utils/api"
+} from "actions/types"
+import setAuthToken from "utils/setAuthToken"
+import { get, post } from "utils/api"
 
 // Load User
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token)
+  } else {
+    // We don't call /users/current if there is not current user
+    return
   }
 
   try {
