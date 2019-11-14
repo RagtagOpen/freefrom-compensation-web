@@ -5,6 +5,7 @@ import {
   SET_QUESTION,
   GET_QUESTION_DATA,
   SET_QUIZ_TALLY,
+  SET_MINDSET,
 } from "actions/types"
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   location: "",
   question: 0,
   questions: [],
+  mindset: null,
 }
 
 export default function(state = initialState, action) {
@@ -60,6 +62,13 @@ export default function(state = initialState, action) {
         ...state,
         questions,
       }
+
+    case SET_MINDSET: {
+      return {
+        ...state,
+        mindset: payload,
+      }
+    }
     default:
       return state
   }

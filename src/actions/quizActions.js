@@ -6,6 +6,7 @@ import {
   SET_QUESTION,
   GET_QUESTION_DATA,
   SET_QUIZ_TALLY,
+  SET_MINDSET,
 } from "actions/types"
 import { get } from "utils/api"
 import { shuffle } from "utils/helpers"
@@ -44,7 +45,7 @@ export const getQuizQuestionData = () => async dispatch => {
     const res = await get("/quiz_questions")
 
     // If we need to shuffle questions, shuffle(res.data) here
-    const data = res.data;
+    const data = res.data
 
     data.map(async (question, index) => {
       // Generating the tally empty object here to prevent any errors
@@ -76,5 +77,12 @@ export const setQuizTally = (question, response) => dispatch => {
   dispatch({
     type: SET_QUIZ_TALLY,
     payload: { question, response },
+  })
+}
+
+export const setMindset = mindset => dispatch => {
+  dispatch({
+    type: SET_MINDSET,
+    payload: mindset,
   })
 }

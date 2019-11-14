@@ -31,26 +31,22 @@ const Mindset = ({ loadMindset, mindset }) => {
     return <Spinner />
   } else if (error) {
     return (
-      <Fragment>
-        <Container maxWidth="lg">
-          <Typography variant="h1">Your Compensation Mindset</Typography>
-          <Typography variant="body1">
-            There was a problem loading your results! Try again?
-          </Typography>
-        </Container>
-      </Fragment>
+      <Container maxWidth="md">
+        <Typography variant="h1">Your Compensation Mindset</Typography>
+        <Typography variant="body1">
+          There was a problem loading your results! Try again?
+        </Typography>
+      </Container>
     )
   } else {
     return (
-      <Fragment>
-        <Container maxWidth="lg">
-          <MindsetBody mindset={current} />
-          <ReadMore />
-          <FollowUp />
-          <ResultsNote />
-          <NextActions />
-        </Container>
-      </Fragment>
+      <Container maxWidth="md">
+        <MindsetBody mindset={current} />
+        <ReadMore />
+        <FollowUp />
+        <ResultsNote />
+        <NextActions />
+      </Container>
     )
   }
 }

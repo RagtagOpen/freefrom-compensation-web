@@ -22,6 +22,7 @@ export const SET_LOCATION = "SET_LOCATION"
 export const SET_QUESTION = "SET_QUESTION"
 export const GET_QUESTION_DATA = "GET_QUESTION_DATA"
 export const SET_QUIZ_TALLY = "SET_QUIZ_TALLY"
+export const SET_MINDSET = "SET_MINDSET"
 
 // Mindset
 export const LOAD_MINDSET_SUCCESS = "LOAD_MINDSET_SUCCESS"

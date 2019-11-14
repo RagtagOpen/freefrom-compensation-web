@@ -33,7 +33,12 @@ const Routes = () => {
           />
           <Route exact path="/quiz/question/:id" component={Quiz} />
           <Route exact path="/mindsets" component={Mindsets} />
-          <Route exact path="/mindsets/:mindsetId" component={Mindset} />
+          <Route exact path="/mindsets/:mindsetSlug" component={Mindset} />
+          <Route
+            exact
+            path="/mindsets/:mindsetSlug/:state"
+            component={Mindset}
+          />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route component={NotFound} />

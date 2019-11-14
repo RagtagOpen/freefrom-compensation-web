@@ -27,20 +27,13 @@ export const loadMindset = mindsetId => async dispatch => {
   }
 }
 
-export const loadMindsets = mindsetId => async dispatch => {
+export const loadMindsets = () => async dispatch => {
   try {
     const res = await get(`/mindsets`)
 
-    const data = res.data.map(mindset => {
-      return {
-        ...mindset,
-        description: mindset.description.split("\n"),
-      }
-    })
-
     dispatch({
       type: LOAD_MINDSETS_SUCCESS,
-      payload: data,
+      payload: res.data,
     })
   } catch (err) {
     dispatch({

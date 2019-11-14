@@ -2,12 +2,13 @@ import {
   LOAD_MINDSET_SUCCESS,
   LOAD_MINDSET_ERROR,
   LOAD_MINDSETS_SUCCESS,
-  LOAD_MINDSETS_ERROR
+  LOAD_MINDSETS_ERROR,
 } from "../actions/types"
 
 const initialState = {
   loading: true,
   error: false,
+  all: [],
 }
 
 export default function(state = initialState, action) {
