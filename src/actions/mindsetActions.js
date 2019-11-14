@@ -1,19 +1,20 @@
-import axios from "axios"
 import {
   LOAD_MINDSET_SUCCESS,
   LOAD_MINDSET_ERROR,
   LOAD_MINDSETS_SUCCESS,
   LOAD_MINDSETS_ERROR,
 } from "./types"
+import { get, post } from "utils/api"
+import { tallyMindsetTotal } from "utils/helpers"
 
 // Load User
-export const loadMindset = (mindsetId) => async dispatch => {
+export const loadMindset = mindsetId => async dispatch => {
   try {
-    const res = await axios.get(`/mindsets/${mindsetId}`)
+    const res = await get(`/mindsets/${mindsetId}`)
 
     const data = {
       ...res.data,
-      description: res.data.description.split("\n")
+      description: res.data.description.split("\n"),
     }
 
     dispatch({
@@ -27,14 +28,14 @@ export const loadMindset = (mindsetId) => async dispatch => {
   }
 }
 
-export const loadMindsets = (mindsetId) => async dispatch => {
+export const loadMindsets = mindsetId => async dispatch => {
   try {
-    const res = await axios.get(`/mindsets`)
+    const res = await get(`/mindsets`)
 
     const data = res.data.map(mindset => {
       return {
         ...mindset,
-        description: mindset.description.split("\n")
+        description: mindset.description.split("\n"),
       }
     })
 

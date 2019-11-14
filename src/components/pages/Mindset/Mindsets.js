@@ -3,24 +3,17 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 // Components
-import Spinner from "../layout/Spinner"
-import {
-  MindsetList
-} from './'
+import { Spinner } from "components/layout"
+import { MindsetList } from "components/pages/Mindset"
 
 // Redux
-import { loadMindsets } from "../../actions/mindsetActions"
+import { loadMindsets } from "actions/mindsetActions"
 
 // Material UI
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
+import { Typography, Container } from "@material-ui/core"
 
-const Mindsets= ({ loadMindsets, mindset }) => {
-  const {
-    loading,
-    error,
-    all,
-  } = mindset
+const Mindsets = ({ loadMindsets, mindset }) => {
+  const { loading, error, all } = mindset
 
   useEffect(() => {
     loadMindsets()
@@ -56,10 +49,10 @@ Mindsets.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  mindset: state.mindset
+  mindset: state.mindset,
 })
 
 export default connect(
   mapStateToProps,
-  { loadMindsets },
+  { loadMindsets }
 )(Mindsets)

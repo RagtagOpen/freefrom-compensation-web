@@ -1,11 +1,11 @@
-import axios from "axios"
+import { USER_ERROR, GET_USER } from "actions/types"
 
-import { USER_ERROR, GET_USER } from "./types"
+import { get } from "utils/api"
 
 // Get current user
 export const getCurrentUser = () => async dispatch => {
   try {
-    const res = await axios.get("/users/current")
+    const res = await get("/users/current")
 
     dispatch({
       type: GET_USER,

@@ -1,5 +1,4 @@
 import React, { Fragment } from "react"
-import { makeStyles } from '@material-ui/core/styles';
 
 // Material UI
 import {
@@ -7,8 +6,9 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Typography,
+  makeStyles,
 } from "@material-ui/core"
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -16,15 +16,13 @@ const useStyles = makeStyles(theme => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   descriptionParagraph: {
-    width: '100%'
-  }
-}));
+    width: "100%",
+  },
+}))
 
-const MindsetList = (props) => {
-  const classes = useStyles();
+const MindsetList = props => {
+  const classes = useStyles()
   const { allMindsets } = props
-
-  console.log(allMindsets)
 
   return (
     <Fragment>
@@ -36,18 +34,22 @@ const MindsetList = (props) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>{mindset.name}</Typography>
+              <Typography className={classes.heading}>
+                {mindset.name}
+              </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography>
-                { mindset.description.map((graf, idx) =>
+                {mindset.description.map((graf, idx) => (
                   <Typography
                     variant="body1"
                     paragraph={true}
                     key={`graf-${mindset.slug}-${idx}`}
                     className={classes.descriptionParagraph}
-                  >{graf}</Typography>
-                )}
+                  >
+                    {graf}
+                  </Typography>
+                ))}
               </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>

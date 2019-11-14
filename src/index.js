@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
-import * as serviceWorker from "./serviceWorker"
+import * as serviceWorker from "serviceWorker"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/styles"
-import theme from "./theme"
+import theme from "theme"
 require("dotenv").config()
 
 ReactDOM.render(

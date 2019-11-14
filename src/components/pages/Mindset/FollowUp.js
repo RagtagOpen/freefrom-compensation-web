@@ -1,12 +1,7 @@
 import React from "react"
 
 // Material UI
-import { makeStyles } from '@material-ui/core/styles';
-import {
-  Typography,
-  Button,
-  Container
-} from "@material-ui/core"
+import { Typography, Button, Container, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -19,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3),
     padding: theme.spacing(1),
   },
-}));
+}))
 
 const FollowUp = () => {
   const classes = useStyles()
@@ -30,7 +25,7 @@ const FollowUp = () => {
       <Button
         variant="outlined"
         href="/"
-        key='start-over'
+        key="start-over"
         className={classes.button}
       >
         Continue

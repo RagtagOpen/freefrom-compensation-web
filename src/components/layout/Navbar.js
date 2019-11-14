@@ -4,31 +4,32 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 // Redux
-import { logout } from "../../actions/authActions"
+import { logout } from "actions/authActions"
 
 // Material
 import { makeStyles } from "@material-ui/core/styles"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import Drawer from "@material-ui/core/Drawer"
-import List from "@material-ui/core/List"
-import Divider from "@material-ui/core/Divider"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import MaterialLink from "@material-ui/core/Link"
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Drawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Link as MaterialLink,
+} from "@material-ui/core"
 
 // Material Icons
-import HomeIcon from "@material-ui/icons/Home"
-import FolderIcon from "@material-ui/icons/Folder"
-import EmailIcon from "@material-ui/icons/Email"
+import {
+  Home as HomeIcon,
+  Folder as FolderIcon,
+  Menu as MenuIcon,
+} from "@material-ui/icons"
 
 // Logo
-import logo from "../../images/general/logo.png"
+import logo from "images/general/logo.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -91,54 +92,53 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authMenu = (
     <IconButton
-    edge="start"
-    className={classes.menuButton}
-    color="inherit"
-    aria-label="menu"
-    onClick={toggleDrawer(true)}
-  >
-    <MenuIcon />
-  </IconButton>
+      edge="start"
+      className={classes.menuButton}
+      color="inherit"
+      aria-label="menu"
+      onClick={toggleDrawer(true)}
+    >
+      <MenuIcon />
+    </IconButton>
   )
 
   const authDrawer = (
     <Drawer open={state.drawer} onClose={toggleDrawer(false)}>
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <List>
-        <ListItem button key="Home" {...{ to: "/" }} component={Link}>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem
-          button
-          key="Resource Categories"
-          {...{ to: "/resource-categories" }}
-          component={Link}
-        >
-          <ListItemIcon>
-            <FolderIcon />
-          </ListItemIcon>
-          <ListItemText primary="Resource Categories" />
-        </ListItem>
-      </List>
-      <Divider />
-    </div>
-  </Drawer>
+      <div
+        className={classes.list}
+        role="presentation"
+        onClick={toggleDrawer(false)}
+        onKeyDown={toggleDrawer(false)}
+      >
+        <List>
+          <ListItem button key="Home" {...{ to: "/" }} component={Link}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem
+            button
+            key="Resource Categories"
+            {...{ to: "/resource-categories" }}
+            component={Link}
+          >
+            <ListItemIcon>
+              <FolderIcon />
+            </ListItemIcon>
+            <ListItemText primary="Resource Categories" />
+          </ListItem>
+        </List>
+        <Divider />
+      </div>
+    </Drawer>
   )
 
   const guestLinks = (
     <MaterialLink
       className={classes.link}
       underline="hover"
-      component="button"
-      onClick={() => document.location.replace("https://www.weather.com")}
+      href="https://www.weather.com"
     >
       Exit Site
     </MaterialLink>

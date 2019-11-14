@@ -4,29 +4,24 @@ import { connect } from "react-redux"
 import { useParams } from "react-router-dom"
 
 // Components
-import Spinner from "../layout/Spinner"
+import { Spinner } from "components/layout"
 import {
   MindsetBody,
   FollowUp,
   ResultsNote,
   NextActions,
-  ReadMore
-} from './index'
+  ReadMore,
+} from "components/pages/Mindset"
 
 // Redux
-import { loadMindset } from "../../actions/mindsetActions"
+import { loadMindset } from "actions/mindsetActions"
 
 // Material UI
-import Typography from "@material-ui/core/Typography"
-import Container from "@material-ui/core/Container"
+import { Typography, Container } from "@material-ui/core"
 
 const Mindset = ({ loadMindset, mindset }) => {
   const { mindsetId } = useParams()
-  const {
-    loading,
-    error,
-    current,
-  } = mindset
+  const { loading, error, current } = mindset
 
   useEffect(() => {
     loadMindset(mindsetId)
@@ -66,10 +61,10 @@ Mindset.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  mindset: state.mindset
+  mindset: state.mindset,
 })
 
 export default connect(
   mapStateToProps,
-  { loadMindset },
+  { loadMindset }
 )(Mindset)
