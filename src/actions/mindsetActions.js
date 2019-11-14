@@ -7,7 +7,6 @@ import {
 import { get, post } from "utils/api"
 import { tallyMindsetTotal } from "utils/helpers"
 
-// Load User
 export const loadMindset = mindsetId => async dispatch => {
   try {
     const res = await get(`/mindsets/${mindsetId}`)

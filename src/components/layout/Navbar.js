@@ -32,9 +32,6 @@ import {
 import logo from "images/general/logo.png"
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
