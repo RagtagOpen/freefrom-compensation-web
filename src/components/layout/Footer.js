@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: "40px",
   },
   link: {
+    color: "#47CCCC",
     padding: "5px 0px",
   },
   image: {

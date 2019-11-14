@@ -48,6 +48,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.125rem",
     letterSpacing: "0.1em",
     fontWeight: 500,
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
+    },
   },
   title: {
     flexGrow: 1,
