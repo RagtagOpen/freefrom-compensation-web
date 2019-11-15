@@ -5,6 +5,9 @@ import PropTypes from "prop-types"
 // Redux
 import { setLocation } from "actions/quizActions"
 
+// Helpers
+import { CODES_TO_STATES } from 'utils/helpers'
+
 // Material UI
 import {
   Box,
@@ -14,59 +17,6 @@ import {
   Select,
   Typography,
 } from "@material-ui/core"
-
-const STATES = [
-  "AL",
-  "AK",
-  "AZ",
-  "AR",
-  "CA",
-  "CO",
-  "CT",
-  "DE",
-  "FL",
-  "GA",
-  "HI",
-  "ID",
-  "IL",
-  "IN",
-  "IA",
-  "KS",
-  "KY",
-  "LA",
-  "ME",
-  "MD",
-  "MA",
-  "MI",
-  "MN",
-  "MS",
-  "MO",
-  "MT",
-  "NE",
-  "NV",
-  "NH",
-  "NJ",
-  "NM",
-  "NY",
-  "NC",
-  "ND",
-  "OH",
-  "OK",
-  "OR",
-  "PA",
-  "RI",
-  "SC",
-  "SD",
-  "TN",
-  "TX",
-  "UT",
-  "VT",
-  "VA",
-  "WA",
-  "WV",
-  "WI",
-  "WY",
-]
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -104,7 +54,7 @@ const StateQuestion = ({ quiz, setLocation }) => {
           displayEmpty
         >
           <MenuItem value="">Select State</MenuItem>
-          {STATES.map(state => (
+          {Object.keys(CODES_TO_STATES).map(state => (
             <MenuItem key={state} value={state}>
               {state}
             </MenuItem>

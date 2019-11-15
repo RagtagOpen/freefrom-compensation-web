@@ -50,6 +50,7 @@ const Quiz = ({ quiz, match, setQuestion, getQuizQuestionData }) => {
       case 5:
       case 6:
       case 7:
+        debugger;
         // Quiz - 1 so we don't count location
         return isEmpty(quiz.questions[quiz.question - 1].tally)
       default:
