@@ -15,11 +15,18 @@ import {
 
 // Redux
 import { loadMindsets } from "actions/mindsetActions"
+import { fetchFeatureResource } from "actions/resourceActions"
 
 // Material UI
 import { Typography, Container } from "@material-ui/core"
 
-const Mindset = ({ loadMindsets, mindset, match }) => {
+const Mindset = ({
+  fetchFeatureResource,
+  loadMindsets,
+  mindset,
+  resource,
+  match,
+}) => {
   const { loading, error, all } = mindset
 
   useEffect(() => {
@@ -27,7 +34,11 @@ const Mindset = ({ loadMindsets, mindset, match }) => {
     if (!mindset.loaded) {
       loadMindsets()
     }
-  }, [loadMindsets])
+
+    if (resource.feature === null) {
+      fetchFeatureResource()
+    }
+  }, [loadMindsets, fetchFeatureResource])
 
   if (loading) {
     return <Spinner />
@@ -48,7 +59,7 @@ const Mindset = ({ loadMindsets, mindset, match }) => {
     return (
       <Container maxWidth="md">
         <MindsetBody mindset={current} />
-        <ReadMore />
+        <ReadMore mindset={resource.feature} />
         <FollowUp />
         <ResultsNote />
         <NextActions />
@@ -63,10 +74,11 @@ Mindset.propTypes = {
 }
 
 const mapStateToProps = state => ({
+  resource: state.resource,
   mindset: state.mindset,
 })
 
 export default connect(
   mapStateToProps,
-  { loadMindsets }
+  { loadMindsets, fetchFeatureResource }
 )(Mindset)

@@ -4,6 +4,7 @@ import auth from "reducers/authReducer"
 import user from "reducers/userReducer"
 import quiz from "reducers/quizReducer"
 import mindset from "reducers/mindsetReducer"
+import resource from "reducers/resourceReducer"
 
 export default combineReducers({
   alert,
@@ -11,4 +12,5 @@ export default combineReducers({
   user,
   quiz,
   mindset,
+  resource,
 })
