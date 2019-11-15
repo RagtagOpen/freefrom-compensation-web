@@ -20,9 +20,13 @@ import {
 } from "actions/quizActions"
 import { loadMindsets } from "actions/mindsetActions"
 
+// Data
+import { hierarchy } from "data"
+import { setCompleted } from "../../../actions/quizActions"
+
 const Quiz = ({
   quiz,
-  mindsets,
+  mindset,
   match,
   setQuestion,
   setMindset,
@@ -68,25 +72,17 @@ const Quiz = ({
   const tallyResults = () => {
     const results = []
     quiz.questions.map(question => {
-      question.tally.mindset_ids.forEach(mindset_id => results.push(mindset_id))
+      question.tally.mindset_ids.forEach(mindsetId => results.push(mindsetId))
     })
-
-    console.log("Results: ", results)
 
     // We can only have one result. So, if mode returns more than one, we need to use the following hierarchy
     // Thoughtful Pursuer > Resourceful Strategist > Reimbursement Boss > Justice Seeker.
-    const hierarchy = {
-      first: "Thoughtful Pursuer",
-      second: "Resourceful Strategist",
-      third: "Reimbursement Boss",
-      fourth: "Justice Seeker",
-    }
     let result = mode(results)
 
     // If we have a tie, find the tie breaker
     if (result.length > 1) {
       result.forEach(res => {
-        switch (mindsets.filter(mindset => mindset.id === res)[0].name) {
+        switch (mindset.all.filter(mindset => mindset.id === res)[0].name) {
           case hierarchy.first:
             result = res
             return
@@ -105,14 +101,17 @@ const Quiz = ({
 
     console.log("Result: ", result)
 
-    const mindset = mindsets.filter(mindset => mindset.id === result)[0]
+    const currentMindset = mindset.all.filter(
+      mindset => mindset.id === result
+    )[0]
 
-    if (quiz.mindset === null || quiz.mindset !== mindset) {
-      setMindset(mindset)
+    if (quiz.mindset === null || quiz.mindset.id !== currentMindset.id) {
+      setMindset(currentMindset)
     }
 
-    // TODO: Update to slug
-    return `/mindsets/${mindset.id}/${quiz.location}`
+    quiz.completed || setCompleted(true)
+
+    return `/mindsets/${currentMindset.slug}/${quiz.location}`
   }
 
   return (
@@ -153,7 +152,7 @@ const Quiz = ({
 
 Quiz.propTypes = {
   quiz: PropTypes.object.isRequired,
-  mindsets: PropTypes.object.isRequired,
+  mindset: PropTypes.object.isRequired,
   setQuestion: PropTypes.func.isRequired,
   setQuizQuestionData: PropTypes.func,
   loadMindsets: PropTypes.func.isRequired,
@@ -161,10 +160,10 @@ Quiz.propTypes = {
 
 const mapStateToProps = state => ({
   quiz: state.quiz,
-  mindsets: state.mindset.all,
+  mindset: state.mindset,
 })
 
 export default connect(
   mapStateToProps,
-  { setQuestion, getQuizQuestionData, loadMindsets, setMindset }
+  { setQuestion, getQuizQuestionData, loadMindsets, setMindset, setCompleted }
 )(Quiz)

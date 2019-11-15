@@ -1,34 +1,30 @@
 import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
 
 // Material UI
-import { makeStyles, Button } from "@material-ui/core"
-
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}))
+import { makeStyles, Button, Grid } from "@material-ui/core"
 
 const ResultsNote = () => {
-  const classes = useStyles()
   return (
     <Fragment>
-      <Button
-        variant="outlined"
-        href="/mindsets"
-        key="see-all"
-        className={classes.button}
-      >
-        See All Mindsets
-      </Button>
-      <Button
-        variant="outlined"
-        href="/"
-        key="start-over"
-        className={classes.button}
-      >
-        Start Over
-      </Button>
+      <Grid container justify="space-around" alignItems="center">
+        <Button
+          color="primary"
+          variant="outlined"
+          component={Link}
+          to="/mindsets"
+        >
+          See All Mindsets
+        </Button>
+        <Button
+          color="primary"
+          variant="outlined"
+          component={Link}
+          to="/quiz/question/1"
+        >
+          Start Over
+        </Button>
+      </Grid>
     </Fragment>
   )
 }

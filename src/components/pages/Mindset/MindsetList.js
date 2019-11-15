@@ -1,4 +1,5 @@
 import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
 
 // Material UI
 import {
@@ -7,6 +8,9 @@ import {
   ExpansionPanelDetails,
   Typography,
   makeStyles,
+  Grid,
+  Button,
+  Box,
 } from "@material-ui/core"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 
@@ -22,39 +26,61 @@ const useStyles = makeStyles(theme => ({
 
 const MindsetList = props => {
   const classes = useStyles()
-  const { allMindsets } = props
+  const { allMindsets, completedQuiz } = props
+
+  const generateButton = () => {
+    if (completedQuiz) {
+      return (
+        <Button color="primary" variant="outlined" className={classes.button}>
+          Back To Results
+        </Button>
+      )
+    } else {
+      return (
+        <Button
+          color="primary"
+          variant="outlined"
+          component={Link}
+          to="/quiz"
+          className={classes.button}
+        >
+          Take Our Quiz
+        </Button>
+      )
+    }
+  }
 
   return (
     <Fragment>
-      {allMindsets.map(mindset => {
-        return (
-          <ExpansionPanel key={`panel-${mindset.slug}`}>
-            <ExpansionPanelSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography className={classes.heading}>
-                {mindset.name}
-              </Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Typography>
-                {mindset.description.map((graf, idx) => (
-                  <Typography
-                    variant="body1"
-                    paragraph={true}
-                    key={`graf-${mindset.slug}-${idx}`}
-                    className={classes.descriptionParagraph}
-                  >
-                    {graf}
-                  </Typography>
-                ))}
-              </Typography>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        )
-      })}
+      <Box mb={2}>
+        {allMindsets.map(mindset => {
+          return (
+            <ExpansionPanel key={`panel-${mindset.slug}`}>
+              <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography className={classes.heading}>
+                  {mindset.name}
+                </Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                <Typography
+                  variant="body1"
+                  paragraph={true}
+                  className={classes.descriptionParagraph}
+                >
+                  {mindset.description}
+                </Typography>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          )
+        })}
+      </Box>
+      <Grid container justify="center">
+        {generateButton()}
+      </Grid>
     </Fragment>
   )
 }

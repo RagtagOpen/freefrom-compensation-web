@@ -3,10 +3,12 @@ import {
   LOAD_MINDSET_ERROR,
   LOAD_MINDSETS_SUCCESS,
   LOAD_MINDSETS_ERROR,
-} from "../actions/types"
+} from "actions/types"
+import { mindsetData } from "data"
 
 const initialState = {
   loading: true,
+  loaded: false,
   error: false,
   all: [],
 }
@@ -29,10 +31,21 @@ export default function(state = initialState, action) {
         error: true,
       }
     case LOAD_MINDSETS_SUCCESS:
+      const payloadWithData = payload
+
+      payload.map(mindset => {
+        const filteredMindset = mindsetData.filter(
+          mindsetData => mindset.name === mindsetData.name
+        )[0]
+        mindset.slug = filteredMindset.slug
+        mindset.image = filteredMindset.image
+      })
+
       return {
         ...state,
-        all: payload,
+        all: payloadWithData,
         loading: false,
+        loaded: true,
         error: false,
       }
     case LOAD_MINDSETS_ERROR:

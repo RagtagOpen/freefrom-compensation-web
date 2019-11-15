@@ -7,6 +7,7 @@ import {
   GET_QUESTION_DATA,
   SET_QUIZ_TALLY,
   SET_MINDSET,
+  SET_COMPLETED,
 } from "actions/types"
 import { get } from "utils/api"
 import { shuffle } from "utils/helpers"
@@ -84,5 +85,12 @@ export const setMindset = mindset => dispatch => {
   dispatch({
     type: SET_MINDSET,
     payload: mindset,
+  })
+}
+
+export const setCompleted = completed => dispatch => {
+  dispatch({
+    type: SET_COMPLETED,
+    payload: completed,
   })
 }

@@ -6,6 +6,7 @@ import {
   GET_QUESTION_DATA,
   SET_QUIZ_TALLY,
   SET_MINDSET,
+  SET_COMPLETED,
 } from "actions/types"
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   question: 0,
   questions: [],
   mindset: null,
+  completed: false,
 }
 
 export default function(state = initialState, action) {
@@ -67,6 +69,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         mindset: payload,
+      }
+    }
+
+    case SET_COMPLETED: {
+      return {
+        ...state,
+        completed: payload,
       }
     }
     default:

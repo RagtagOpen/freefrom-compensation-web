@@ -12,11 +12,13 @@ import { loadMindsets } from "actions/mindsetActions"
 // Material UI
 import { Typography, Container } from "@material-ui/core"
 
-const Mindsets = ({ loadMindsets, mindset }) => {
-  const { loading, error, all } = mindset
+const Mindsets = ({ loadMindsets, mindset, quiz }) => {
+  const { loading, loaded, error, all } = mindset
 
   useEffect(() => {
-    loadMindsets()
+    if (!loaded) {
+      loadMindsets()
+    }
   }, [loadMindsets])
 
   if (loading) {
@@ -35,8 +37,8 @@ const Mindsets = ({ loadMindsets, mindset }) => {
   } else {
     return (
       <Fragment>
-        <Container maxWidth="lg">
-          <MindsetList allMindsets={all} />
+        <Container maxWidth="md">
+          <MindsetList allMindsets={all} completedQuiz={quiz.completed} />
         </Container>
       </Fragment>
     )
@@ -49,6 +51,7 @@ Mindsets.propTypes = {
 }
 
 const mapStateToProps = state => ({
+  quiz: state.quiz,
   mindset: state.mindset,
 })
 

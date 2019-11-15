@@ -14,18 +14,20 @@ import {
 } from "components/pages/Mindset"
 
 // Redux
-import { loadMindset } from "actions/mindsetActions"
+import { loadMindsets } from "actions/mindsetActions"
 
 // Material UI
 import { Typography, Container } from "@material-ui/core"
 
-const Mindset = ({ loadMindset, mindset }) => {
-  const { mindsetId } = useParams()
-  const { loading, error, current } = mindset
+const Mindset = ({ loadMindsets, mindset, match }) => {
+  const { loading, error, all } = mindset
 
   useEffect(() => {
-    loadMindset(mindsetId)
-  }, [mindsetId, loadMindset])
+    // Load our mindsets if we don't have them yet
+    if (!mindset.loaded) {
+      loadMindsets()
+    }
+  }, [loadMindsets])
 
   if (loading) {
     return <Spinner />
@@ -39,6 +41,10 @@ const Mindset = ({ loadMindset, mindset }) => {
       </Container>
     )
   } else {
+    const current = all.filter(
+      mindset => mindset.slug === match.params.mindsetSlug
+    )[0]
+
     return (
       <Container maxWidth="md">
         <MindsetBody mindset={current} />
@@ -52,7 +58,7 @@ const Mindset = ({ loadMindset, mindset }) => {
 }
 
 Mindset.propTypes = {
-  loadMindset: PropTypes.func.isRequired,
+  loadMindsets: PropTypes.func.isRequired,
   mindset: PropTypes.object.isRequired,
 }
 
@@ -62,5 +68,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { loadMindset }
+  { loadMindsets }
 )(Mindset)
