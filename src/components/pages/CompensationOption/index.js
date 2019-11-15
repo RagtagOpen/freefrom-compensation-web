@@ -17,8 +17,9 @@ import {
 import { CODES_TO_STATES } from 'utils/helpers'
 
 // Components
+import TheDetails from './TheDetails'
 import { Title } from "components/layout"
-import Image from "../../images/resources/victims-of-crime-act.png"
+import Image from "images/resources/victims-of-crime-act.png"
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -27,8 +28,19 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const CompensationOption = ({}) => {
-  const { state, slug } = useParams();
+  const { section, state, slug } = useParams();
+  debugger;
   const classes = useStyles();
+
+  const renderContent = () => {
+    switch (section) {
+      case "1":
+        return <TheDetails />
+      case "2":
+      default:
+        return null
+    }
+  }
 
   return(
     <Container maxWidth="md">
@@ -44,6 +56,7 @@ const CompensationOption = ({}) => {
         <Typography variant={"h2"}>VICTIMS OF CRIME ACT</Typography>
       </Box>
 
+      {renderContent()}
     </Container>
   )
 }
