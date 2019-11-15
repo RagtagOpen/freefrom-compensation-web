@@ -6,22 +6,18 @@ import ResourcefulStrategist from "images/mindsets/resourceful-strategist.png"
 const mindsetData = [
   {
     name: "The Reimbursement Boss",
-    slug: "reimbursement-boss",
     image: ReimbursementBoss,
   },
   {
     name: "The Thoughtful Pursuer",
-    slug: "thoughtful-pursuer",
     image: ThoughtfulPursuer,
   },
   {
     name: "The Justice Seeker",
-    slug: "justice-seeker",
-    import: JusticeSeeker,
+    image: JusticeSeeker,
   },
   {
     name: "The Resourceful Strategist",
-    slug: "resourceful-strategist",
     image: ResourcefulStrategist,
   },
 ]

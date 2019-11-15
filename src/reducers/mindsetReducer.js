@@ -37,7 +37,6 @@ export default function(state = initialState, action) {
         const filteredMindset = mindsetData.filter(
           mindsetData => mindset.name === mindsetData.name
         )[0]
-        mindset.slug = filteredMindset.slug
         mindset.image = filteredMindset.image
       })
 
