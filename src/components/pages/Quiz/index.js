@@ -99,8 +99,6 @@ const Quiz = ({
       })
     }
 
-    console.log("Result: ", result)
-
     const currentMindset = mindset.all.filter(
       mindset => mindset.id === result
     )[0]

@@ -59,7 +59,6 @@ export const getQuizQuestionData = () => async dispatch => {
 
         data[index].responses = responseData
       } catch (err) {
-        console.log(err)
         dispatch(setAlert(err, "danger"))
       }
     })
@@ -69,7 +68,6 @@ export const getQuizQuestionData = () => async dispatch => {
       payload: data,
     })
   } catch (err) {
-    console.log(err)
     dispatch(setAlert(err, "danger"))
   }
 }
