@@ -18,6 +18,7 @@ import { CODES_TO_STATES } from "utils/helpers"
 
 // Components
 import TheDetails from "./TheDetails"
+import List from "./List"
 import { Title } from "components/layout"
 import Image from "images/resources/victims-of-crime-act.png"
 
@@ -41,13 +42,16 @@ const CompensationOption = ({}) => {
   ]
 
   const renderContent = () => {
-    switch (currentSection) {
-      case "1":
-        return <TheDetails />
-      case "2":
-      default:
-        return null
+    const sectionInt = parseInt(currentSection);
+    if(sectionInt == 1) {
+      return <TheDetails />
     }
+
+    if(sectionInt <= 6) {
+      return <List />
+    }
+
+    return null;
   }
 
   return (
@@ -65,18 +69,18 @@ const CompensationOption = ({}) => {
       {renderContent()}
 
       <Box display="flex" justifyContent="center">
-        <Button disabled={currentSection == "7"}>Next Section</Button>
+        <Button disabled={currentSection == "6"}>Next Section</Button>
       </Box>
 
       <Typography variant={"h3"}>JUMP TO SECTION</Typography>
       {sections.map((section, idx) => {
         return idx + 1 == currentSection ? (
-          <Typography variant={"paragraph"}>
-            <>
+          <>
+            <Typography variant={"paragraph"}>
               {idx + 1}. {section}
-              <br />
-            </>
-          </Typography>
+            </Typography>
+            <br />
+          </>
         ) : (
           <>
             <Link href={`/compensations/${state}/${slug}/sections/${idx + 1}`}>
