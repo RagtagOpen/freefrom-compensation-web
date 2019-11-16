@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import { useParams } from "react-router-dom"
+import { Redirect } from "react-router-dom"
 
 // Components
 import { Spinner } from "components/layout"
@@ -25,9 +25,10 @@ const Mindset = ({
   loadMindsets,
   mindset,
   resource,
-  match,
+  quiz,
 }) => {
   const { loading, error, all } = mindset
+  const { location, completed } = quiz
 
   useEffect(() => {
     // Load our mindsets if we don't have them yet
@@ -35,10 +36,14 @@ const Mindset = ({
       loadMindsets()
     }
 
-    if (resource.feature === null) {
-      fetchFeatureResource()
+    if (resource.feature === null && completed) {
+      fetchFeatureResource(quiz.mindset.id, location)
     }
   }, [loadMindsets, fetchFeatureResource])
+
+  if (!quiz.agreement || !quiz.cookies) {
+    return <Redirect to="/" />
+  }
 
   if (loading) {
     return <Spinner />
@@ -52,14 +57,14 @@ const Mindset = ({
       </Container>
     )
   } else {
-    const current = all.filter(
-      mindset => mindset.slug === match.params.mindsetSlug
-    )[0]
+    const current = all.filter(mindset => mindset.id === quiz.mindset.id)[0]
 
     return (
       <Container maxWidth="md">
         <MindsetBody mindset={current} />
-        <ReadMore mindset={resource.feature} />
+        {resource.feature !== null && (
+          <ReadMore featureResource={resource.feature} quiz={quiz} />
+        )}
         <FollowUp />
         <ResultsNote />
         <NextActions />
@@ -71,11 +76,13 @@ const Mindset = ({
 Mindset.propTypes = {
   loadMindsets: PropTypes.func.isRequired,
   mindset: PropTypes.object.isRequired,
+  quiz: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
   resource: state.resource,
   mindset: state.mindset,
+  quiz: state.quiz,
 })
 
 export default connect(

@@ -7,13 +7,14 @@ export const fetchFeatureResource = (mindsetId, location) => async dispatch => {
     const resource = await get(
       `/mindsets/${mindsetId}/resources?state=${location}`
     )
+
     const resourceCategory = await get(
-      `/resource_category/${resource.resource_category_id}`
+      `/resource_categories/${resource.data.resource_category_id}`
     )
 
     const featureData = {
-      resource,
-      resourceCategory,
+      resource: resource.data,
+      resourceCategory: resourceCategory.data,
     }
 
     dispatch({
@@ -21,6 +22,6 @@ export const fetchFeatureResource = (mindsetId, location) => async dispatch => {
       payload: featureData,
     })
   } catch (err) {
-    dispatch(setAlert(error.message, "danger"))
+    dispatch(setAlert(err.message, "danger"))
   }
 }
