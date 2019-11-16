@@ -43,6 +43,12 @@ const theme = createMuiTheme({
       lineHeight: "0.833rem",
       letterSpacing: "0.05em",
     },
+    h4: {
+      fontFamily: "Garamond",
+      fontSize: ".75rem",
+      lineHeight: "0.833rem",
+      letterSpacing: "0.05em",
+    },
     body1: {
       fontSize: "1rem",
       lineHeight: "1.5rem",

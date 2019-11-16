@@ -24,13 +24,14 @@ import {
 } from "actions/resourceActions"
 
 // Components
+import { Title } from "components/layout"
 import TheDetails from "./TheDetails"
 import TheChallenges from "./TheChallenges"
 import HowToApply from "./HowToApply"
 import WhatToExpect from "./WhatToExpect"
 import WhatIfIDontAgree from "./WhatIfIDontAgree"
 import Resources from "./Resources"
-import { Title } from "components/layout"
+import Footer from "./Footer"
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -38,10 +39,14 @@ const useStyles = makeStyles(theme => ({
   },
   categoryTitle: {
     marginBottom: 25,
-  }
+  },
 }))
 
-const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, resource }) => {
+const CompensationOption = ({
+  fetchResourceForState,
+  fetchResourceCategories,
+  resource,
+}) => {
   const { section, state: stateCode, slug } = useParams()
   const classes = useStyles()
 
@@ -79,8 +84,8 @@ const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, re
     return state.id === stateCode
   }).name
 
-  var resourceCategory;
-  if (stateResource){
+  var resourceCategory
+  if (stateResource) {
     resourceCategory = resource.categories.find(category => {
       return category.id === stateResource.resource_category_id
     })
@@ -107,6 +112,7 @@ const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, re
             {resourceCategory.name}
           </Typography>
           {renderContent()}
+          <Footer resource={stateResource} state={stateCode} slug={slug} currentSection={section} />
         </>
       ) : (
         <p>LOADING</p>
