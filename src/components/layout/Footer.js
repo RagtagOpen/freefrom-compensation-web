@@ -9,12 +9,10 @@ import { Grid, Container, Link as MaterialLink } from "@material-ui/core"
 const useStyles = makeStyles(theme => ({
   footer: {
     bottom: 0,
-    position: "fixed",
     backgroundColor: theme.palette.background.footer,
     width: "100%",
     height: "auto",
     [theme.breakpoints.up("sm")]: {
-      position: "fixed",
       bottom: 0,
     },
     color: "#47CCCC",
@@ -23,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: "40px",
   },
   link: {
+    color: "#47CCCC",
     padding: "5px 0px",
   },
   image: {

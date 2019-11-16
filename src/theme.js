@@ -28,19 +28,19 @@ const theme = createMuiTheme({
     h1: {
       fontFamily: "Garamond",
       fontSize: "1.75rem",
-      lineHeight: "2.25rem",
+      lineHeight: "1.5rem",
       letterSpacing: "0.05em",
     },
     h2: {
       fontFamily: "Garamond",
       fontSize: "1.375rem",
-      lineHeight: "1.625rem",
+      lineHeight: "1.083rem",
       letterSpacing: "0.05em",
     },
     h3: {
       fontFamily: "Garamond",
       fontSize: "1rem",
-      lineHeight: "1.25rem",
+      lineHeight: "0.833rem",
       letterSpacing: "0.05em",
     },
     body1: {
@@ -175,6 +175,19 @@ const theme = createMuiTheme({
         height: "200px",
         backgroundColor: "#292F36",
       },
+    },
+    MuiExpansionPanel: {
+      root: {
+        backgroundColor: "#F7FFF7",
+        borderTop: "2px solid #47CCCC",
+        borderBottom: "none",
+        boxShadow: "none",
+        borderRadius: "0px !important",
+        margin: 0,
+      },
+    },
+    MuiExpansionPanelSummary: {
+      root: {},
     },
   },
 })

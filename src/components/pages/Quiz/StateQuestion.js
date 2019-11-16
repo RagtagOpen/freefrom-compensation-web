@@ -5,6 +5,9 @@ import PropTypes from "prop-types"
 // Redux
 import { setLocation } from "actions/quizActions"
 
+// Data
+import { states } from "data"
+
 // Material UI
 import {
   Box,
@@ -14,59 +17,6 @@ import {
   Select,
   Typography,
 } from "@material-ui/core"
-
-const STATES = [
-  "AL",
-  "AK",
-  "AZ",
-  "AR",
-  "CA",
-  "CO",
-  "CT",
-  "DE",
-  "FL",
-  "GA",
-  "HI",
-  "ID",
-  "IL",
-  "IN",
-  "IA",
-  "KS",
-  "KY",
-  "LA",
-  "ME",
-  "MD",
-  "MA",
-  "MI",
-  "MN",
-  "MS",
-  "MO",
-  "MT",
-  "NE",
-  "NV",
-  "NH",
-  "NJ",
-  "NM",
-  "NY",
-  "NC",
-  "ND",
-  "OH",
-  "OK",
-  "OR",
-  "PA",
-  "RI",
-  "SC",
-  "SD",
-  "TN",
-  "TX",
-  "UT",
-  "VT",
-  "VA",
-  "WA",
-  "WV",
-  "WI",
-  "WY",
-]
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -85,15 +35,13 @@ const StateQuestion = ({ quiz, setLocation }) => {
   return (
     <>
       <Box mb={1}>
-        <Typography variant="h2">
-          Question 1 of 8: Location
-        </Typography>
+        <Typography variant="h2">Question 1 of 8: Location</Typography>
       </Box>
 
       <Box mb={1}>
-      <Typography variant="body1">
-        Select the state you live in (the state where the harm occurred).
-      </Typography>
+        <Typography variant="body1">
+          Select the state you live in (the state where the harm occurred).
+        </Typography>
       </Box>
 
       <FormControl className={classes.formControl}>
@@ -104,9 +52,9 @@ const StateQuestion = ({ quiz, setLocation }) => {
           displayEmpty
         >
           <MenuItem value="">Select State</MenuItem>
-          {STATES.map(state => (
-            <MenuItem key={state} value={state}>
-              {state}
+          {states.map(state => (
+            <MenuItem key={state.id} value={state.id}>
+              {state.name}
             </MenuItem>
           ))}
         </Select>
