@@ -18,13 +18,15 @@ import {
 import states from "data/states"
 
 // Redux
-import { fetchResourceForState } from "actions/resourceActions"
+import {
+  fetchResourceForState,
+  fetchResourceCategories,
+} from "actions/resourceActions"
 
 // Components
 import TheDetails from "./TheDetails"
 import List from "./List"
 import { Title } from "components/layout"
-import Image from "images/resources/victims-of-crime-act.png"
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -32,13 +34,19 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const CompensationOption = ({ fetchResourceForState, resource }) => {
+const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, resource }) => {
   const { section, state: stateCode, slug } = useParams()
   const classes = useStyles()
 
-  const stateResource = resource.states[stateCode] && resource.states[stateCode][slug]
-  if(!stateResource) {
+  const stateResource =
+    resource.states[stateCode] && resource.states[stateCode][slug]
+
+  if (!stateResource) {
     fetchResourceForState(slug, stateCode)
+  }
+
+  if (resource.categories.length === 0) {
+    fetchResourceCategories()
   }
 
   // TODO: loading
@@ -69,16 +77,33 @@ const CompensationOption = ({ fetchResourceForState, resource }) => {
     return state.id === stateCode
   }).name
 
+  var resourceCategory;
+  if (stateResource){
+    resourceCategory = resource.categories.find(category => {
+      return category.id === stateResource.resource_category_id
+    })
+  }
+
   return (
     <Container maxWidth="md">
       <Title />
       <Typography variant="h2">For {stateName} Residents</Typography>
-      {stateResource ? (
-        <Box mb={2}>
-          <Grid container justify="center" alignItems="center">
-            <img className={classes.image} src={stateResource.image} />
-          </Grid>
-        </Box>
+      {stateResource && resourceCategory ? (
+        <>
+          <Box mb={2}>
+            <Grid container justify="center" alignItems="center">
+              <img className={classes.image} src={stateResource.image} />
+            </Grid>
+          </Box>
+          <Typography
+            className={classes.titleUppercase}
+            variant="h2"
+            align="center"
+            gutterBottom={true}
+          >
+            {resourceCategory.name}
+          </Typography>
+        </>
       ) : (
         <p>LOADING</p>
       )}
@@ -92,5 +117,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchResourceForState }
+  { fetchResourceForState, fetchResourceCategories }
 )(CompensationOption)

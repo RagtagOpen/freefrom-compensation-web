@@ -13,7 +13,7 @@ export const fetchResourceForState = (resourceCategorySlug, location) => async d
       payload: {
         state: location,
         category: resourceCategorySlug,
-        resource
+        resource: resource.data,
       }
     })
   } catch (err) {
