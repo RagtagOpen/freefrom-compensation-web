@@ -49,29 +49,14 @@ const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, re
     fetchResourceCategories()
   }
 
-  // TODO: loading
-
-  // const sections = [
-  //   "The Details",
-  //   "The Challenges",
-  //   "How to Apply",
-  //   "What to Expect After You Apply",
-  //   "What if I don't Agree with the Judge's Decision?",
-  //   "Resources",
-  // ]
-
-  // const renderContent = () => {
-  //   const sectionInt = parseInt(currentSection);
-  //   if(sectionInt == 1) {
-  //     return <TheDetails />
-  //   }
-
-  //   if(sectionInt <= 6) {
-  //     return <List />
-  //   }
-
-  //   return null;
-  // }
+  const renderContent = () => {
+    switch (section) {
+      case "the-details":
+        return <TheDetails resource={stateResource} />
+      default:
+        return null
+    }
+  }
 
   const stateName = states.find(state => {
     return state.id === stateCode
@@ -103,6 +88,7 @@ const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, re
           >
             {resourceCategory.name}
           </Typography>
+          {renderContent()}
         </>
       ) : (
         <p>LOADING</p>
