@@ -31,13 +31,13 @@ const FollowUp = () => {
     <Grid container className={classes.grid} justify="center">
       <Grid container align="center" justify="space-around">
         <Grid item>
-          <img src={FollowUpImage} class={classes.image} />
+          <img src={FollowUpImage} className={classes.image} />
           <Typography className={classes.uppercase} variant="h3">
             Follow Up With Me
           </Typography>
         </Grid>
         <Grid item>
-          <img src={EmailMeImage} class={classes.image} />
+          <img src={EmailMeImage} className={classes.image} />
           <Typography className={classes.uppercase} variant="h3">
             Email Me My Results
           </Typography>

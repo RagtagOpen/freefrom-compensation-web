@@ -1,4 +1,4 @@
-import { FETCH_FEATURE_RESOURCE, SET_ALERT } from "./types"
+import { FETCH_FEATURE_RESOURCE, FETCH_RESOURCE_CATEGORIES } from "./types"
 import { setAlert } from "actions/alertActions"
 import { get } from "utils/api"
 
@@ -20,6 +20,19 @@ export const fetchFeatureResource = (mindsetId, location) => async dispatch => {
     dispatch({
       type: FETCH_FEATURE_RESOURCE,
       payload: featureData,
+    })
+  } catch (err) {
+    dispatch(setAlert(err.message, "danger"))
+  }
+}
+
+export const fetchResourceCategories = () => async dispatch => {
+  try {
+    const categories = await get(`/resource_categories`)
+
+    dispatch({
+      type: FETCH_RESOURCE_CATEGORIES,
+      payload: categories.data,
     })
   } catch (err) {
     dispatch(setAlert(err.message, "danger"))

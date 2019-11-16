@@ -1,7 +1,11 @@
-import { FETCH_FEATURE_RESOURCE } from "actions/types"
+import {
+  FETCH_FEATURE_RESOURCE,
+  FETCH_RESOURCE_CATEGORIES,
+} from "actions/types"
 
 const initialState = {
   feature: null,
+  categories: [],
 }
 
 export default function(state = initialState, action) {
@@ -12,6 +16,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         feature: payload,
+      }
+    case FETCH_RESOURCE_CATEGORIES:
+      return {
+        ...state,
+        categories: payload,
       }
     default:
       return state

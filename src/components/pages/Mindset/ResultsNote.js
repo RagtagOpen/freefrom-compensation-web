@@ -1,36 +1,53 @@
 import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
+
+// Data
+import { states } from "data"
 
 // Material UI
-import Typography from "@material-ui/core/Typography"
+import { Typography, Box, Link as MuiLink } from "@material-ui/core"
 
-const ResultsNote = () => {
+const ResultsNote = ({ resource, quiz }) => {
+  const { categories, feature } = resource
+  const { location } = quiz
+
+  const leftoverCategories = categories.filter(
+    category => category.id !== feature.resourceCategory.id
+  )
+  const state = states.filter(state => state.id === location)[0].name
+
+  const buildCategoryBox = category => {
+    return (
+      <Typography
+        variant="body1"
+        paragraph={true}
+        key={`category-${category.id}`}
+      >
+        <MuiLink
+          color="primary"
+          component={Link}
+          to={`/resources/${category.id}`}
+          underline="always"
+        >
+          {category.name}
+        </MuiLink>
+        : {category.description}
+      </Typography>
+    )
+  }
+
   return (
-    <Fragment>
-      <Typography variant="h2">A Note About Your Results</Typography>
+    <>
+      <Box mb={2}>
+        <Typography variant="h2">A Note About Your Results</Typography>
+      </Box>
       <Typography variant="body1" paragraph={true}>
         No person fits perfectly within only one Compensation Mindset. You must
         decide which type of compensation is best for you. Below, you can find
-        information about the other compensation options in Arizona.
+        information about the other compensation options in {state}.
       </Typography>
-
-      <Typography variant="body1" paragraph={true}>
-        <strong>Small Claims Court:</strong> Small claims court deals with
-        financial claims for $[TBD] or less. Cases in small claims court can be
-        heard and decided relatively quickly and cheaply, without legal
-        representation.
-      </Typography>
-
-      <Typography variant="body1" paragraph={true}>
-        <strong>Criminal Restitution:</strong> Criminal Restitution is given
-        during a criminal sentence issued by a judge. It requires the defendant
-        to pay for the damages they have caused.
-      </Typography>
-
-      <Typography variant="body1" paragraph={true}>
-        <strong>VOCA:</strong> Victims of Crime Act (VOCA) funds are available
-        to compensate victims of crime for certain crime-related expenses.
-      </Typography>
-    </Fragment>
+      {leftoverCategories.map(category => buildCategoryBox(category))}
+    </>
   )
 }
 

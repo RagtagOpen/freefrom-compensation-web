@@ -15,13 +15,17 @@ import {
 
 // Redux
 import { loadMindsets } from "actions/mindsetActions"
-import { fetchFeatureResource } from "actions/resourceActions"
+import {
+  fetchFeatureResource,
+  fetchResourceCategories,
+} from "actions/resourceActions"
 
 // Material UI
 import { Typography, Container } from "@material-ui/core"
 
 const Mindset = ({
   fetchFeatureResource,
+  fetchResourceCategories,
   loadMindsets,
   mindset,
   resource,
@@ -39,7 +43,11 @@ const Mindset = ({
     if (resource.feature === null && completed) {
       fetchFeatureResource(quiz.mindset.id, location)
     }
-  }, [loadMindsets, fetchFeatureResource])
+
+    if (resource.categories.length === 0) {
+      fetchResourceCategories()
+    }
+  }, [loadMindsets, fetchFeatureResource, fetchResourceCategories])
 
   if (!quiz.agreement || !quiz.cookies) {
     return <Redirect to="/" />
@@ -66,7 +74,9 @@ const Mindset = ({
           <ReadMore featureResource={resource.feature} quiz={quiz} />
         )}
         <FollowUp />
-        <ResultsNote />
+        {resource.feature !== null && resource.categories.length > 0 && (
+          <ResultsNote resource={resource} quiz={quiz} />
+        )}
         <NextActions />
       </Container>
     )
@@ -87,5 +97,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { loadMindsets, fetchFeatureResource }
+  { loadMindsets, fetchFeatureResource, fetchResourceCategories }
 )(Mindset)

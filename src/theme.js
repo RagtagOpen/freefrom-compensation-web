@@ -176,6 +176,19 @@ const theme = createMuiTheme({
         backgroundColor: "#292F36",
       },
     },
+    MuiExpansionPanel: {
+      root: {
+        backgroundColor: "#F7FFF7",
+        borderTop: "2px solid #47CCCC",
+        borderBottom: "none",
+        boxShadow: "none",
+        borderRadius: "0px !important",
+        margin: 0,
+      },
+    },
+    MuiExpansionPanelSummary: {
+      root: {},
+    },
   },
 })
 

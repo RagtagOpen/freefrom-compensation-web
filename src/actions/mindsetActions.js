@@ -4,8 +4,7 @@ import {
   LOAD_MINDSETS_SUCCESS,
   LOAD_MINDSETS_ERROR,
 } from "./types"
-import { get, post } from "utils/api"
-import { tallyMindsetTotal } from "utils/helpers"
+import { get } from "utils/api"
 
 export const loadMindset = mindsetId => async dispatch => {
   try {

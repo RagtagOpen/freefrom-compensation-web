@@ -10,7 +10,7 @@ import { MindsetList } from "components/pages/Mindset"
 import { loadMindsets } from "actions/mindsetActions"
 
 // Material UI
-import { Typography, Container } from "@material-ui/core"
+import { Typography, Container, Box } from "@material-ui/core"
 
 const Mindsets = ({ loadMindsets, mindset, quiz }) => {
   const { loading, loaded, error, all } = mindset
@@ -38,7 +38,14 @@ const Mindsets = ({ loadMindsets, mindset, quiz }) => {
     return (
       <Fragment>
         <Container maxWidth="md">
-          <MindsetList allMindsets={all} completedQuiz={quiz.completed} />
+          <Box mb={2}>
+            <Typography variant="h2">Browse Compensation Mindsets</Typography>
+          </Box>
+          <MindsetList
+            allMindsets={all}
+            completedQuiz={quiz.completed}
+            slug={quiz.mindset.slug}
+          />
         </Container>
       </Fragment>
     )

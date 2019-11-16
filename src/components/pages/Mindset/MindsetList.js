@@ -15,35 +15,33 @@ import {
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 
 const useStyles = makeStyles(theme => ({
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
   descriptionParagraph: {
     width: "100%",
+  },
+  lastExpandBox: {
+    borderBottom: "2px solid #47CCCC",
   },
 }))
 
 const MindsetList = props => {
   const classes = useStyles()
-  const { allMindsets, completedQuiz } = props
+  const { allMindsets, completedQuiz, slug } = props
 
   const generateButton = () => {
     if (completedQuiz) {
-      return (
-        <Button color="primary" variant="outlined" className={classes.button}>
-          Back To Results
-        </Button>
-      )
-    } else {
       return (
         <Button
           color="primary"
           variant="outlined"
           component={Link}
-          to="/quiz"
-          className={classes.button}
+          to={`/mindsets/${slug}`}
         >
+          Back To Results
+        </Button>
+      )
+    } else {
+      return (
+        <Button color="primary" variant="outlined" component={Link} to="/quiz">
           Take Our Quiz
         </Button>
       )
@@ -53,15 +51,18 @@ const MindsetList = props => {
   return (
     <Fragment>
       <Box mb={2}>
-        {allMindsets.map(mindset => {
+        {allMindsets.map((mindset, index) => {
           return (
-            <ExpansionPanel key={`panel-${mindset.slug}`}>
+            <ExpansionPanel
+              key={`panel-${mindset.slug}`}
+              className={index === 3 && classes.lastExpandBox}
+            >
               <ExpansionPanelSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography className={classes.heading}>
+                <Typography variant="h2" className={classes.heading}>
                   {mindset.name}
                 </Typography>
               </ExpansionPanelSummary>

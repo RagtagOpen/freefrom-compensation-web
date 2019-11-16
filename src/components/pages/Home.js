@@ -16,7 +16,7 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
-  Link as MaterialLink
+  Link as MaterialLink,
 } from "@material-ui/core"
 
 // Components
