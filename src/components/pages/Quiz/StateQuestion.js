@@ -5,8 +5,8 @@ import PropTypes from "prop-types"
 // Redux
 import { setLocation } from "actions/quizActions"
 
-// Helpers
-import { CODES_TO_STATES } from 'utils/helpers'
+// Data
+import { states } from "data"
 
 // Material UI
 import {
@@ -35,15 +35,13 @@ const StateQuestion = ({ quiz, setLocation }) => {
   return (
     <>
       <Box mb={1}>
-        <Typography variant="h2">
-          Question 1 of 8: Location
-        </Typography>
+        <Typography variant="h2">Question 1 of 8: Location</Typography>
       </Box>
 
       <Box mb={1}>
-      <Typography variant="body1">
-        Select the state you live in (the state where the harm occurred).
-      </Typography>
+        <Typography variant="body1">
+          Select the state you live in (the state where the harm occurred).
+        </Typography>
       </Box>
 
       <FormControl className={classes.formControl}>
@@ -54,9 +52,15 @@ const StateQuestion = ({ quiz, setLocation }) => {
           displayEmpty
         >
           <MenuItem value="">Select State</MenuItem>
+<<<<<<< HEAD
           {Object.keys(CODES_TO_STATES).map(state => (
             <MenuItem key={state} value={state}>
               {state}
+=======
+          {states.map(state => (
+            <MenuItem key={state.id} value={state.id}>
+              {state.name}
+>>>>>>> show-mindset-page
             </MenuItem>
           ))}
         </Select>

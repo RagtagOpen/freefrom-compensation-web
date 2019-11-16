@@ -13,6 +13,7 @@ import Dashboard from "components/dashboard/Dashboard"
 import Disclaimer from "components/pages/Disclaimer"
 import NotFound from "components/pages/NotFound"
 import PrivateRoute from "components/routing/PrivateRoute"
+import { Mindset, Mindsets } from "components/pages/Mindset"
 
 const Routes = () => {
   return (
@@ -33,6 +34,13 @@ const Routes = () => {
           />
           <Route exact path="/quiz/question/:id" component={Quiz} />
           <Route exact path="/compensations/:state/:slug/sections/:section" component={CompensationOption} />
+          <Route exact path="/mindsets" component={Mindsets} />
+          <Route exact path="/mindsets/:mindsetSlug" component={Mindset} />
+          <Route
+            exact
+            path="/mindsets/:mindsetSlug/:state"
+            component={Mindset}
+          />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route component={NotFound} />

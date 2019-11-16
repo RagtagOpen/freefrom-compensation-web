@@ -12,6 +12,8 @@ import setAuthToken from "utils/setAuthToken"
 import { Navbar, Footer } from "components/layout"
 import Home from "components/pages/Home"
 
+// TODO: We should move the inline style out and import MaterialUI makeStyles
+
 if (localStorage.token) {
   setAuthToken(localStorage.token)
 }
@@ -26,10 +28,12 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route component={Routes} />
-          </Switch>
+          <div style={{ flex: 1 }}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route component={Routes} />
+            </Switch>
+          </div>
           <Footer />
         </Fragment>
       </Router>

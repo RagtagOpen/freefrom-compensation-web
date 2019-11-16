@@ -13,9 +13,18 @@ import {
   Container,
   Drawer,
   Grid,
+  makeStyles,
 } from "@material-ui/core"
 
+const useStyles = makeStyles(theme => ({
+  link: {
+    color: "#47CCCC",
+  },
+}))
+
 const CookiesConsent = ({ quiz, setCookies }) => {
+  const classes = useStyles()
+
   return (
     <Drawer anchor="bottom" open={quiz.cookies === null}>
       <Container maxWidth="md">
@@ -31,6 +40,7 @@ const CookiesConsent = ({ quiz, setCookies }) => {
               This website uses cookies to ensure you get the best experience on
               our website.{" "}
               <MaterialLink
+                className={classes.link}
                 color="secondary"
                 href="https://www.cookiesandyou.com/"
               >
