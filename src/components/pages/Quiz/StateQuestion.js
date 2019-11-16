@@ -52,15 +52,9 @@ const StateQuestion = ({ quiz, setLocation }) => {
           displayEmpty
         >
           <MenuItem value="">Select State</MenuItem>
-<<<<<<< HEAD
-          {Object.keys(CODES_TO_STATES).map(state => (
-            <MenuItem key={state} value={state}>
-              {state}
-=======
           {states.map(state => (
             <MenuItem key={state.id} value={state.id}>
               {state.name}
->>>>>>> show-mindset-page
             </MenuItem>
           ))}
         </Select>

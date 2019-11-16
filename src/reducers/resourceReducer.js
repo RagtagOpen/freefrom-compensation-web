@@ -1,6 +1,7 @@
 import {
   FETCH_FEATURE_RESOURCE,
   FETCH_RESOURCE_CATEGORIES,
+  FETCH_RESOURCE_FOR_STATE,
 } from "actions/types"
 
 const initialState = {
