@@ -25,13 +25,20 @@ import {
 
 // Components
 import TheDetails from "./TheDetails"
-import List from "./List"
+import TheChallenges from "./TheChallenges"
+import HowToApply from "./HowToApply"
+import WhatToExpect from "./WhatToExpect"
+import WhatIfIDontAgree from "./WhatIfIDontAgree"
+import Resources from "./Resources"
 import { Title } from "components/layout"
 
 const useStyles = makeStyles(theme => ({
   image: {
     width: 264,
   },
+  categoryTitle: {
+    marginBottom: 25,
+  }
 }))
 
 const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, resource }) => {
@@ -53,6 +60,16 @@ const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, re
     switch (section) {
       case "the-details":
         return <TheDetails resource={stateResource} />
+      case "the-challenges":
+        return <TheChallenges resource={stateResource} />
+      case "how-to-apply":
+        return <HowToApply resource={stateResource} />
+      case "what-to-expect":
+        return <WhatToExpect resource={stateResource} />
+      case "what-if-i-dont-agree":
+        return <WhatIfIDontAgree resource={stateResource} />
+      case "resources":
+        return <Resources resource={stateResource} />
       default:
         return null
     }
@@ -85,6 +102,7 @@ const CompensationOption = ({ fetchResourceForState, fetchResourceCategories, re
             variant="h2"
             align="center"
             gutterBottom={true}
+            className={classes.categoryTitle}
           >
             {resourceCategory.name}
           </Typography>

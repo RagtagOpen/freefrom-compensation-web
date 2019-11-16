@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Grid, Typography, Box, makeStyles } from "@material-ui/core"
+import { Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -22,7 +22,7 @@ const TheDetails = ({ resource }) => {
   return (
     <>
       <Typography variant="h3" className={classes.sectionTitle}>
-        SECTION 1: THE DETAILS
+        THE DETAILS
       </Typography>
       {[
         "who",
