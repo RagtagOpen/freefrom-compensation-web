@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 // Material UI
 import {
   Box,
+  Grid,
   Button,
   Container,
   Typography,
@@ -14,12 +15,10 @@ import {
 } from "@material-ui/core"
 
 // Data
-import states from 'data/states'
+import states from "data/states"
 
 // Redux
-import {
-  fetchResourceForState,
-} from "actions/resourceActions"
+import { fetchResourceForState } from "actions/resourceActions"
 
 // Components
 import TheDetails from "./TheDetails"
@@ -37,13 +36,10 @@ const CompensationOption = ({ fetchResourceForState, resource }) => {
   const { section, state: stateCode, slug } = useParams()
   const classes = useStyles()
 
-  useEffect(() => {
-    const stateResource = resource && resource[stateCode] && resource[stateCode][slug]
-
-    if (stateResource === null) {
-      fetchResourceForState(slug, stateCode)
-    }
-  }, [fetchResourceForState])
+  const stateResource = resource.states[stateCode] && resource.states[stateCode][slug]
+  if(!stateResource) {
+    fetchResourceForState(slug, stateCode)
+  }
 
   // TODO: loading
 
@@ -76,10 +72,16 @@ const CompensationOption = ({ fetchResourceForState, resource }) => {
   return (
     <Container maxWidth="md">
       <Title />
-      <Typography variant={"h2"}>
-        For {stateName} Residents
-      </Typography>
-
+      <Typography variant="h2">For {stateName} Residents</Typography>
+      {stateResource ? (
+        <Box mb={2}>
+          <Grid container justify="center" alignItems="center">
+            <img className={classes.image} src={stateResource.image} />
+          </Grid>
+        </Box>
+      ) : (
+        <p>LOADING</p>
+      )}
     </Container>
   )
 }

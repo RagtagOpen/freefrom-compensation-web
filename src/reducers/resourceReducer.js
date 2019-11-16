@@ -3,6 +3,7 @@ import {
   FETCH_RESOURCE_CATEGORIES,
   FETCH_RESOURCE_FOR_STATE,
 } from "actions/types"
+import { resourceCategoryData } from "data"
 
 const initialState = {
   feature: null,
@@ -16,13 +17,19 @@ export default function(state = initialState, action) {
   switch (type) {
     case FETCH_RESOURCE_FOR_STATE:
       /*
-      * payload shape:
-      * {
-      *   state: 'NY',
-      *   category: 'victims-of-crime-act',
-      *   resource: { ... }
-      * }
-      */
+       * payload shape:
+       * {
+       *   state: 'NY',
+       *   category: 'victims-of-crime-act',
+       *   resource: { ... }
+       * }
+       */
+
+      const resourceCategory = resourceCategoryData.find(
+        rc => rc.slug === payload.category
+      )
+      payload.resource.image = resourceCategory.image
+
       return {
         ...state,
         states: {
@@ -30,8 +37,8 @@ export default function(state = initialState, action) {
           [payload.state]: {
             ...state.states[payload.state],
             [payload.category]: payload.resource,
-          }
-        }
+          },
+        },
       }
 
     case FETCH_FEATURE_RESOURCE:
