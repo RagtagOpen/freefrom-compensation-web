@@ -47,7 +47,7 @@ const theme = createMuiTheme({
       fontFamily: "Garamond",
       fontSize: ".75rem",
       lineHeight: "0.833rem",
-      letterSpacing: "0.05em",
+      letterSpacing: "0.1em",
     },
     body1: {
       fontSize: "1rem",
@@ -88,6 +88,7 @@ const theme = createMuiTheme({
     MuiLink: {
       root: {
         color: "#2675D3",
+        fontWeight: 500,
       },
       underlineHover: {
         textDecoration: "underline",

@@ -2,6 +2,9 @@ import React from "react"
 import Markdown from "markdown-to-jsx"
 import { Typography, makeStyles } from "@material-ui/core"
 
+// Data
+import { compensation } from "data"
+
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
     marginBottom: 20,
@@ -9,6 +12,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const TheDetails = ({ resource }) => {
+  const { details } = compensation
   const classes = useStyles()
 
   const titleCase = str => {
@@ -24,19 +28,7 @@ const TheDetails = ({ resource }) => {
       <Typography variant="h3" className={classes.sectionTitle}>
         THE DETAILS
       </Typography>
-      {[
-        "who",
-        "where",
-        "when",
-        "time",
-        "cost",
-        "award",
-        "covered_expenses",
-        "likelihood",
-        "safety",
-        "story",
-        "attorney",
-      ].map(section => {
+      {details.map(section => {
         return resource[section] ? (
           <>
             <Typography variant="body1" paragraph={true}>

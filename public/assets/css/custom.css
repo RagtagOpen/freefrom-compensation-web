@@ -3,3 +3,13 @@
     min-height: 100vh;
     flex-direction: column;
 }
+
+li p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.MuiTypography-root a {
+    color: #2675D3;
+    font-weight: 500;
+}

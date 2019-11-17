@@ -1,8 +1,15 @@
-import { FETCH_FEATURE_RESOURCE, FETCH_RESOURCE_CATEGORIES, FETCH_RESOURCE_FOR_STATE } from "./types"
+import {
+  FETCH_FEATURE_RESOURCE,
+  FETCH_RESOURCE_CATEGORIES,
+  FETCH_RESOURCE_FOR_STATE,
+} from "./types"
 import { setAlert } from "actions/alertActions"
 import { get } from "utils/api"
 
-export const fetchResourceForState = (resourceCategorySlug, location) => async dispatch => {
+export const fetchResourceForState = (
+  resourceCategorySlug,
+  location
+) => async dispatch => {
   try {
     const resource = await get(
       `/resource_categories/${resourceCategorySlug}/resources?state=${location}`
@@ -14,7 +21,7 @@ export const fetchResourceForState = (resourceCategorySlug, location) => async d
         state: location,
         category: resourceCategorySlug,
         resource: resource.data,
-      }
+      },
     })
   } catch (err) {
     dispatch(setAlert(err.message, "danger"))

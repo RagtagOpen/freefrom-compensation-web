@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useParams, Redirect } from "react-router-dom"
 
 // Material UI
 import {
@@ -25,20 +25,25 @@ import {
 
 // Components
 import { Title } from "components/layout"
-import TheDetails from "./TheDetails"
-import TheChallenges from "./TheChallenges"
-import HowToApply from "./HowToApply"
-import WhatToExpect from "./WhatToExpect"
-import WhatIfIDontAgree from "./WhatIfIDontAgree"
-import Resources from "./Resources"
-import Footer from "./Footer"
+import TheDetails from "components/pages/CompensationOption/TheDetails"
+import TheChallenges from "components/pages/CompensationOption/TheChallenges"
+import HowToApply from "components/pages/CompensationOption/HowToApply"
+import WhatToExpect from "components/pages/CompensationOption/WhatToExpect"
+import WhatIfIDontAgree from "components/pages/CompensationOption/WhatIfIDontAgree"
+import Resources from "components/pages/CompensationOption/Resources"
+import Footer from "components/pages/CompensationOption/Footer"
+import { Spinner } from "components/layout"
 
 const useStyles = makeStyles(theme => ({
   image: {
     width: 264,
+    maxWidth: 175,
   },
   categoryTitle: {
     marginBottom: 25,
+  },
+  titleUppercase: {
+    textTransform: "uppercase",
   },
 }))
 
@@ -46,6 +51,7 @@ const CompensationOption = ({
   fetchResourceForState,
   fetchResourceCategories,
   resource,
+  quiz,
 }) => {
   const { section, state: stateCode, slug } = useParams()
   const classes = useStyles()
@@ -76,7 +82,7 @@ const CompensationOption = ({
       case "resources":
         return <Resources resource={stateResource} />
       default:
-        return null
+        return <Redirect to="/404" />
     }
   }
 
@@ -84,7 +90,7 @@ const CompensationOption = ({
     return state.id === stateCode
   }).name
 
-  var resourceCategory
+  let resourceCategory
   if (stateResource) {
     resourceCategory = resource.categories.find(category => {
       return category.id === stateResource.resource_category_id
@@ -112,10 +118,17 @@ const CompensationOption = ({
             {resourceCategory.name}
           </Typography>
           {renderContent()}
-          <Footer resource={stateResource} state={stateCode} slug={slug} currentSection={section} />
+          <Footer
+            resource={stateResource}
+            category={resourceCategory.slug}
+            state={stateCode}
+            quiz={quiz}
+            slug={slug}
+            currentSection={section}
+          />
         </>
       ) : (
-        <p>LOADING</p>
+        <Spinner />
       )}
     </Container>
   )
@@ -123,6 +136,7 @@ const CompensationOption = ({
 
 const mapStateToProps = state => ({
   resource: state.resource,
+  quiz: state.quiz,
 })
 
 export default connect(
