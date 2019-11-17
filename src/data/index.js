@@ -4,6 +4,7 @@ import resourceCategoryData from "data/resourceCategoryData"
 import resourceSections from "data/resourceSections"
 import states from "data/states"
 import compensation from "data/compensation"
+import pages from "data/pages"
 
 export {
   hierarchy,
@@ -12,4 +13,5 @@ export {
   resourceSections,
   states,
   compensation,
+  pages,
 }

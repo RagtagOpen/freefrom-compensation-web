@@ -7,6 +7,7 @@ import { Alert } from "components/layout"
 // Components
 import Login from "components/auth/Login"
 import TermsAndConditions from "components/pages/TermsAndConditions"
+import PrivacyPolicy from "components/pages/PrivacyPolicy"
 import Quiz from "components/pages/Quiz"
 import CompensationOption from "components/pages/CompensationOption/index"
 import Dashboard from "components/dashboard/Dashboard"
@@ -27,6 +28,7 @@ const Routes = () => {
             path="/terms-and-conditions"
             component={TermsAndConditions}
           />
+          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
           <Route
             exact
             path="/quiz"
