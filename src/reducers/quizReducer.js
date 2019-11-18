@@ -11,8 +11,8 @@ import {
 
 const initialState = {
   loading: true,
-  agreement: true,
-  cookies: true,
+  agreement: false,
+  cookies: null,
   location: "",
   question: 0,
   questions: [],
