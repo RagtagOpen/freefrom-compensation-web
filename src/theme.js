@@ -43,7 +43,7 @@ const theme = createMuiTheme({
       letterSpacing: "0.1em",
     },
     h4: {
-      fontWeight: "bold",
+      fontWeight: "600",
       fontSize: ".75rem",
       lineHeight: "0.833rem",
       letterSpacing: "0.1em",
