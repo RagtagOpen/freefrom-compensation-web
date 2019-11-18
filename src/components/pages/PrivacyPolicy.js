@@ -11,10 +11,6 @@ import { Title } from "components/layout"
 // Data
 import { pages } from "data"
 
-const Header1 = ({ children, ...props }) => (
-  <Typography {...props}>{children}</Typography>
-)
-
 const PrivacyPolicy = () => {
   // TODO these override options should be global
   const markdownOptions = {
