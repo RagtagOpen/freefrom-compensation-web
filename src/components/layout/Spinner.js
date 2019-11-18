@@ -1,12 +1,15 @@
 import React, { Fragment } from "react"
-import spinner from "images/general/spinner.gif"
+import { Grid } from "@material-ui/core"
+import loading from "images/general/loading.svg"
 
 export default () => (
   <Fragment>
-    <img
-      src={spinner}
-      style={{ width: "200px", margin: "auto", display: "block" }}
-      alt="Loading..."
-    />
+    <Grid container alignItems="center" justify="center">
+      <img
+        src={loading}
+        style={{ width: "150px", marginTop: "32px" }}
+        alt="Loading..."
+      />
+    </Grid>
   </Fragment>
 )

@@ -27,7 +27,7 @@ const ReadMore = ({ featureResource, quiz }) => {
           <MuiLink
             color="inherit"
             component={Link}
-            to={`/resources/${resource.id}`}
+            to={`/compensations/${resourceCategory.slug}/${quiz.location}`}
             underline="always"
           >
             Read more about {resourceCategory.name} in {state}

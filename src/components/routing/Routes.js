@@ -7,12 +7,15 @@ import { Alert } from "components/layout"
 // Components
 import Login from "components/auth/Login"
 import TermsAndConditions from "components/pages/TermsAndConditions"
+import PrivacyPolicy from "components/pages/PrivacyPolicy"
 import Quiz from "components/pages/Quiz"
+import CompensationOption from "components/pages/CompensationOption/index"
 import Dashboard from "components/dashboard/Dashboard"
 import Disclaimer from "components/pages/Disclaimer"
+import NextSteps from "components/pages/NextSteps"
 import NotFound from "components/pages/NotFound"
-import PrivateRoute from "components/routing/PrivateRoute"
 import { Mindset, Mindsets } from "components/pages/Mindset"
+import PrivateRoute from "components/routing/PrivateRoute"
 
 const Routes = () => {
   return (
@@ -26,6 +29,8 @@ const Routes = () => {
             path="/terms-and-conditions"
             component={TermsAndConditions}
           />
+          <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+          <Route exact path="/disclaimer" component={Disclaimer} />
           <Route
             exact
             path="/quiz"
@@ -39,8 +44,22 @@ const Routes = () => {
             path="/mindsets/:mindsetSlug/:state"
             component={Mindset}
           />
+          <Route
+            exact
+            path="/compensations/:slug/:state/"
+            render={({ match }) => (
+              <Redirect
+                to={`/compensations/${match.params.slug}/${match.params.state}/the-details`}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/compensations/:slug/:state/:section"
+            component={CompensationOption}
+          />
+          <Route exact path="/next-steps" component={NextSteps} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/disclaimer" component={Disclaimer} />
           <Route component={NotFound} />
         </Switch>
       </div>

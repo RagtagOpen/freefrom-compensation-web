@@ -10,7 +10,6 @@ import { Box, Button, Container, Grid } from "@material-ui/core"
 import StateQuestion from "components/pages/Quiz/StateQuestion"
 import QuizQuestion from "components/pages/Quiz/QuizQuestion"
 import { Title } from "components/layout"
-import { isEmpty, mode } from "utils/helpers"
 
 // Redux
 import {
@@ -23,6 +22,9 @@ import { loadMindsets } from "actions/mindsetActions"
 
 // Data
 import { hierarchy } from "data"
+
+// Helpers
+import { isEmpty, mode, scrollToTop } from "utils/helpers"
 
 const Quiz = ({
   quiz,
@@ -145,6 +147,7 @@ const Quiz = ({
               ? tallyResults()
               : "/quiz/question/" + (quiz.question + 2)
           }
+          onClick={scrollToTop}
         >
           Next
         </Button>

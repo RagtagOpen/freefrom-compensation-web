@@ -26,7 +26,7 @@ const ResultsNote = ({ resource, quiz }) => {
         <MuiLink
           color="primary"
           component={Link}
-          to={`/resources/${category.id}`}
+          to={`/compensations/${category.slug}/${location}`}
           underline="always"
         >
           {category.name}
