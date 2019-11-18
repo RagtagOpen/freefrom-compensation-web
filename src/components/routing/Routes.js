@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { Route, Switch, Redirect } from "react-router-dom"
+import { Route, Switch, Redirect, useParams } from "react-router-dom"
 
 // Layout
 import { Alert } from "components/layout"
@@ -17,6 +17,9 @@ import PrivateRoute from "components/routing/PrivateRoute"
 import { Mindset, Mindsets } from "components/pages/Mindset"
 
 const Routes = () => {
+  const params = useParams()
+  console.log(params)
+
   return (
     <Fragment>
       <Alert />
@@ -35,6 +38,15 @@ const Routes = () => {
             render={() => <Redirect to="/quiz/question/1" />}
           />
           <Route exact path="/quiz/question/:id" component={Quiz} />
+          <Route
+            exact
+            path="/compensations/:slug/:state/"
+            render={({ match }) => (
+              <Redirect
+                to={`/compensations/${match.params.slug}/${match.params.state}/the-details`}
+              />
+            )}
+          />
           <Route
             exact
             path="/compensations/:slug/:state/:section"
