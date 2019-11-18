@@ -17,13 +17,13 @@ const Resources = ({ resource }) => {
         RESOURCES
       </Typography>
 
-        {resource.resources.map((resources, idx) => {
-          return (
-            <Typography variant="body1" paragraph={true}>
-              • <Markdown>{resources}</Markdown>
-            </Typography>
-          )
-        })}
+      {resource.resources.map((resources, idx) => {
+        return (
+          <Typography variant="body1" paragraph={true}>
+            • <Markdown>{resources}</Markdown>
+          </Typography>
+        )
+      })}
     </>
   )
 }

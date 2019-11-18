@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
+// Helpers
+import { scrollToTop } from "utils/helpers"
+
 // Data
 import { resourceSections } from "data"
 
@@ -52,6 +55,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
                   color="inherit"
                   component={Link}
                   to={`/compensations/${category}/${state}/${section.slug}`}
+                  onClick={scrollToTop}
                 >
                   {idx + 1}. {section.name}
                 </MuiLink>
@@ -85,6 +89,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
             variant="outlined"
             component={Link}
             to={`/mindsets/${quiz.mindset.slug}/${state}`}
+            onClick={scrollToTop}
           >
             Back To Results
           </Button>
