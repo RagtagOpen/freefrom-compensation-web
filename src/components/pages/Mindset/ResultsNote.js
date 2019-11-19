@@ -39,7 +39,7 @@ const ResultsNote = ({ resource, quiz }) => {
   return (
     <>
       <Box mb={2}>
-        <Typography variant="h2">A Note About Your Results</Typography>
+        <Typography variant="h2">A NOTE ABOUT YOUR RESULTS</Typography>
       </Box>
       <Typography variant="body1" paragraph={true}>
         No person fits perfectly within only one Compensation Mindset. You must
