@@ -103,7 +103,7 @@ const CompensationOption = ({
       <Typography variant="h2">For {stateName} Residents</Typography>
       {stateResource && resourceCategory ? (
         <>
-          <Box mb={2}>
+          <Box mb={2} mt={3}>
             <Grid container justify="center" alignItems="center">
               <img className={classes.image} src={stateResource.image} />
             </Grid>
