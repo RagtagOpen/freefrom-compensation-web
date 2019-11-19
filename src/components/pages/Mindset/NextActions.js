@@ -22,7 +22,7 @@ const ResultsNote = () => {
           color="primary"
           variant="outlined"
           component={Link}
-          to="/quiz/question/1"
+          to="/questions/1"
         >
           Start Over
         </Button>

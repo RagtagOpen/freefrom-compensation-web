@@ -132,7 +132,7 @@ const Quiz = ({
           color="primary"
           variant="outlined"
           component={Link}
-          to={id === 1 ? "/" : "/quiz/question/" + quiz.question}
+          to={id === 1 ? "/" : "/questions/" + quiz.question}
         >
           Back
         </Button>
@@ -145,7 +145,7 @@ const Quiz = ({
           to={
             id === 8 && !canContinue()
               ? tallyResults()
-              : "/quiz/question/" + (quiz.question + 2)
+              : "/questions/" + (quiz.question + 2)
           }
           onClick={scrollToTop}
         >
