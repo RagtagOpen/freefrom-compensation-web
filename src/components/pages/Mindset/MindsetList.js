@@ -41,7 +41,12 @@ const MindsetList = props => {
       )
     } else {
       return (
-        <Button color="primary" variant="outlined" component={Link} to="/quiz">
+        <Button
+          color="primary"
+          variant="outlined"
+          component={Link}
+          to="/questions"
+        >
           Take Our Quiz
         </Button>
       )

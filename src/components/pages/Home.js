@@ -83,7 +83,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
           color="primary"
           variant="contained"
           component={Link}
-          to={"/quiz/question/1"}
+          to={"/questions/1"}
           disabled={!quiz.agreement || quiz.cookies === null}
         >
           Start
