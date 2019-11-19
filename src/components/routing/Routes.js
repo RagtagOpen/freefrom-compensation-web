@@ -33,10 +33,10 @@ const Routes = () => {
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route
             exact
-            path="/quiz"
-            render={() => <Redirect to="/quiz/question/1" />}
+            path="/questions"
+            render={() => <Redirect to="/questions/1" />}
           />
-          <Route exact path="/quiz/question/:id" component={Quiz} />
+          <Route exact path="/questions/:id" component={Quiz} />
           <Route exact path="/mindsets" component={Mindsets} />
           <Route exact path="/mindsets/:mindsetSlug" component={Mindset} />
           <Route
