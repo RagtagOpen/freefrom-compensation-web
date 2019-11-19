@@ -39,7 +39,7 @@ const Quiz = ({
   const id = parseInt(useParams().id)
 
   // If agreement is not agreed to, or cookies are not answered, return to home
-  if (!quiz.agreement || !quiz.cookies) {
+  if (!quiz.agreement) {
     return <Redirect to="/" />
   }
 

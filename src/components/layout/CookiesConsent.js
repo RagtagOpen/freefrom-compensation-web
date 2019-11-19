@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import Cookies from "js-cookie"
 
 // Redux
 import { setCookies } from "actions/quizActions"
@@ -24,6 +25,20 @@ const useStyles = makeStyles(theme => ({
 
 const CookiesConsent = ({ quiz, setCookies }) => {
   const classes = useStyles()
+
+  if (Cookies.get("c") !== undefined) {
+    // Cookie set already!
+    setCookies(true)
+    return null
+  }
+
+  const handleClick = cookies => {
+    if (cookies) {
+      Cookies.set("c", "true")
+    }
+
+    setCookies(cookies)
+  }
 
   return (
     <Drawer anchor="bottom" open={quiz.cookies === null}>
@@ -53,7 +68,7 @@ const CookiesConsent = ({ quiz, setCookies }) => {
               color="secondary"
               variant="outlined"
               onClick={() => {
-                setCookies(false)
+                handleClick(false)
               }}
             >
               Decline
@@ -64,7 +79,7 @@ const CookiesConsent = ({ quiz, setCookies }) => {
               color="secondary"
               variant="contained"
               onClick={() => {
-                setCookies(true)
+                handleClick(true)
               }}
             >
               Accept

@@ -20,7 +20,11 @@ const WhatIfIDontAgree = ({ resource }) => {
       {resource.what_if_i_disagree !== null ? (
         resource.what_if_i_disagree.map((step, idx) => {
           return (
-            <Typography variant="body1" paragraph={true}>
+            <Typography
+              variant="body1"
+              paragraph={true}
+              key={`what-if-i-dont-agree-${idx}`}
+            >
               • <Markdown>{step}</Markdown>
             </Typography>
           )

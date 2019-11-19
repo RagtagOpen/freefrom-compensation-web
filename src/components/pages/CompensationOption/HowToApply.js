@@ -17,13 +17,17 @@ const HowToApply = ({ resource }) => {
         HOW TO APPLY
       </Typography>
 
-        {resource.steps.map((step, idx) => {
-          return (
-            <Typography variant="body1" paragraph={true}>
-              <Markdown>{step}</Markdown>
-            </Typography>
-          )
-        })}
+      {resource.steps.map((step, idx) => {
+        return (
+          <Typography
+            variant="body1"
+            paragraph={true}
+            key={`how-to-apply-${idx}`}
+          >
+            <Markdown>{step}</Markdown>
+          </Typography>
+        )
+      })}
     </>
   )
 }

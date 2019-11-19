@@ -37,6 +37,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
             variant="contained"
             component={Link}
             to={`/compensations/${category}/${state}/${nextSection}`}
+            onClick={scrollToTop}
           >
             Next Section
           </Button>
@@ -50,7 +51,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
         .map((section, idx, filteredArray) => {
           if (currentSection !== section.slug) {
             return (
-              <Typography paragraph={true}>
+              <Typography paragraph={true} key={`footer-links-${idx}`}>
                 <MuiLink
                   color="inherit"
                   component={Link}
@@ -76,7 +77,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
             }
 
             return (
-              <Typography paragraph={true}>
+              <Typography paragraph={true} key={`footer-links-${idx}`}>
                 {idx + 1}. {section.name}
               </Typography>
             )
