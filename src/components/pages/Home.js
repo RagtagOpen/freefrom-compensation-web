@@ -36,7 +36,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
     <Container maxWidth="md">
       <Title />
       <Box mb={2}>
-        <Typography variant="body2">
+        <Typography variant="body1">
           As a survivor of domestic violence, you could be eligible for money to
           cover some of the costs of the harm you experienced. This tool is
           designed to help you understand your options and how to pursue them.
@@ -45,7 +45,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
         </Typography>
       </Box>
       <Box mb={1}>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle2">
           Disclaimer: This is an educational and informational tool and the
           information contained within it does in no way constitute legal
           advice. Any person who intends to use the information contained herein
