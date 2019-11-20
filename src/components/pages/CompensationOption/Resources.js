@@ -20,7 +20,7 @@ const Resources = ({ resource }) => {
       {resource.resources.map((resources, idx) => {
         return (
           <Typography variant="body1" paragraph={true}>
-            • <Markdown>{resources}</Markdown>
+            <Markdown>{resources}</Markdown>
           </Typography>
         )
       })}

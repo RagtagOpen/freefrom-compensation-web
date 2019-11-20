@@ -17,13 +17,13 @@ const TheChallenges = ({ resource }) => {
         THE CHALLENGES
       </Typography>
 
-        {resource.challenges.map((challenge, idx) => {
-          return (
-            <Typography variant="body1" paragraph={true}>
-              {idx + 1}. <Markdown>{challenge}</Markdown>
-            </Typography>
-          )
-        })}
+      {resource.challenges.map((challenge, idx) => {
+        return (
+          <Typography variant="body1" paragraph={true}>
+            <Markdown>{`${idx + 1}) ${challenge}`}</Markdown>
+          </Typography>
+        )
+      })}
     </>
   )
 }

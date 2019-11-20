@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Box, Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const WhatIfIDontAgree = ({ resource }) => {
+const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
   const classes = useStyles()
 
   return (
@@ -20,9 +20,17 @@ const WhatIfIDontAgree = ({ resource }) => {
       {resource.what_if_i_disagree !== null ? (
         resource.what_if_i_disagree.map((step, idx) => {
           return (
-            <Typography variant="body1" paragraph={true}>
-              • <Markdown>{step}</Markdown>
-            </Typography>
+            <Box ml={3}>
+              <Typography variant="body1" paragraph={true}>
+                {resourceCategory === "small-claims-court" ? (
+                  <Markdown>{step}</Markdown>
+                ) : (
+                  <>
+                    <Markdown>{`• ${step}`}</Markdown>
+                  </>
+                )}
+              </Typography>
+            </Box>
           )
         })
       ) : (

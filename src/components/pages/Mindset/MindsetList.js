@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 const MindsetList = props => {
   const classes = useStyles()
-  const { allMindsets, completedQuiz, slug } = props
+  const { allMindsets, allResourceCategories, completedQuiz, slug } = props
 
   const generateButton = () => {
     if (completedQuiz) {
@@ -57,6 +57,8 @@ const MindsetList = props => {
     <Fragment>
       <Box mb={2}>
         {allMindsets.map((mindset, index) => {
+          const category = allResourceCategories.find(c => c.id === mindset.resource_category_id).name
+
           return (
             <ExpansionPanel
               key={`panel-${mindset.slug}`}
@@ -72,13 +74,19 @@ const MindsetList = props => {
                 </Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
-                <Typography
-                  variant="body1"
-                  paragraph={true}
-                  className={classes.descriptionParagraph}
-                >
-                  {mindset.description}
-                </Typography>
+                <Box display="flex" flexDirection="column">
+                  <Typography
+                    variant="body1"
+                    paragraph={true}
+                    className={classes.descriptionParagraph}
+                  >
+                    {mindset.description}
+                  </Typography>
+
+                  <Typography variant="body1" paragraph={true} className={classes.descriptionParagraph}>
+                    {mindset.name}'s goals and priorities are best matched with {category}.
+                  </Typography>
+                </Box>
               </ExpansionPanelDetails>
             </ExpansionPanel>
           )
