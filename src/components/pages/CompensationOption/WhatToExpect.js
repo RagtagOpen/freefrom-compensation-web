@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Box, Typography, makeStyles } from "@material-ui/core"
+import { Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
