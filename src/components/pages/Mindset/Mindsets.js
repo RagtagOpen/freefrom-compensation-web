@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 // Components
-import { Spinner } from "components/layout"
+import { Spinner, Title } from "components/layout"
 import { MindsetList } from "components/pages/Mindset"
 
 // Redux
@@ -27,6 +27,7 @@ const Mindsets = ({ loadMindsets, mindset, quiz }) => {
     return (
       <Fragment>
         <Container maxWidth="lg">
+          <Title />
           <Typography variant="h1">Your Compensation Mindset</Typography>
           <Typography variant="body1">
             There was a problem loading your results! Try again?
@@ -38,6 +39,7 @@ const Mindsets = ({ loadMindsets, mindset, quiz }) => {
     return (
       <Fragment>
         <Container maxWidth="md">
+          <Title />
           <Box mb={2}>
             <Typography variant="h2">Browse Compensation Mindsets</Typography>
           </Box>
