@@ -6,9 +6,6 @@ const useStyles = makeStyles(theme => ({
   sectionTitle: {
     marginBottom: 20,
   },
-  markdown: {
-    marginLeft: 0,
-  },
 }))
 
 const TheChallenges = ({ resource }) => {
@@ -23,7 +20,7 @@ const TheChallenges = ({ resource }) => {
       {resource.challenges.map((challenge, idx) => {
         return (
           <Typography variant="body1" paragraph={true}>
-            <Markdown className={classes.markdown}>{`${idx + 1}) ${challenge}`}</Markdown>
+            <Markdown>{`${idx + 1}) ${challenge}`}</Markdown>
           </Typography>
         )
       })}
