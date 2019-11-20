@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Box, Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -17,13 +17,15 @@ const HowToApply = ({ resource }) => {
         HOW TO APPLY
       </Typography>
 
-        {resource.steps.map((step, idx) => {
+      <Box ml={3}>
+        {resource.steps.map((step) => {
           return (
             <Typography variant="body1" paragraph={true}>
               <Markdown>{step}</Markdown>
             </Typography>
           )
         })}
+      </Box>
     </>
   )
 }

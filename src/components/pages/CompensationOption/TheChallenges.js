@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Box, Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -17,13 +17,15 @@ const TheChallenges = ({ resource }) => {
         THE CHALLENGES
       </Typography>
 
-      {resource.challenges.map((challenge, idx) => {
-        return (
-          <Typography variant="body1" paragraph={true}>
-            <Markdown>{`${idx + 1}) ${challenge}`}</Markdown>
-          </Typography>
-        )
-      })}
+      <Box ml={3}>
+        {resource.challenges.map((challenge) => {
+          return (
+            <Typography variant="body1" paragraph={true} key={challenge}>
+              <Markdown>{challenge}</Markdown>
+            </Typography>
+          )
+        })}
+      </Box>
     </>
   )
 }
