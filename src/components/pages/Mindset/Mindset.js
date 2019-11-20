@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import { Redirect } from "react-router-dom"
 
 // Components
-import { Spinner } from "components/layout"
+import { Spinner, Title } from "components/layout"
 import {
   MindsetBody,
   FollowUp,
@@ -58,6 +58,7 @@ const Mindset = ({
   } else if (error) {
     return (
       <Container maxWidth="md">
+        <Title />
         <Typography variant="h1">Your Compensation Mindset</Typography>
         <Typography variant="body1">
           There was a problem loading your results! Try again?
@@ -69,6 +70,7 @@ const Mindset = ({
 
     return (
       <Container maxWidth="md">
+        <Title />
         <MindsetBody mindset={current} />
         {resource.feature !== null && (
           <ReadMore featureResource={resource.feature} quiz={quiz} />
