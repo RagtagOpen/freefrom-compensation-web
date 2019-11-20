@@ -46,6 +46,7 @@ const MindsetList = props => {
           variant="outlined"
           component={Link}
           to="/questions/1"
+          to="/questions"
         >
           Take Our Quiz
         </Button>
