@@ -21,10 +21,16 @@ const theme = createMuiTheme({
   },
   typography: {
     root: {
-      fontFamily: ['"Proxima Nova Rg"'],
       fontSize: 16,
       lineHeight: 24,
     },
+    fontFamily: [
+      '"Proxima Nova Rg"',
+       'Roboto', 
+       'Helvetica', 
+       'Arial', 
+       'sans-serif'
+    ].join(","),
     h1: {
       fontSize: "1.75rem",
       lineHeight: "2.25rem",
