@@ -22,7 +22,7 @@ const WhatToExpect = ({ resource }) => {
           return (
             <Box ml={3}>
               <Typography variant="body1" paragraph={true}>
-                • <Markdown>{step}</Markdown>
+                <Markdown>{`• ${step}`}</Markdown>
               </Typography>
             </Box>
           )
