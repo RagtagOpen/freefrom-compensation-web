@@ -32,6 +32,7 @@ const theme = createMuiTheme({
        'sans-serif'
     ].join(","),
     h1: {
+      fontWeight: "600",
       fontSize: "1.75rem",
       lineHeight: "2.25rem",
       letterSpacing: "0.05em",
