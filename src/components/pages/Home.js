@@ -2,6 +2,7 @@ import React from "react"
 import { Redirect, Link } from "react-router-dom"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import ReactGA from "react-ga"
 
 // Redux
 import { setAgreement, setCookies } from "actions/quizActions"
@@ -85,6 +86,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
           component={Link}
           to={"/questions/1"}
           disabled={!quiz.agreement || quiz.cookies === null}
+          onClick={ReactGA.event({ category: "User", action: "Start Quiz" })}
         >
           Start
         </Button>

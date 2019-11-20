@@ -11,6 +11,7 @@ import {
 
 const initialState = {
   loading: true,
+  loaded: false,
   agreement: false,
   cookies: null,
   location: "",
@@ -48,6 +49,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         questions: payload,
+        loaded: true,
       }
     case SET_QUIZ_TALLY:
       const questions = state.questions

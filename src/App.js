@@ -9,8 +9,9 @@ import { loadUser } from "actions/authActions"
 import setAuthToken from "utils/setAuthToken"
 
 // Components
-import { Navbar, Footer } from "components/layout"
 import Home from "components/pages/Home"
+import { Navbar, Footer } from "components/layout"
+import withTracker from "components/routing/withTracker"
 
 // TODO: We should move the inline style out and import MaterialUI makeStyles
 
@@ -30,8 +31,8 @@ const App = () => {
           <Navbar />
           <div style={{ flex: 1 }}>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route component={Routes} />
+              <Route exact path="/" component={withTracker(Home)} />
+              <Route component={withTracker(Routes)} />
             </Switch>
           </div>
           <Footer />
