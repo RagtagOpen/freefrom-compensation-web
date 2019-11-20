@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Box, Typography, makeStyles } from "@material-ui/core"
+import { Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -18,20 +18,18 @@ const WhatToExpect = ({ resource }) => {
       </Typography>
 
       {resource.what_to_expect !== null ? (
-        resource.what_to_expect.map((step, idx) => {
-          return (
-            <Box ml={3}>
-              <Typography variant="body1" paragraph={true}>
-                <Markdown>{`• ${step}`}</Markdown>
-              </Typography>
-            </Box>
-          )
-        })
-      ) : (
-        <Typography variant="body1" paragraph={true}>
-          TODO: have some copy if this resource doesn't have this section?
-        </Typography>
-      )}
+        <ul>
+          {resource.what_to_expect.map(step => {
+            return (
+              <li key={step}>
+                <Typography variant="body1" paragraph={true}>
+                  <Markdown>{step}</Markdown>
+                </Typography>
+              </li>
+            )
+          })}
+        </ul>
+      ) : null}
     </>
   )
 }

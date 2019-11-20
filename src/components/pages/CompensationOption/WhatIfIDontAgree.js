@@ -18,26 +18,30 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
       </Typography>
 
       {resource.what_if_i_disagree !== null ? (
-        resource.what_if_i_disagree.map((step, idx) => {
-          return (
-            <Box ml={3}>
-              <Typography variant="body1" paragraph={true}>
-                {resourceCategory === "small-claims-court" ? (
+        resourceCategory === "small-claims-court" ? (
+          <Box ml={3}>
+            {resource.what_if_i_disagree.map(step => {
+              return (
+                <Typography varient="body1" key={step}>
                   <Markdown>{step}</Markdown>
-                ) : (
-                  <>
-                    <Markdown>{`• ${step}`}</Markdown>
-                  </>
-                )}
-              </Typography>
-            </Box>
-          )
-        })
-      ) : (
-        <Typography variant="body1" paragraph={true}>
-          TODO: have some copy if this resource doesn't have this section?
-        </Typography>
-      )}
+                </Typography>
+              )
+            })}
+          </Box>
+        ) : (
+          <ul>
+            {resource.what_if_i_disagree.map(step => {
+              return (
+                <li key={step}>
+                  <Typography varient="body1">
+                    <Markdown>{step}</Markdown>
+                  </Typography>
+                </li>
+              )
+            })}
+          </ul>
+        )
+      ) : null}
     </>
   )
 }
