@@ -78,7 +78,7 @@ const CompensationOption = ({
       case "what-to-expect":
         return <WhatToExpect resource={stateResource} />
       case "what-if-i-dont-agree":
-        return <WhatIfIDontAgree resource={stateResource} />
+        return <WhatIfIDontAgree resource={stateResource} resourceCategory={slug} />
       case "resources":
         return <Resources resource={stateResource} />
       default:

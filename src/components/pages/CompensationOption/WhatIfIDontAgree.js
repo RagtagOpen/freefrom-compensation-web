@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Box, Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const WhatIfIDontAgree = ({ resource }) => {
+const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
   const classes = useStyles()
 
   return (
@@ -18,22 +18,39 @@ const WhatIfIDontAgree = ({ resource }) => {
       </Typography>
 
       {resource.what_if_i_disagree !== null ? (
-        resource.what_if_i_disagree.map((step, idx) => {
-          return (
-            <Typography
-              variant="body1"
-              paragraph={true}
-              key={`what-if-i-dont-agree-${idx}`}
-            >
-              • <Markdown>{step}</Markdown>
-            </Typography>
-          )
-        })
-      ) : (
-        <Typography variant="body1" paragraph={true}>
-          TODO: have some copy if this resource doesn't have this section?
-        </Typography>
-      )}
+        resourceCategory === "small-claims-court" ? (
+          <Box ml={3}>
+            {resource.what_if_i_disagree.map(step => {
+              return (
+                <Typography
+                  varient="body1"
+                  key={step}
+                  paragraph={true}
+                  key={`what-if-i-dont-agree-${idx}`}
+                >
+                  <Markdown>{step}</Markdown>
+                </Typography>
+              )
+            })}
+          </Box>
+        ) : (
+          <ul>
+            {resource.what_if_i_disagree.map(step => {
+              return (
+                <li key={step}>
+                  <Typography
+                    varient="body1"
+                    paragraph={true}
+                    key={`what-if-i-dont-agree-${idx}`}
+                  >
+                    <Markdown>{step}</Markdown>
+                  </Typography>
+                </li>
+              )
+            })}
+          </ul>
+        )
+      ) : null}
     </>
   )
 }

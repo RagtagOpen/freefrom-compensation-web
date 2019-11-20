@@ -27,7 +27,7 @@ export default () => {
 
         <Grid item sm={11} xs={9}>
           <Box ml={2}>
-            <Typography variant={"h1"}>Compensation Compass</Typography>
+            <Typography variant={"h1"} style={{ fontWeight: "normal" }}>Compensation Compass</Typography>
           </Box>
         </Grid>
       </Grid>

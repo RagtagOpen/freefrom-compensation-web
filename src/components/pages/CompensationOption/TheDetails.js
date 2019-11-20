@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Box, Typography, makeStyles } from "@material-ui/core"
 
 // Data
 import { compensation } from "data"
@@ -28,17 +28,20 @@ const TheDetails = ({ resource }) => {
       <Typography variant="h3" className={classes.sectionTitle}>
         THE DETAILS
       </Typography>
-      {details.map(section => {
-        return resource[section] ? (
-          <>
-            <Typography variant="body1" paragraph={true}>
-              <Markdown>{`**${titleCase(section)}:** ${
-                resource[section]
-              }`}</Markdown>
-            </Typography>
-          </>
-        ) : null
-      })}
+
+      <Box ml={3}>
+        {details.map(section => {
+          return resource[section] ? (
+            <>
+              <Typography variant="body1" paragraph={true}>
+                <Markdown>{`**${titleCase(section)}:** ${
+                  resource[section]
+                }`}</Markdown>
+              </Typography>
+            </>
+          ) : null
+        })}
+      </Box>
     </>
   )
 }

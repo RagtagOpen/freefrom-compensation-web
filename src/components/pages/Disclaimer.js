@@ -13,7 +13,7 @@ const Disclaimer = () => {
       <Box mb={2}>
         <Typography variant="h1">Disclaimer</Typography>
       </Box>
-      <Typography variant="body2">
+      <Typography variant="body1">
         This is an educational and informational tool and the information
         contained within it does in no way constitute legal advice. Any person
         who intends to use the information in this tool in any way is solely

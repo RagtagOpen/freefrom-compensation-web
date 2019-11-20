@@ -51,7 +51,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
         .map((section, idx, filteredArray) => {
           if (currentSection !== section.slug) {
             return (
-              <Typography paragraph={true} key={`footer-links-${idx}`}>
+              <Typography paragraph={true} key={`footer-${idx}`}>
                 <MuiLink
                   color="inherit"
                   component={Link}
@@ -77,7 +77,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
             }
 
             return (
-              <Typography paragraph={true} key={`footer-links-${idx}`}>
+              <Typography paragraph={true} key={`footer-${idx}`}>
                 {idx + 1}. {section.name}
               </Typography>
             )

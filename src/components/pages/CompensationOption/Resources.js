@@ -1,6 +1,6 @@
 import React from "react"
 import Markdown from "markdown-to-jsx"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Box, Typography, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   sectionTitle: {
@@ -17,13 +17,15 @@ const Resources = ({ resource }) => {
         RESOURCES
       </Typography>
 
-      {resource.resources.map((resources, idx) => {
-        return (
-          <Typography variant="body1" paragraph={true}>
-            • <Markdown>{resources}</Markdown>
-          </Typography>
-        )
-      })}
+      <Box ml={3}>
+        {resource.resources.map((resources, idx) => {
+          return (
+            <Typography variant="body1" paragraph={true}>
+              <Markdown>{resources}</Markdown>
+            </Typography>
+          )
+        })}
+      </Box>
     </>
   )
 }

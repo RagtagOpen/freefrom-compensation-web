@@ -42,7 +42,7 @@ const PrivacyPolicy = () => {
       p: {
         component: Typography,
         props: {
-          variant: "body2",
+          variant: "body1",
           style: { margin: "16px 0px" },
         },
       },

@@ -12,7 +12,7 @@ const resourceSections = [
     name: "What if I Don't Agree With the Judge's Decision?",
     omitFor: ["civil-tort", "criminal-restitution"],
   },
-  { slug: "resources", name: "Resources", omitFor: [] },
+  { slug: "resources", name: "Resources", omitFor: ["criminal-restitution"] },
 ]
 
 export default resourceSections

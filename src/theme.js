@@ -21,11 +21,18 @@ const theme = createMuiTheme({
   },
   typography: {
     root: {
-      fontFamily: ["Proxima Nova Rg"],
       fontSize: 16,
       lineHeight: 24,
     },
+    fontFamily: [
+      '"Proxima Nova Rg"',
+       'Roboto', 
+       'Helvetica', 
+       'Arial', 
+       'sans-serif'
+    ].join(","),
     h1: {
+      fontWeight: "600",
       fontSize: "1.75rem",
       lineHeight: "2.25rem",
       letterSpacing: "0.05em",
@@ -63,8 +70,13 @@ const theme = createMuiTheme({
       lineHeight: "1.25rem",
       letterSpacing: "0.05em",
     },
+    subtitle2: {
+      color: "#6E7E91",
+      fontFamily: "Proxima Nova Rg",
+      fontSize: "1rem",
+      lineHeight: "1.5rem",
+    },
     button: {
-      fontFamily: "Roboto",
       fontWeight: 500,
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
