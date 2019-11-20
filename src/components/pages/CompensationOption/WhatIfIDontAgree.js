@@ -20,7 +20,7 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
       {resource.what_if_i_disagree !== null ? (
         resourceCategory === "small-claims-court" ? (
           <Box ml={3}>
-            {resource.what_if_i_disagree.map(step => {
+            {resource.what_if_i_disagree.map((step, idx) => {
               return (
                 <Typography
                   varient="body1"
@@ -35,7 +35,7 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
           </Box>
         ) : (
           <ul>
-            {resource.what_if_i_disagree.map(step => {
+            {resource.what_if_i_disagree.map((step, idx) => {
               return (
                 <li key={step}>
                   <Typography

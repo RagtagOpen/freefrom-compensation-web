@@ -21,7 +21,9 @@ import {
 import { Title } from "components/layout"
 
 const NextSteps = ({ quiz }) => {
-  const [email, setEmail] = useState("example@email.com")
+  const [email, setEmail] = useState()
+  const [followup, setFollowup] = useState(false)
+  const [success, setSuccess] = useState()
 
   if (!quiz.agreement || !quiz.cookies) {
     return <Redirect to="/" />
@@ -34,7 +36,18 @@ const NextSteps = ({ quiz }) => {
       state: quiz.location,
     }
 
-    post("/send-results", data)
+    post("/send-results", data).then((resp, err) => {
+      if (err) {
+        // Alert
+        console.log(err)
+      } else {
+        setSuccess(true)
+      }
+    })
+  }
+
+  if (success) {
+    return <Redirect to="/next-steps/success" />
   }
 
   return (
@@ -56,7 +69,6 @@ const NextSteps = ({ quiz }) => {
                 id="email"
                 label="Email Address"
                 margin="normal"
-                placeholder="example@email.com"
                 style={{ width: "300px" }}
                 value={email}
                 onChange={e => setEmail(e.target.value)}
