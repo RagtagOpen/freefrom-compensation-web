@@ -26,7 +26,7 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
                   <Markdown>{step}</Markdown>
                 ) : (
                   <>
-                    • <Markdown>{step}</Markdown>
+                    <Markdown>{`• ${step}`}</Markdown>
                   </>
                 )}
               </Typography>
