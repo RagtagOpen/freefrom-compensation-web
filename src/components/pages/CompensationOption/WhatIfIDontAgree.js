@@ -22,7 +22,7 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
           <Box ml={3}>
             {resource.what_if_i_disagree.map(step => {
               return (
-                <Typography varient="body1" key={step}>
+                <Typography varient="body1" key={step} paragraph={true}>
                   <Markdown>{step}</Markdown>
                 </Typography>
               )
@@ -33,7 +33,7 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
             {resource.what_if_i_disagree.map(step => {
               return (
                 <li key={step}>
-                  <Typography varient="body1">
+                  <Typography varient="body1" paragraph={true}>
                     <Markdown>{step}</Markdown>
                   </Typography>
                 </li>
