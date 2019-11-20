@@ -42,12 +42,11 @@ const useStyles = makeStyles(theme => ({
     width: "auto",
   },
   link: {
-    fontFamily: "Roboto",
+    fontFamily: '"Proxima Nova Rg"',
     textTransform: "uppercase",
     color: "#F06449",
     fontSize: "1.125rem",
     letterSpacing: "0.1em",
-    fontWeight: 500,
     textDecoration: "none",
     "&:hover": {
       textDecoration: "none",
