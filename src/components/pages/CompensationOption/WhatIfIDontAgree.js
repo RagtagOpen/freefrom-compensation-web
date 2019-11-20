@@ -21,19 +21,25 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
         resourceCategory === "small-claims-court" ? (
           <Box ml={3}>
             {resource.what_if_i_disagree.map(step => {
-              return <Markdown>{step}</Markdown>
+              return (
+                <Typography varient="body1" key={step}>
+                  <Markdown>{step}</Markdown>
+                </Typography>
+              )
             })}
           </Box>
         ) : (
-          resource.what_if_i_disagree.map(step => {
-            return (
-              <ul>
-                <li>
-                  <Markdown>{step}</Markdown>
+          <ul>
+            {resource.what_if_i_disagree.map(step => {
+              return (
+                <li key={step}>
+                  <Typography varient="body1">
+                    <Markdown>{step}</Markdown>
+                  </Typography>
                 </li>
-              </ul>
-            )
-          })
+              )
+            })}
+          </ul>
         )
       ) : null}
     </>
