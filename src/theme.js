@@ -75,10 +75,8 @@ const theme = createMuiTheme({
       fontFamily: "Proxima Nova Rg",
       fontSize: "1rem",
       lineHeight: "1.5rem",
-      letterSpacing: "0.05em",
     },
     button: {
-      fontFamily: "Roboto",
       fontWeight: 500,
       fontSize: "1.125rem",
       lineHeight: "1.5rem",
