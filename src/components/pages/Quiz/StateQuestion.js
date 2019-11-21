@@ -40,12 +40,6 @@ const StateQuestion = ({ quiz, setLocation }) => {
         </Typography>
       </Box>
 
-      <Box mb={1}>
-        <Typography variant="body1">
-          Select the state you live in (the state where the harm occurred).
-        </Typography>
-      </Box>
-
       <FormControl className={classes.formControl}>
         <Select
           id="select"
