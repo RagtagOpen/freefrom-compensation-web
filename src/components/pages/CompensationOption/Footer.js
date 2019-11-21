@@ -37,6 +37,7 @@ const Footer = ({ currentSection, resource, category, state, slug, quiz }) => {
             variant="contained"
             component={Link}
             to={`/compensations/${category}/${state}/${nextSection}`}
+            onClick={scrollToTop}
           >
             Next Section
           </Button>

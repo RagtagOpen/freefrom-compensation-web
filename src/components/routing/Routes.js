@@ -13,6 +13,7 @@ import CompensationOption from "components/pages/CompensationOption/index"
 import Dashboard from "components/dashboard/Dashboard"
 import Disclaimer from "components/pages/Disclaimer"
 import NextSteps from "components/pages/NextSteps"
+import NextStepsSuccess from "components/pages/NextStepsSuccess"
 import NotFound from "components/pages/NotFound"
 import { Mindset, Mindsets } from "components/pages/Mindset"
 import PrivateRoute from "components/routing/PrivateRoute"
@@ -59,6 +60,11 @@ const Routes = () => {
             component={CompensationOption}
           />
           <Route exact path="/next-steps" component={NextSteps} />
+          <Route
+            exact
+            path="/next-steps/success"
+            component={NextStepsSuccess}
+          />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route component={NotFound} />
         </Switch>

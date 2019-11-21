@@ -14,15 +14,20 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
   return (
     <>
       <Typography variant="h3" className={classes.sectionTitle}>
-        WHAT IF I DON'T AGREE WITH THE JUDGE'S DECISION?
+        WHAT IF I DON'T AGREE WITH THE DECISION?
       </Typography>
 
       {resource.what_if_i_disagree !== null ? (
         resourceCategory === "small-claims-court" ? (
           <Box ml={3}>
-            {resource.what_if_i_disagree.map(step => {
+            {resource.what_if_i_disagree.map((step, idx) => {
               return (
-                <Typography varient="body1" key={step} paragraph={true}>
+                <Typography
+                  varient="body1"
+                  key={step}
+                  paragraph={true}
+                  key={`what-if-i-dont-agree-${idx}`}
+                >
                   <Markdown>{step}</Markdown>
                 </Typography>
               )
@@ -30,10 +35,14 @@ const WhatIfIDontAgree = ({ resource, resourceCategory }) => {
           </Box>
         ) : (
           <ul>
-            {resource.what_if_i_disagree.map(step => {
+            {resource.what_if_i_disagree.map((step, idx) => {
               return (
                 <li key={step}>
-                  <Typography varient="body1" paragraph={true}>
+                  <Typography
+                    varient="body1"
+                    paragraph={true}
+                    key={`what-if-i-dont-agree-${idx}`}
+                  >
                     <Markdown>{step}</Markdown>
                   </Typography>
                 </li>

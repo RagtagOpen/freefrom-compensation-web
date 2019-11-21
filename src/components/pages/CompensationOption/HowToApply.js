@@ -18,9 +18,13 @@ const HowToApply = ({ resource }) => {
       </Typography>
 
       <Box ml={3}>
-        {resource.steps.map((step) => {
+        {resource.steps.map((step, idx) => {
           return (
-            <Typography variant="body1" paragraph={true}>
+            <Typography
+              variant="body1"
+              paragraph={true}
+              key={`how-to-apply-${idx}`}
+            >
               <Markdown>{step}</Markdown>
             </Typography>
           )

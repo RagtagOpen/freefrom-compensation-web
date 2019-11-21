@@ -9,7 +9,7 @@ const resourceSections = [
   },
   {
     slug: "what-if-i-dont-agree",
-    name: "What if I Don't Agree With the Judge's Decision?",
+    name: "What if I Don't Agree With the Decision?",
     omitFor: ["civil-tort", "criminal-restitution"],
   },
   { slug: "resources", name: "Resources", omitFor: ["criminal-restitution"] },

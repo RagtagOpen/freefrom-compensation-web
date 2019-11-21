@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Redirect, Link, useParams } from "react-router-dom"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
@@ -9,7 +9,7 @@ import { Box, Button, Container, Grid } from "@material-ui/core"
 // Components
 import StateQuestion from "components/pages/Quiz/StateQuestion"
 import QuizQuestion from "components/pages/Quiz/QuizQuestion"
-import { Title } from "components/layout"
+import { Title, Spinner } from "components/layout"
 
 // Redux
 import {
@@ -39,7 +39,7 @@ const Quiz = ({
   const id = parseInt(useParams().id)
 
   // If agreement is not agreed to, or cookies are not answered, return to home
-  if (!quiz.agreement || !quiz.cookies) {
+  if (!quiz.agreement) {
     return <Redirect to="/" />
   }
 
@@ -119,39 +119,46 @@ const Quiz = ({
     return `/mindsets/${currentMindset.slug}/${quiz.location}`
   }
 
+  // Quiz not loaded yet, show loading
+
   return (
     <Container maxWidth="md">
       <Title />
+      {quiz.loaded ? (
+        <>
+          <Box mt={4} mb={4}>
+            {id === 1 ? <StateQuestion /> : <QuizQuestion />}
+          </Box>
 
-      <Box mt={4} mb={4}>
-        {id === 1 ? <StateQuestion /> : <QuizQuestion />}
-      </Box>
+          <Grid container justify="space-around" alignItems="center">
+            <Button
+              color="primary"
+              variant="outlined"
+              component={Link}
+              to={id === 1 ? "/" : "/questions/" + quiz.question}
+            >
+              Back
+            </Button>
 
-      <Grid container justify="space-around" alignItems="center">
-        <Button
-          color="primary"
-          variant="outlined"
-          component={Link}
-          to={id === 1 ? "/" : "/questions/" + quiz.question}
-        >
-          Back
-        </Button>
-
-        <Button
-          color="primary"
-          variant="contained"
-          component={Link}
-          disabled={canContinue()}
-          to={
-            id === 8 && !canContinue()
-              ? tallyResults()
-              : "/questions/" + (quiz.question + 2)
-          }
-          onClick={scrollToTop}
-        >
-          Next
-        </Button>
-      </Grid>
+            <Button
+              color="primary"
+              variant="contained"
+              component={Link}
+              disabled={canContinue()}
+              to={
+                id === 8 && !canContinue()
+                  ? tallyResults()
+                  : "/questions/" + (quiz.question + 2)
+              }
+              onClick={scrollToTop}
+            >
+              Next
+            </Button>
+          </Grid>
+        </>
+      ) : (
+        <Spinner />
+      )}
     </Container>
   )
 }
