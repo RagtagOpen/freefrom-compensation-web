@@ -40,12 +40,6 @@ const StateQuestion = ({ quiz, setLocation }) => {
         </Typography>
       </Box>
 
-      <Box mb={1}>
-        <Typography variant="body1">
-          Where do you live?
-        </Typography>
-      </Box>
-
       <FormControl className={classes.formControl}>
         <Select
           id="select"
