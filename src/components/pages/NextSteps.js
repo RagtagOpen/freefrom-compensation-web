@@ -99,9 +99,8 @@ const NextSteps = ({ quiz, setAlert }) => {
         <Typography variant="h1">Next Steps</Typography>
       </Box>
       <Typography variant="body1">
-        Enter your email address to get personal follow-up from one of
-        FreeFrom’s compensation experts and/or receive a copy of your results.
-        We promise not to spam.
+        Enter your email address to get follow-up from the FreeFrom team and/or
+        receive a copy of your results. We promise not to spam.
       </Typography>
       <Grid container>
         <Grid container item direction="column">
@@ -129,7 +128,7 @@ const NextSteps = ({ quiz, setAlert }) => {
                       value="subscribe"
                     />
                   }
-                  label="Follow up with me personally regarding my journey to compensation"
+                  label="Follow up with me regarding my journey to compensation"
                 />
               </FormGroup>
             </Box>

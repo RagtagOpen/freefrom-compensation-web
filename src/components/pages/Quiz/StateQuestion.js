@@ -42,7 +42,7 @@ const StateQuestion = ({ quiz, setLocation }) => {
 
       <Box mb={1}>
         <Typography variant="body1">
-          Select the state you live in (the state where the harm occurred).
+          Where do you live?
         </Typography>
       </Box>
 
