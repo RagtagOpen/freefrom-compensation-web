@@ -36,7 +36,13 @@ const StateQuestion = ({ quiz, setLocation }) => {
     <>
       <Box mb={1}>
         <Typography variant="h2">
-          Question 1 of 8: Where do you live?
+          Question 1 of 8: Location
+        </Typography>
+      </Box>
+
+      <Box mb={1}>
+        <Typography variant="body1">
+          Where do you live?
         </Typography>
       </Box>
 
