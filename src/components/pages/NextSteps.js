@@ -45,15 +45,11 @@ const NextSteps = ({ quiz, setAlert }) => {
         state: quiz.location,
       }
 
-      return mailer("/send-results", data).catch(err => {
-        setAlert(`Oops! Error sending email, please try again.`, "danger")
-      })
+      return mailer("/send-results", data)
     }
 
     const subscribe = () => {
-      return mailer("/subscribe", { email: email }).catch(err => {
-        setAlert(`Oops! Error subscribing, please try again.`, "danger")
-      })
+      return mailer("/subscribe", { email: email })
     }
 
     const promiseStack = []
@@ -66,14 +62,13 @@ const NextSteps = ({ quiz, setAlert }) => {
       promiseStack.push(subscribe())
     }
 
-    axios
-      .all(promiseStack)
-      .then(() => {
+    try {
+      axios.all(promiseStack).then(() => {
         setSuccess(true)
       })
-      .catch(err => {
-        setAlert(`Oops! There was an error, please try again.`, "danger")
-      })
+    } catch (err) {
+      setAlert(`Oops! There was an error, please try again.`, "danger")
+    }
   }
 
   const checkDisabled = () => {
