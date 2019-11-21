@@ -64,7 +64,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
           Full Terms & Conditions
         </MaterialLink>
       </Box>
-      <Box mb="2">
+      <Box mb={2}>
         <FormGroup row>
           <FormControlLabel
             control={
