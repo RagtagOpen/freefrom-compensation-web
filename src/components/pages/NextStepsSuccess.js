@@ -34,7 +34,7 @@ const NextStepsSuccess = ({ quiz }) => {
       </Box>
       <Box mb={2}>
         <Typography variant="body1">
-          If you don't see an email from compass@freefrom.org soon, please check
+          If you don't see an email from compensation@freefrom.org soon, please check
           your Spam folder.
         </Typography>
       </Box>
