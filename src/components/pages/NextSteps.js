@@ -104,13 +104,7 @@ const NextSteps = ({ quiz, setAlert }) => {
         We promise not to spam.
       </Typography>
       <Grid container>
-        <Grid
-          container
-          item
-          direction="column"
-          alignItems="center"
-          justify="center"
-        >
+        <Grid container item direction="column">
           <Grid item>
             <Box mb={2}>
               <TextField
@@ -124,7 +118,7 @@ const NextSteps = ({ quiz, setAlert }) => {
             </Box>
           </Grid>
           <Grid item>
-            <Box mb={2}>
+            <Box>
               <FormGroup row>
                 <FormControlLabel
                   control={
@@ -135,7 +129,7 @@ const NextSteps = ({ quiz, setAlert }) => {
                       value="subscribe"
                     />
                   }
-                  label="Follow up with me personally regarding my journey to compensation."
+                  label="Follow up with me personally regarding my journey to compensation"
                 />
               </FormGroup>
             </Box>
