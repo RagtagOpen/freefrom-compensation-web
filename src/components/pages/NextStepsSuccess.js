@@ -32,21 +32,25 @@ const NextStepsSuccess = ({ quiz }) => {
       <Box mb={2}>
         <Typography variant="h1">You're All Set!</Typography>
       </Box>
-      <Typography variant="p" gutterBottom={true}>
-        If you don't see an email from compass@freefrom.org soon, please check
-        your Spam folder.
-      </Typography>
-      <Typography variant="p" gutterBottom={true}>
-        In the meantime, we have a few quick questions about how we can improve
-        this tool. Sharing your feedback will take less than one minute.
-      </Typography>
+      <Box mb={2}>
+        <Typography variant="body1">
+          If you don't see an email from compass@freefrom.org soon, please check
+          your Spam folder.
+        </Typography>
+      </Box>
+      <Box mb={2}>
+        <Typography variant="body1">
+          In the meantime, we have a few quick questions about how we can
+          improve this tool. Sharing your feedback will take less than one
+          minute.
+        </Typography>
+      </Box>
       <Grid container>
         <Grid container item justify="space-around" alignItems="center">
           <Grid item>
             <Button
               color="primary"
               variant="contained"
-              component={MuiLink}
               href="https://www.surveymonkey.com/r/MYYY7L5"
               target="_blank"
             >

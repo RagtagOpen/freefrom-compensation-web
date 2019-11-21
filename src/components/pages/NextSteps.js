@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { Link, Redirect } from "react-router-dom"
+import axios from "axios"
 
 // Tools
 import { mailer } from "utils/api"
@@ -28,7 +29,8 @@ import { Title } from "components/layout"
 
 const NextSteps = ({ quiz, setAlert }) => {
   const [email, setEmail] = useState("")
-  const [followup, setFollowup] = useState(false)
+  const [followUp, setFollowUp] = useState(false)
+  const [emailResult, setEmailResult] = useState(false)
   const [success, setSuccess] = useState(false)
 
   if (!quiz.agreement || !quiz.cookies) {
@@ -43,26 +45,47 @@ const NextSteps = ({ quiz, setAlert }) => {
         state: quiz.location,
       }
 
-      mailer("/send-results", data)
-        .then(() => {
-          setSuccess(true)
-        })
-        .catch(err => {
-          setAlert(`Oops! Error sending email, please try again.`, "danger")
-        })
+      return mailer("/send-results", data).catch(err => {
+        setAlert(`Oops! Error sending email, please try again.`, "danger")
+      })
     }
 
-    if (followup) {
-      mailer("/subscribe", { email: email })
-        .then(() => {
-          sendEmail()
-        })
-        .catch(err => {
-          setAlert(`Oops! Error sending email, please try again.`, "danger")
-        })
-    } else {
-      sendEmail()
+    const subscribe = () => {
+      return mailer("/subscribe", { email: email }).catch(err => {
+        setAlert(`Oops! Error subscribing, please try again.`, "danger")
+      })
     }
+
+    const promiseStack = []
+
+    if (emailResult) {
+      promiseStack.push(sendEmail())
+    }
+
+    if (followUp) {
+      promiseStack.push(subscribe())
+    }
+
+    axios
+      .all(promiseStack)
+      .then(() => {
+        setSuccess(true)
+      })
+      .catch(err => {
+        setAlert(`Oops! There was an error, please try again.`, "danger")
+      })
+  }
+
+  const checkDisabled = () => {
+    if (!validateEmail(email)) {
+      return true
+    }
+
+    if (!followUp && !emailResult) {
+      return true
+    }
+
+    return false
   }
 
   if (success) {
@@ -107,12 +130,29 @@ const NextSteps = ({ quiz, setAlert }) => {
                   control={
                     <Checkbox
                       color="default"
-                      checked={followup}
-                      onClick={() => setFollowup(!followup)}
+                      checked={followUp}
+                      onClick={() => setFollowUp(!followUp)}
                       value="subscribe"
                     />
                   }
                   label="Follow up with me personally regarding my journey to compensation."
+                />
+              </FormGroup>
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box mb={2}>
+              <FormGroup row>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      color="default"
+                      checked={emailResult}
+                      onClick={() => setEmailResult(!emailResult)}
+                      value="subscribe"
+                    />
+                  }
+                  label="Send me a copy of my results"
                 />
               </FormGroup>
             </Box>
@@ -124,7 +164,7 @@ const NextSteps = ({ quiz, setAlert }) => {
               color="primary"
               variant="contained"
               onClick={submit}
-              disabled={!validateEmail(email)}
+              disabled={checkDisabled()}
             >
               Submit
             </Button>
