@@ -62,13 +62,14 @@ const NextSteps = ({ quiz, setAlert }) => {
       promiseStack.push(subscribe())
     }
 
-    try {
-      axios.all(promiseStack).then(() => {
+    axios
+      .all(promiseStack)
+      .then(() => {
         setSuccess(true)
       })
-    } catch (err) {
-      setAlert(`Oops! There was an error, please try again.`, "danger")
-    }
+      .catch(() => {
+        setAlert(`Oops! There was an error, please try again.`, "danger")
+      })
   }
 
   const checkDisabled = () => {
