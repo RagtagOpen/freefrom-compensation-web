@@ -85,8 +85,11 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
           variant="contained"
           component={Link}
           to={"/questions/1"}
-          disabled={!quiz.agreement || quiz.cookies === null}
-          onClick={ReactGA.event({ category: "User", action: "Start Compass Questions" })}
+          disabled={!quiz.agreement}
+          onClick={ReactGA.event({
+            category: "User",
+            action: "Start Compass Questions",
+          })}
         >
           Start
         </Button>
