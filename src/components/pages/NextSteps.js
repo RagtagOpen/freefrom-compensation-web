@@ -33,7 +33,7 @@ const NextSteps = ({ quiz, setAlert }) => {
   const [emailResult, setEmailResult] = useState(false)
   const [success, setSuccess] = useState(false)
 
-  if (!quiz.agreement || !quiz.cookies) {
+  if (!quiz.agreement) {
     return <Redirect to="/" />
   }
 
