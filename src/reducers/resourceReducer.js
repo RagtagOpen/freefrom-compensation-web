@@ -2,6 +2,7 @@ import {
   FETCH_FEATURE_RESOURCE,
   FETCH_RESOURCE_CATEGORIES,
   FETCH_RESOURCE_FOR_STATE,
+  RESET_FEATURE_RESOURCE,
 } from "actions/types"
 import { resourceCategoryData } from "data"
 
@@ -50,6 +51,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         categories: payload,
+      }
+    case RESET_FEATURE_RESOURCE:
+      return {
+        ...state,
+        feature: payload,
       }
     default:
       return state

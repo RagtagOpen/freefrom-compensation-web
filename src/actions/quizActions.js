@@ -8,7 +8,9 @@ import {
   SET_QUIZ_TALLY,
   SET_MINDSET,
   SET_COMPLETED,
+  RESET_QUIZ,
 } from "actions/types"
+import { resetFeature } from "actions/resourceActions"
 import { get } from "utils/api"
 import { shuffle } from "utils/helpers"
 
@@ -90,5 +92,22 @@ export const setCompleted = completed => dispatch => {
   dispatch({
     type: SET_COMPLETED,
     payload: completed,
+  })
+}
+
+export const resetQuiz = () => dispatch => {
+  const reset = {
+    loaded: false,
+    question: 0,
+    questions: [],
+    mindset: null,
+    completed: false,
+  }
+
+  dispatch(resetFeature())
+
+  dispatch({
+    type: RESET_QUIZ,
+    payload: reset,
   })
 }
