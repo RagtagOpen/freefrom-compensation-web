@@ -49,7 +49,7 @@ const Mindset = ({
     }
   }, [loadMindsets, fetchFeatureResource, fetchResourceCategories])
 
-  if (!quiz.agreement) {
+  if (!quiz.agreement || !completed) {
     return <Redirect to="/" />
   }
 

@@ -1,10 +1,14 @@
 import React, { Fragment } from "react"
+import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 // Material UI
 import { Box, Button, Grid } from "@material-ui/core"
 
-const ResultsNote = () => {
+// Redux
+import { resetQuiz } from "actions/quizActions"
+
+const ResultsNote = ({ resetQuiz }) => {
   return (
     <Fragment>
       <Grid container justify="space-around" alignItems="center">
@@ -22,7 +26,8 @@ const ResultsNote = () => {
           color="primary"
           variant="outlined"
           component={Link}
-          to="/questions/1"
+          to="/"
+          onClick={resetQuiz}
         >
           Start Over
         </Button>
@@ -31,4 +36,11 @@ const ResultsNote = () => {
   )
 }
 
-export default ResultsNote
+ResultsNote.propTypes = {}
+
+const mapStateToProps = state => ({})
+
+export default connect(
+  mapStateToProps,
+  { resetQuiz }
+)(ResultsNote)
