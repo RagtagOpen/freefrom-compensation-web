@@ -7,6 +7,7 @@ import {
   SET_QUIZ_TALLY,
   SET_MINDSET,
   SET_COMPLETED,
+  RESET_QUIZ,
 } from "actions/types"
 
 const initialState = {
@@ -80,6 +81,14 @@ export default function(state = initialState, action) {
         completed: payload,
       }
     }
+
+    case RESET_QUIZ: {
+      return {
+        ...state,
+        ...payload,
+      }
+    }
+
     default:
       return state
   }

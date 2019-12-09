@@ -38,13 +38,18 @@ const Quiz = ({
 }) => {
   const id = parseInt(useParams().id)
 
-  // If agreement is not agreed to, or cookies are not answered, return to home
+  // If agreement is not agreed to
   if (!quiz.agreement) {
     return <Redirect to="/" />
   }
 
+  // If quiz questions are not loaded yet, they should be at the State Question
+  if (quiz.questions.length === 0 && quiz.question !== 0) {
+    return <Redirect to="/questions/1" />
+  }
+
   // If the quiz.questions hasn't been populated yet, retrieve them and randomize them as well as the associated answers
-  if (quiz.questions.length === 0) {
+  if (quiz.questions.length === 0 && quiz.question === 0) {
     getQuizQuestionData()
     loadMindsets()
   }

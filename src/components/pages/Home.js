@@ -52,7 +52,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
           advice. Any person who intends to use the information contained herein
           in any way is solely responsible for independently verifying the
           information and obtaining independent legal or other expert advice if
-          necessary
+          necessary.
         </Typography>
       </Box>
       <Box mb={2}>
@@ -85,8 +85,11 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
           variant="contained"
           component={Link}
           to={"/questions/1"}
-          disabled={!quiz.agreement || quiz.cookies === null}
-          onClick={ReactGA.event({ category: "User", action: "Start Compass Questions" })}
+          disabled={!quiz.agreement}
+          onClick={ReactGA.event({
+            category: "User",
+            action: "Start Compass Questions",
+          })}
         >
           Start
         </Button>

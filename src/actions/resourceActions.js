@@ -2,6 +2,7 @@ import {
   FETCH_FEATURE_RESOURCE,
   FETCH_RESOURCE_CATEGORIES,
   FETCH_RESOURCE_FOR_STATE,
+  RESET_FEATURE_RESOURCE,
 } from "./types"
 import { setAlert } from "actions/alertActions"
 import { get } from "utils/api"
@@ -63,4 +64,11 @@ export const fetchResourceCategories = () => async dispatch => {
   } catch (err) {
     dispatch(setAlert(err.message, "danger"))
   }
+}
+
+export const resetFeature = () => async dispatch => {
+  dispatch({
+    type: RESET_FEATURE_RESOURCE,
+    payload: null,
+  })
 }

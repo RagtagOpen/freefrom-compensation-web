@@ -22,7 +22,7 @@ import {
 import { Title } from "components/layout"
 
 const NextStepsSuccess = ({ quiz }) => {
-  if (!quiz.agreement || !quiz.cookies) {
+  if (!quiz.agreement) {
     return <Redirect to="/" />
   }
 
@@ -34,8 +34,8 @@ const NextStepsSuccess = ({ quiz }) => {
       </Box>
       <Box mb={2}>
         <Typography variant="body1">
-          If you don't see an email from compensation@freefrom.org soon, please check
-          your Spam folder.
+          If you don't see an email from compensation@freefrom.org soon, please
+          check your Spam folder.
         </Typography>
       </Box>
       <Box mb={2}>
