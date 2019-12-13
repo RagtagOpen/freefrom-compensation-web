@@ -56,13 +56,15 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
         </Typography>
       </Box>
       <Box mb={2}>
-        <MaterialLink
-          color="inherit"
-          component={Link}
-          to="/terms-and-conditions"
-        >
-          Full Terms & Conditions
-        </MaterialLink>
+        <Typography variant="body1">
+          <MaterialLink
+            color="inherit"
+            component={Link}
+            to="/terms-and-conditions"
+          >
+            Full Terms & Conditions
+          </MaterialLink>
+        </Typography>
       </Box>
       <Box mb={2}>
         <FormGroup row>
