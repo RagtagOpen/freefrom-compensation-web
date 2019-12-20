@@ -151,7 +151,7 @@ const Quiz = ({
               component={Link}
               disabled={canContinue()}
               to={
-                id === 8 && !canContinue()
+                id === quiz.questions.length + 1 && !canContinue()
                   ? tallyResults()
                   : "/questions/" + (quiz.question + 2)
               }
