@@ -65,17 +65,9 @@ const Quiz = ({
     switch (id) {
       case 1:
         return quiz.location === ""
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-      case 6:
-      case 7:
-      case 8:
+      default:
         // Id - 2 so we don't count location
         return isEmpty(quiz.questions[id - 2].tally)
-      default:
-        return true
     }
   }
 
