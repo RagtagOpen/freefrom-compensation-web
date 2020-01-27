@@ -38,16 +38,14 @@ const NextStepsSuccess = ({ quiz }) => {
           check your Spam folder.
         </Typography>
       </Box>
-      <Box mb={2}>
+      <Box mb={2} mt={4}>
         <Typography variant="body1">
           In the meantime, we have a few quick questions about how we can
           improve this tool. Sharing your feedback will take less than one
           minute.
         </Typography>
-      </Box>
-      <Grid container>
-        <Grid container item justify="space-around" alignItems="center">
-          <Grid item>
+        <Box mt={2}>
+          <Grid container item justify="center" alignItems="center">
             <Button
               color="primary"
               variant="contained"
@@ -57,6 +55,36 @@ const NextStepsSuccess = ({ quiz }) => {
               Share Feedback
             </Button>
           </Grid>
+        </Box>
+      </Box>
+
+
+      <Box mb={2}>
+        <Typography variant="body1">
+          Want to help us help other survivors?  Give $1, $3, or $5 so that we
+          can continue to improve the Compensation Compass and help survivors
+          get the compensation they need to stay safe.
+        </Typography>
+
+        <Box mt={3}>
+          <Grid container item justify="center" alignItems="center">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="PC66QVXYX42RQ" />
+            <Button
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
+              Make a Contribution
+            </Button>
+          </form>
+          </Grid>
+        </Box>
+      </Box>
+
+      <Box mt={5}>
+        <Grid container item justify="center" alignItems="center">
           <Grid item>
             <Button
               color="primary"
@@ -69,7 +97,7 @@ const NextStepsSuccess = ({ quiz }) => {
             </Button>
           </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </Container>
   )
 }
