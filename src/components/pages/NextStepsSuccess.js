@@ -16,13 +16,57 @@ import {
   Grid,
   Box,
   Divider,
+  makeStyles,
   Link as MuiLink,
 } from "@material-ui/core"
 
 // Components
 import { Title } from "components/layout"
 
+const useStyles = makeStyles(theme => ({
+  buttonBox: {
+    flexDirection: "row",
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: "column",
+      alignItems: "center",
+      paddingLeft: 10,
+      paddingRight: 10,
+    },
+    [theme.breakpoints.up('md')]: {
+      flexDirection: "row",
+    },
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: "row",
+    },
+  },
+  actionButton: {
+    marginBottom: 0,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 20,
+    },
+    [theme.breakpoints.up('md')]: {
+      marginTop: 0,
+    },
+    [theme.breakpoints.up('lg')]: {
+      marginTop: 0,
+    },
+  },
+  backButton: {
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: "center",
+    },
+    [theme.breakpoints.up('md')]: {
+      justifyContent: "flex-start",
+    },
+    [theme.breakpoints.up('lg')]: {
+      justifyContent: "flex-start",
+    },
+  }
+}))
+
 const NextStepsSuccess = ({ quiz }) => {
+  const classes = useStyles();
+
   // if (!quiz.agreement) {
   //   return <Redirect to="/" />
   // }
@@ -42,7 +86,7 @@ const NextStepsSuccess = ({ quiz }) => {
 
       <Divider light={true} />
 
-      <Box display="flex" alignItems="flex-start" justifyContent="space-between" paddingBottom={4} paddingTop={4} >
+      <Box className={classes.buttonBox} display="flex" alignItems="flex-start" justifyContent="space-between" paddingBottom={4} paddingTop={4} >
         <Box maxWidth={500}>
           <Typography variant="body1">
             We have a few quick questions about how we can
@@ -51,6 +95,7 @@ const NextStepsSuccess = ({ quiz }) => {
           </Typography>
         </Box>
         <Button
+          className={classes.actionButton}
           color="primary"
           variant="contained"
           href="https://www.surveymonkey.com/r/MYYY7L5"
@@ -62,7 +107,7 @@ const NextStepsSuccess = ({ quiz }) => {
 
       <Divider light={true} />
 
-      <Box display="flex" alignItems="flex-start" justifyContent="space-between" paddingTop={4} paddingBottom={4}>
+      <Box className={classes.buttonBox} display="flex" alignItems="flex-start" justifyContent="space-between" paddingTop={4} paddingBottom={4}>
         <Box maxWidth={500}>
           <Typography variant="body1">
             Want to help us help other survivors?  Give $1, $3, or $5 so that we
@@ -75,6 +120,7 @@ const NextStepsSuccess = ({ quiz }) => {
           <input type="hidden" name="cmd" value="_s-xclick" />
           <input type="hidden" name="hosted_button_id" value="PC66QVXYX42RQ" />
           <Button
+            className={classes.actionButton}
             color="primary"
             variant="contained"
             type="submit"
@@ -88,7 +134,7 @@ const NextStepsSuccess = ({ quiz }) => {
       <Divider light={true} />
 
       <Box mt={4}>
-        <Grid container item alignItems="center">
+        <Grid container item className={classes.backButton}>
           <Grid item>
             <Button
               color="primary"
