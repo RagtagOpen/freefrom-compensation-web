@@ -67,9 +67,9 @@ const useStyles = makeStyles(theme => ({
 const NextStepsSuccess = ({ quiz }) => {
   const classes = useStyles();
 
-  // if (!quiz.agreement) {
-  //   return <Redirect to="/" />
-  // }
+  if (!quiz.agreement) {
+    return <Redirect to="/" />
+  }
 
   return (
     <Container maxWidth="md">
@@ -140,7 +140,7 @@ const NextStepsSuccess = ({ quiz }) => {
               color="primary"
               variant="outlined"
               component={Link}
-              // to={`/mindsets/${quiz.mindset.slug}/${quiz.location}`}
+              to={`/mindsets/${quiz.mindset.slug}/${quiz.location}`}
               onClick={scrollToTop}
             >
               Back To Results
