@@ -35,9 +35,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       flexDirection: "row",
     },
-    [theme.breakpoints.up('lg')]: {
-      flexDirection: "row",
-    },
   },
   actionButton: {
     marginBottom: 0,
@@ -47,18 +44,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       marginTop: 0,
     },
-    [theme.breakpoints.up('lg')]: {
-      marginTop: 0,
-    },
   },
   backButton: {
     [theme.breakpoints.down('sm')]: {
       justifyContent: "center",
     },
     [theme.breakpoints.up('md')]: {
-      justifyContent: "flex-start",
-    },
-    [theme.breakpoints.up('lg')]: {
       justifyContent: "flex-start",
     },
   }
@@ -100,6 +91,7 @@ const NextStepsSuccess = ({ quiz }) => {
           variant="contained"
           href="https://www.surveymonkey.com/r/MYYY7L5"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Share Feedback
         </Button>
@@ -125,6 +117,7 @@ const NextStepsSuccess = ({ quiz }) => {
             variant="contained"
             type="submit"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Make a Contribution
           </Button>
