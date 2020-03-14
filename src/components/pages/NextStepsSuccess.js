@@ -36,6 +36,16 @@ const useStyles = makeStyles(theme => ({
       flexDirection: "row",
     },
   },
+  titleBox: {
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: 10,
+      paddingRight: 10,
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    }
+  },
   actionButton: {
     marginBottom: 0,
     [theme.breakpoints.down('sm')]: {
@@ -65,20 +75,25 @@ const NextStepsSuccess = ({ quiz }) => {
   return (
     <Container maxWidth="md">
       <Title />
-      <Box mb={2}>
-        <Typography variant="h1">You're All Set!</Typography>
-      </Box>
-      <Box mb={4}>
-        <Typography variant="body1">
-          Make sure to add compass@freefrom.org to your address book so you receive our emails.
-          If you don't see an email from us in the next day, please check your Spam folder.
-        </Typography>
+      <Box className={classes.titleBox}>
+        <Box mb={2}>
+          <Typography variant="h1">You're All Set!</Typography>
+        </Box>
+        <Box mb={4}>
+          <Typography variant="body1">
+            Make sure to add compass@freefrom.org to your address book so you receive our emails.
+            If you don't see an email from us in the next day, please check your Spam folder.
+          </Typography>
+        </Box>
       </Box>
 
       <Divider light={true} />
 
       <Box className={classes.buttonBox} display="flex" alignItems="flex-start" justifyContent="space-between" paddingBottom={4} paddingTop={4} >
         <Box maxWidth={500}>
+          <Box mb={2}>
+            <Typography variant="h2">Help us improve this tool</Typography>
+          </Box>
           <Typography variant="body1">
             We have a few quick questions about how we can
             improve this tool. Sharing your feedback will take less than one
@@ -101,6 +116,9 @@ const NextStepsSuccess = ({ quiz }) => {
 
       <Box className={classes.buttonBox} display="flex" alignItems="flex-start" justifyContent="space-between" paddingTop={4} paddingBottom={4}>
         <Box maxWidth={500}>
+          <Box mb={2}>
+            <Typography variant="h2">Support FreeFrom</Typography>
+          </Box>
           <Typography variant="body1">
             Want to help us help other survivors?  Give $1, $3, or $5 so that we
             can continue to improve the Compensation Compass and help survivors
@@ -108,7 +126,7 @@ const NextStepsSuccess = ({ quiz }) => {
           </Typography>
         </Box>
 
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener noreferrer">
           <input type="hidden" name="cmd" value="_s-xclick" />
           <input type="hidden" name="hosted_button_id" value="PC66QVXYX42RQ" />
           <Button
@@ -116,8 +134,6 @@ const NextStepsSuccess = ({ quiz }) => {
             color="primary"
             variant="contained"
             type="submit"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Make a Contribution
           </Button>
