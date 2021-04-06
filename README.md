@@ -17,8 +17,8 @@ This is the front end web for FreeFrom. It's back end counterpart is located [he
 - Ruby back end must be running locally on port `3000`. If back end is running on a separate server, you can update the `package.json` file, changing the `proxy` property to your back end location.
 
 ## Set up
-1. Install node_modules `npm install`
-2. Run React application `npm start` (or `npm run start-windows` if on windows)
+1. Install node_modules `yarn install`
+2. Run React application `yarn start` (or `yarn run start-windows` if on windows)
 
 ## Code Style
 1. We use eslint in conjunction with prettier. Both of these can run automatically with extensions, or else would need to be ran manually
@@ -27,7 +27,7 @@ This is the front end web for FreeFrom. It's back end counterpart is located [he
 ## Running Tests
 We use Jest for running unit tests. It's packaged with React. Read more about creating React tests on the React website [here](https://create-react-app.dev/docs/running-tests/) and more about Jest [here](https://jestjs.io/docs/en/getting-started)
 
-1. To run and monitor tests: `npm run test`
+1. To run and monitor tests: `yarn run test`
 
 ## Important Tools
 - We use redux for state management (`react-redux`, `redux`, and `react-router`). Learn more about Redux here: [Redux](https://redux.js.org/)
