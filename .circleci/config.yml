@@ -11,24 +11,24 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
       - run:
           name: install dependencies
           command: |
-            npm install
+            yarn install
 
       - save_cache:
           paths:
             - ./node_modules.
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
           name: run tests
           command: |
-            npm run test
+            yarn run test
 
   deploy:
     docker:
@@ -39,22 +39,22 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
           name: install dependencies
           command: |
-            npm install
+            yarn install
 
       - save_cache:
           paths:
             - ./node_modules.
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
           name: build React app
           command: |
-            CI=false npm run build  # the CI flag here is because react-scripts treats any warning as a failing error during build
+            CI=false yarn run build  # the CI flag here is because react-scripts treats any warning as a failing error during build
 
       # upload everything
       - aws-s3/copy:
