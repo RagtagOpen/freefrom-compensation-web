@@ -33,7 +33,7 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
     setAgreement(!quiz.agreement)
   }
 
-  console.log({ environment: process.NODE_ENV })
+  console.log({ environment: process.env.NODE_ENV })
 
   return (
     <Container maxWidth="md">
