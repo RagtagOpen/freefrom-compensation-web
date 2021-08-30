@@ -33,6 +33,8 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
     setAgreement(!quiz.agreement)
   }
 
+  console.log("This is a test")
+
   return (
     <Container maxWidth="md">
       <Title />
