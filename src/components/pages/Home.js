@@ -33,6 +33,8 @@ const Home = ({ isAuthenticated, quiz, setAgreement, setCookies }) => {
     setAgreement(!quiz.agreement)
   }
 
+  console.log({ environment: process.NODE_ENV })
+
   return (
     <Container maxWidth="md">
       <Title />
@@ -113,7 +115,4 @@ const mapStateToProps = state => ({
   quiz: state.quiz,
 })
 
-export default connect(
-  mapStateToProps,
-  { setAgreement, setCookies }
-)(Home)
+export default connect(mapStateToProps, { setAgreement, setCookies })(Home)
