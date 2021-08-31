@@ -10,11 +10,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 export const get = url => {
-  return axios.get(process.env.TEMP_REACT_APP_API + url)
+  return axios.get(TEMP_REACT_APP_API + url)
 }
 
 export const post = (url, body, config) => {
-  return axios.post(process.env.TEMP_REACT_APP_API + url, body, config)
+  return axios.post(TEMP_REACT_APP_API + url, body, config)
 }
 
 export const mailer = (url, body, config) => {
